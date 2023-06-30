@@ -1,0 +1,455 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="script.js" charset="utf-8"></script>
+	</head>
+	
+	<header>
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="tituloFormulario">Solicitação de Admissão</h1>
+			</div>
+			<div>
+				<hr size="3" color="red" margin>
+			</div>
+		</div>
+	</header>
+	
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="panel panel-default">
+					
+					<!-- ######################### -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+					        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+					    </div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4">
+									<label>Solicitante</label>
+									<input type="text" class="form-control" name="solicitante" id="solicitante" readonly>
+				
+									<input type="text" class="form-control hide" name="aprovador_Adm_Obra" id="aprovador_Adm_Obra" readonly>
+									<input type="text" class="form-control hide" name="aprovador_Eng_Gestor" id="aprovador_Eng_Gestor" readonly>
+									<input type="text" class="form-control hide" name="aprovador_Rh_Sede" id="aprovador_Rh_Sede" readonly>
+									<input type="text" class="form-control hide" name="codSolicitante" id="codSolicitante" readonly>
+									<input type="text" class="form-control hide" name="idSolicitacao" id="idSolicitacao" readonly>
+				
+									<input type="text" class="form-control hide" name="aprovador_Adm_Obra_nome" id="aprovador_Adm_Obra_nome" readonly>
+									<input type="text" class="form-control hide" name="aprovador_Eng_Gestor_nome" id="aprovador_Eng_Gestor_nome" readonly>
+									<input type="text" class="form-control hide" name="aprovador_Rh_Sede_nome" id="aprovador_Rh_Sede_nome" readonly>
+									<input type="text" class="form-control hide" name="solicitacoes" id="solicitacoes" readonly>
+				
+									<input type="text" class="form-control hide" name="permiteSolicitacao" id="permiteSolicitacao" readonly>
+				
+								</div>
+								<div class="col-md-4">
+									<label>Email</label>
+									<input type="text" class="form-control" name="email" id="email" readonly>
+								</div>
+								<div class="col-md-4">
+									<label>Data Solicitação</label>
+									<input type="text" class="form-control" name="DataSolicitacao" id="DataSolicitacao" readonly>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- ######################### -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+					        <h3 class="panel-title"><i class="fluigicon fluigicon-adduser icon-sm"></i> Dados da Solicitação</h3>
+					    </div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-3">
+									<label>Regime de Contratação</label>
+									<select class="form-control" name="tipoDeVaga" id="tipoDeVaga">
+										<option value=""></option>
+										<option value="1">CLT</option>
+										<option value="2">Jovem Aprendiz</option>
+										<option value="3">Aprendiz</option>
+										<option value="4">Estagiário</option>
+										<option value="5">PJ</option>
+									</select>
+								</div>			
+							</div>
+							
+							<div class="row">
+								<div class="col-md-3">
+									<label>Tipo de Vaga</label>
+									<select class="form-control" name="substituicao" id="substituicao">
+										<option value="2">Nova Vaga</option>
+										<option value="1">Reposição</option>
+									</select>
+								</div>
+								<div class="col-md-3">
+									<label>Matricula</label> <!-- OBRIGATÓRIO -->
+									<input type="text" class="form-control" name="matricula" id="matricula" readonly>
+								</div>
+								<div class="col-md-6">
+									<label>Nome</label>
+									<input type="text" class="form-control" name="nome" id="nome" readonly>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-9">
+									<label class="control-label">Seção</label>	
+									<input
+										type="zoom"
+										id = "sec_fun"
+										name="sec_fun"
+										data-zoom="{
+											'displayKey':'S0_txt_desc',
+											'datasetId':'ds_get_usuario_secao',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a Seção',
+											'fields':[
+												{
+												'field':'S0_txt_cod',
+												'label':'ID Seção'
+												},{
+												'field':'S0_txt_desc',
+												'label':'Nome',
+												'standard':'true'
+												},
+												{
+													'field':'hid_id_Enca',
+													'label':'hid_id_Enca',
+													'visible':'false'
+												},
+												{
+													'field':'hid_id_Enge',
+													'label':'hid_id_Enge',
+													'visible':'false'
+												},
+												{
+													'field':'hid_id_RH',
+													'label':'hid_id_RH',
+													'visible':'false'
+												},
+												{
+													'field':'hid_id_Cord',
+													'label':'hid_id_Cord',
+													'visible':'false'
+												},
+												{
+													'field':'hid_id_Dire',
+													'label':'hid_id_Dire',
+													'visible':'false'
+												},
+												{
+													'field':'S0_txt_enca',
+													'label':'S0_txt_enca',
+													'visible':'false'
+												},
+												{
+													'field':'S0_txt_eng',
+													'label':'S0_txt_enge',
+													'visible':'false'
+												},
+												{
+													'field':'S0_txt_rh',
+													'label':'S0_txt_rh',
+													'visible':'false'
+												},
+												{
+													'field':'S0_txt_cordeng',
+													'label':'S0_txt_cordeng',
+													'visible':'false'
+												},
+												{
+													'field':'S0_txt_dire',
+													'label':'S0_txt_dire',
+													'visible':'false'
+												},{
+													'field':'S0_txt_papel',
+													'label':'S0_txt_papel',
+													'visible':'false'
+												} 
+											]
+										}"  
+									/>
+								</div>
+							</div>
+				
+							<div class="row">
+							
+								<div class="col-md-5">
+									<label class="control-label">Função</label>	
+									<input
+										type="zoom"
+										id = "funcao"
+										name="funcao"
+										data-zoom="{
+											'displayKey':'funcao',
+											'datasetId':'ds_cadastro_funcao',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a Função',
+											'fields':[
+												{
+												'field':'funcao',
+												'label':'Funcao'
+												},{
+												'field':'funcaoDescricao',
+												'label':'Descricao',
+												'standard':'true'
+												},{
+													'field':'salario',
+													'label':'SalarioBase',
+													'standard':'true'
+													}
+											]
+										}"  
+									/>
+								</div>
+								<div class="col-md-5">
+									<label>Descrição da Função</label>
+									<input type="text" class="form-control" name="descricaoFuncao" id="descricaoFuncao" readonly>
+								</div>
+								<div class="col-md-2">
+									<label>Salário Base</label>
+									<input type="text" class="form-control" name="salarioBase" id="salarioBase" readonly>
+								</div>
+							
+							</div>
+							<div class="row">
+								<div class="categoria">
+									<div class="col-md-5">
+										<label class="control-label">SubCategoria</label>	
+										<input
+											type="zoom"
+											id = "subcategoria"
+											name="subcategoria"
+											data-zoom="{
+												'displayKey':'subcategoria',
+												'datasetId':'get_subCategorias',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha a categoria',
+												'fields':[
+													{
+													'field':'subcategoria',
+													'label':'Categoria'
+													}
+												]
+											}"  
+										/>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<label>Qª de Vagas</label>
+									<input type="number" class="form-control" name="quantidadeFuncao" id="quantidadeFuncao">
+								</div>
+								<div class="col-md-2">
+									<label>Data prevista de admissão</label>
+									<input type="text" class="form-control" name="dataPrevista" id="dataPrevista">
+								</div>
+							</div>		
+						</div>
+					</div>
+			
+					<!-- ######################### -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+					        <h3 class="panel-title"><i class="fluigicon fluigicon-thumbs-up icon-sm"></i> Indicação</h3>
+					    </div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-3">
+									<label>Possui candidato?</label>
+									<select class="form-control" name="possuiCandidato" id="possuiCandidato">
+										<option value="2">Não</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>		
+							</div>
+							
+							<div class="row">
+								<div class="col-md-9">
+									<label>Nome Completo</label>
+									<input type="text" class="form-control" name="nomeCandidato" id="nomeCandidato" readonly>
+								</div>
+								<div class="col-md-3">
+									<label>CPF</label>
+									<input type="text" class="form-control" name="cpfCandidato" id="cpfCandidato">
+								</div>		
+							</div>
+							
+							
+							<div class="row">
+								<div class="col-md-3">
+									<label class="control-label">Residência: Estado</label>
+									<input
+										type="zoom"
+										id = "estado"
+										name="estado"
+										data-zoom="{
+											'displayKey':'X5_CHAVE',
+											'datasetId':'ds_estado',
+											'maximumSelectionLength':'1',
+											'placeholder':'',
+											'fields':[
+												{
+												'field':'X5_CHAVE',
+												'label':'Estado'
+												},{
+												'field':'X5_DESCRI',
+												'label':'Descricao',
+												'standard':'true'
+												}
+											]
+										}"
+									/>
+								</div>
+				
+								<div class="col-md-3">
+									<label>Descrição</label>
+									<input type="text" class="form-control" name="descricaoEstado" id="descricaoEstado" readonly>
+								</div>
+				
+								<div class="col-md-5">
+									<label class="control-label">Residência: Município</label>
+									<input
+										type="zoom"
+										id = "municipio"
+										name="municipio"
+										data-zoom="{
+											'displayKey':'CC2_MUN',
+											'datasetId':'ds_municipio',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o Municipio',
+											'fields':[
+												{
+												'field':'CC2_EST',
+												'label':'Estado'
+												},{
+												'field':'CC2_MUN',
+												'label':'Municipio',
+												'standard':'true'
+												}
+											]
+										}"
+									/>
+								</div>
+							</div>
+				
+							<div class="row">
+								<div class="col-md-3">
+									<label>Já trabalhou na Compasa?</label>
+									<select class="form-control" name="trabalho" id="trabalho">
+										<option value="2">Não</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="col-md-3">
+									<label>É indicação de colaborador?</label>
+									<select class="form-control" name="indicacao" id="indicacao">
+										<option value="2">Não</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<label>Nome de quem indicou</label>
+									<input type="text" class="form-control" name="nomeQUemIndicou" id="nomeQUemIndicou" readonly>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-3">
+									<label>Possui parentesco com outro colaborador da Compasa?</label>
+									<select class="form-control" name="parente" id="parente">
+										<option value="2">Não</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<label>Nome do Colaborador</label>
+									<input type="text" class="form-control" name="NomeParente" id="NomeParente" readonly>
+								</div>
+				
+								<div class="col-md-3">
+									<label>Tipo de parentesco?</label>
+									<select class="form-control" name="tipoParente" id="tipoParente">
+										<option value=""></option>
+										<option value="4">Cônjuge</option>
+										<option value="8">Cunhado (a)</option>
+										<option value="3">Filho (a)</option>
+										<option value="2">Mãe</option>						
+										<option value="8">Neto (a)</option>
+										<option value="1">Pai</option>
+										<option value="6">Primo (a)</option>
+										<option value="7">Sobrinho (a)</option>
+										<option value="5">Tio (a)</option>
+									</select>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					
+					<!-- ######################### -->
+					<br>
+					
+					
+					<div class="aprovacao">						
+						<div class="row">		
+							<div class="col-md-4 ">
+								<div class="panel  panel-danger aprova_Adm_Obra">
+									<div class="panel-heading">Aprovação Administrador Obra   <strong><p id="nome_adm_obra"> </p></strong></div>
+									<div class="panel-body">
+										<label>Aprovado?</label>
+										<select class="form-control" name="aprova_Adm_Obra" id="aprova_Adm_Obra">
+											<option value="1">Sim</option>
+											<option value="2">Não</option>
+										</select>
+										<label>Observação</label>
+										<textarea class="form-control" name="obs_Adm_Obra" id="obs_Adm_Obra"></textarea>
+									</div>	
+								</div>
+							</div>
+						
+							<div class="col-md-4">
+								<div class=" panel panel-danger aprova_Eng_Gestor">
+									<div class="panel-heading">Aprovação Engenheiro <strong><p id="nome_adm_Enge"> </p></strong></div>
+									<div class="panel-body">
+										<label>Aprovado?</label>
+										<select class="form-control" name="aprova_Eng_Gestor" id="aprova_Eng_Gestor">
+											<option value="1">Sim</option>
+											<option value="2">Não</option>
+										</select>
+										<label>Observação</label>
+										<textarea class="form-control" name="obs_Eng_Gestor" id="obs_Eng_Gestor"></textarea>
+									</div>	
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="panel panel-danger aprova_Rh_Sede">
+									<div class="panel-heading">RH <strong><p id="nome_rh"> </p></strong></div>
+									<div class="panel-body">
+										<label>Aprovado?</label>
+										<select class="form-control" name="aprova_Rh_Sede" id="aprova_Rh_Sede">
+											<option value="1">Sim</option>
+											<option value="2">Mais Informação</option>
+										</select>
+										<label>Observação</label>
+										<textarea class="form-control" name="obs_Rh_Sede" id="obs_Rh_Sede"></textarea>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

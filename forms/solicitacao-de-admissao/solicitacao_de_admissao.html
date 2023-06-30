@@ -1,0 +1,481 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="panel panel-default">
+		<div class="panel-heading">Solicitação de Admissão</div>
+		<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3">
+						<label>Solicitante</label>
+						<input type="text" class="form-control" name="solicitante" id="solicitante" readonly>
+
+						
+						<input type="text" class="form-control hide" name="aprovador_Adm_Obra" id="aprovador_Adm_Obra" readonly>
+						<input type="text" class="form-control hide" name="aprovador_Eng_Gestor" id="aprovador_Eng_Gestor" readonly>
+						<input type="text" class="form-control hide" name="aprovador_Rh_Sede" id="aprovador_Rh_Sede" readonly>
+
+						<input type="text" class="form-control hide" name="codSolicitante" id="codSolicitante" readonly>
+						<input type="text" class="form-control hide" name="idSolicitacao" id="idSolicitacao" readonly>
+					</div>
+					<div class="col-md-3">
+						<label>Email</label>
+						<input type="text" class="form-control" name="email" id="email" readonly>
+					</div>
+					<div class="col-md-3">
+						<label>Data Solicitação</label>
+						<input type="text" class="form-control" name="DataSolicitacao" id="DataSolicitacao" readonly>
+					</div>
+					<div class="col-md-3">
+						<label>Num. Solicitação de Vaga</label>
+						<input type="text" class="form-control" name="numSolicitacaoDeVaga" id="numSolicitacaoDeVaga" readonly>
+					</div>
+				</div>
+		
+				<div class="row">
+					<div class="col-md-3">
+						<label>Tipo da Contratação</label>
+						<input type="text" class="form-control" name="TipoContratacao" id="TipoContratacao" readonly>
+					</div>
+					
+				</div>
+
+				
+				<div class="row">
+					<div class="col-md-2">
+						<label>Tem candidato?</label>
+						<input type="text" class="form-control" name="temCandidato" id="temCandidato" readonly>
+					</div>
+				<div class="temCandidato">
+					<div class="col-md-4 ">
+						<label>Nome do Candidato</label>
+						<input type="text" class="form-control" name="nomeCandidato" id="nomeCandidato" readonly>
+					</div>
+
+				</div>
+					<div class="col-md-2">
+						<label>Num.Matricula</label>
+						<input type="text" class="form-control" name="numeroMatricula" id="numeroMatricula">
+					</div>
+				</div>
+
+
+
+
+				<div class="semCandidato">
+					<div class="row">
+						<div class="col-md-4">
+							<label>Nome Completo do Candidato</label>
+							<input type="text" name="nomeCompletoCandidato" id="nomeCompletoCandidato" class="form-control">
+						</div>
+					</div>
+				</div>
+				
+					<div class="row">
+					
+						<div class="col-md-3">
+							<label class="control-label">Estado</label>	
+							<input
+								type="zoom"
+								id = "estado"
+								name="estado"
+								data-zoom="{
+									'displayKey':'X5_CHAVE',
+									'datasetId':'ds_estado',
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha a Seção',
+									'fields':[
+										{
+										'field':'X5_CHAVE',
+										'label':'Estado'
+										},{
+										'field':'X5_DESCRI',
+										'label':'Descricao',
+										'standard':'true'
+										}
+									]
+								}"  
+							/>
+						</div>
+						<div class="col-md-3">
+							<label>Descrição</label>
+							<input type="text" class="form-control" name="descricaoEstado" id="descricaoEstado" readonly>
+						</div>
+	
+	
+						<div class="col-md-5">
+							<label class="control-label">Município</label>	
+							<input
+								type="zoom"
+								id = "municipio"
+								name="municipio"
+								data-zoom="{
+									'displayKey':'CC2_MUN',
+									'datasetId':'ds_municipio',
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o Municipio',
+									'fields':[
+										{
+										'field':'CC2_EST',
+										'label':'Estado'
+										},{
+										'field':'CC2_MUN',
+										'label':'Municipio',
+										'standard':'true'
+										}
+									]
+								}"  
+							/>
+						</div>
+				
+				
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label>Já trabalhou na Compasa?</label>
+							<select class="form-control" name="trabalho" id="trabalho">
+								<option value="2">Não</option>
+								<option value="1">Sim</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<label>É indicação de colaborador?</label>
+							<select class="form-control" name="indicacao" id="indicacao">
+								<option value="2">Não</option>
+								<option value="1">Sim</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<label>Nome de quem indicou</label>
+							<input type="text" class="form-control" name="nomeQUemIndicou" id="nomeQUemIndicou" readonly>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label>Possui parentesco com outro colaborador da Compasa?</label>
+							<select class="form-control" name="parente" id="parente">
+								<option value="2">Não</option>
+								<option value="1">Sim</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<label>Nome do Colaborador</label>
+							<input type="text" class="form-control" name="NomeParente" id="NomeParente" readonly>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label>Observação</label>
+							<textarea class="form-control" name="obsSemCandidato" id="obsSemCandidato"></textarea>
+						</div>
+					</div>
+	
+				
+			
+			
+				<legend>Dados complementares do novo Colaborador</legend>
+				<div class="row">
+					<div class="col-md-3">
+						<label>Estado civil</label>
+						<select class="form-control" name="estadoCivil" id="estadoCivil">
+							<option value=""></option>
+							<option value="1">Solteiro</option>
+							<option value="2">Casado</option>
+							<option value="3">Divorciado</option>
+							<option value="4">Viúvo</option>
+							<option value="5">União estável</option>
+							<option value="6">Outro</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label>Escolaridade</label>
+						<select class="form-control" name="escolaridade" id="escolaridade">
+							<option value=""></option>
+							<option value="1">Analfabeto</option>
+							<option value="2">Até o 5° ano do ensino fundamental incompleto</option>
+							<option value="3">Até o 5° ano completo do ensino fundamental</option>
+							<option value="4">Do 6° ao 9° ano do ensino fundamental</option>
+							<option value="5">Ensino Fundamental Completo</option>
+							<option value="6">Ensino médico incompleto</option>
+							<option value="7">Ensino médio completo</option>
+							<option value="8">Educação Superior incompleto</option>
+							<option value="9">Educação Superior Completo</option>
+							<option value="10">Pós Grad. Incompleto</option>
+							<option value="11">Pós Grad Completo</option>
+							<option value="12">Mestrado Incompleto</option>
+							<option value="13">Mestrado Completo</option>
+							<option value="14">Doutorado Incompleto</option>
+							<option value="15">Doutorado Completo</option>
+							<option value="16">Pós Dout Incompleto</option>
+							<option value="17">Pós Dout Completo</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label>Dependentes para IRRF?</label>
+						<select class="form-control" name="dependenteIRRF" id="dependenteIRRF">
+							<option value="2">Não</option>
+							<option value="1">Sim</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="dependenteIRRF">
+					<br>
+					<div class="row">
+						<div class="col-md-1">
+							<button type="button" class="btn btn-default" name="inputAdicionar" id="inputAdicionar" onclick="addDependentes()">Adicionar</button>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<table  tablename="tableFuncao" addbuttonlabel="Adicionar Subcategoria"  noaddbutton="true" nodeletebutton="false"  class="table table-bordered">
+								<thead>
+									<tr>
+										<th class="col-md-6">Nome do Dependente</th>
+										<th class="col-md-6">Grau de Parentesco</th>
+									</tr>
+								</thead>
+								<tr>
+									<td><input type="text" class="form-control " name="nomeDoDependente" id="nomeDoDependente"></td>
+									<td>
+										<select class="form-control " name="tipoParente" id="tipoParente">
+											<option value=""></option>
+											<option value="1">Pai</option>
+											<option value="2">Mãe</option>
+											<option value="3">Filho (a)</option>
+											<option value="4">Cônjuge</option>
+											<option value="5">Tio (a)</option>
+											<option value="6">Primo (a)</option>
+											<option value="7">Sobrinho (a)</option>
+											<option value="8">Cunhado (a)</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+		
+						</div>
+					</div>
+				
+
+					<div class="row">
+						<div class="col-md-2">
+							<label>Telefone do colaborador</label>
+							<input type="text" class="form-control" name="telefoneColaborador" id="telefoneColaborador">
+						</div>
+						<div class="col-md-2">
+							<label>Telefone para Emergência</label>
+							<input type="text" class="form-control" name="telefoneEmergencia" id="telefoneEmergencia">
+						</div>
+						<div class="col-md-4">
+							<label>Nome da pessoa </label>
+							<input type="text" class="form-control" name="nomePessoaEmergincia" id="nomePessoaEmergincia">
+						</div>
+					</div>
+			
+				</div>
+
+
+			
+
+
+			
+				<br>
+				<legend style="color:re">DOCUMENTOS A SEREM ENVIADOS PARA CONTRATAÇÃO</legend>
+				
+				
+				
+				
+				<div class="row">
+					<div class="col-md-2">
+						<label>Anexar Documentação</label>
+						<button type="button" id="anexoDocumento" onclick="showCamera(this);" class="form-control btn btn-warning">Anexos</button>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-12">
+						<table   class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="col-md-1">Check</th>
+									<th class="col-md-5">Dodumento</th>
+									<th class="col-md-5">Observação</th>
+								</tr>
+							</thead>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado1" name="anexado1" id="anexado1"></td>
+								<td><p>CURRICULO ATUALIZADO</p></td>
+								<td><input type="text" class="form-control bloc" name="obs1" id="obs1"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado2" name="anexado2" id="anexado2"></td>
+								<td><p>QUALIFICAÇÃO CADASTRAL – E-SOCIAL</p></td>
+								<td><input type="text" class="form-control bloc" name="obs2" id="obs2"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado3" name="anexado3" id="anexado3"></td>
+								<td><p>ASO ADMISSIONAL</p></td>
+								<td><input type="text" class="form-control bloc" name="obs3" id="obs3"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado4" name="anexado4" id="anexado4"></td>
+								<td><p>CONSULTA DE ANTECEDENTES CRIMINAIS</p><p><a href="http://www.pf.gov.br/servicos-pf/antecedentes-criminais" target="_blank" style="color:red;">Link-Consulta</a></p></td>
+								<td><input type="text" class="form-control bloc" name="obs4" id="obs4"></td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+				<legend style="color:red">DOCUMENTOS A SEREM PROVIDENCIADOS PELOS CANDIDATOS</legend>
+				<div class="row">
+					<div class="col-md-12">
+						<table   class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="col-md-1">Check</th>
+									<th class="col-md-5">Dodumento</th>
+									<th class="col-md-5">Observação</th>
+								</tr>
+							</thead>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado5" name="anexado5" id="anexado5"></td>
+								<td><p>ARQUIVO EM PDF DA CARTEIRA DE TRABALHO – DIGITAL</p></td>
+								<td><input type="text" class="form-control bloc" name="obs5" id="obs5"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado6" name="anexado6" id="anexado6"></td>
+								<td><p>01 FOTO DIGITAL</p></td>
+								<td><input type="text" class="form-control bloc" name="obs6" id="obs6"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado7" name="anexado7" id="anexado7"></td>
+								<td><p>01 CÓPIA DO RG E CPF</p></td>
+								<td><input type="text" class="form-control bloc" name="obs7" id="obs7"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado8" name="anexado8" id="anexado8"></td>
+								<td><p>01 CÓPIA DA CNH (Obrigatório para, Motoristas, Controlador de manutenção, Encarregados, Líderes de equipe, líderes de Sinalização Mecânicos, Técnicos de SMS e Topografo)</p></td>
+								<td><input type="text" class="form-control bloc" name="obs8" id="obs8"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado9" name="anexado9" id="anexado9"></td>
+								<td><p>01 CÓPIA DO EXTRATO DO PIS ATUALIZADO</p></td>
+								<td><input type="text" class="form-control bloc" name="obs9" id="obs9"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado10" name="anexado10" id="anexado10"></td>
+								<td><p>01 CÓPIA DE COMPROVANTE DE RESIDÊNCIA – em nome do candidato, do pai, da mãe ou cônjuge. Caso contrário, anexar declaração de residência.</p></td>
+								<td><input type="text" class="form-control bloc" name="obs10" id="obs10"></td>
+							</tr>
+
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado11" name="anexado11" id="anexado11"></td>
+								<td><p>01 CÓPIA DOS DADOS BANCÁRIOS – Banco Itaú: Nome, Agência e Conta </p></td>
+								<td><input type="text" class="form-control bloc" name="obs11" id="obs11"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado12" name="anexado12" id="anexado12"></td>
+								<td><p>01 CÓPIA DO COMPROVANTE DE ESCOLARIDADE E DEMAIS CURSOS REALIZADOS</p></td>
+								<td><input type="text" class="form-control bloc" name="obs12" id="obs12"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado13" name="anexado13" id="anexado13"></td>
+								<td><p>01 CÓPIA DA CERTIDÃO DE CASAMENTO OU UNIÃO ESTÁVEL</p></td>
+								<td><input type="text" class="form-control bloc" name="obs13" id="obs13"></td>
+							</tr>
+
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado14" name="anexado14" id="anexado14"></td>
+								<td><p>01 CÓPIA DA CARTEIRA DE VACINAÇÃO – obrigatório 2 doses da vacina Covid</p></td>
+								<td><input type="text" class="form-control bloc" name="obs14" id="obs14"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado15" name="anexado15" id="anexado15"></td>
+								<td><p>01 CÓPIA DO RG E CPF DO CÔNJUGE – obrigatório para dependente do imposto de renda</p></td>
+								<td><input type="text" class="form-control bloc" name="obs15" id="obs15"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado16" name="anexado16" id="anexado16"></td>
+								<td><p>01 CÓPIA DA(S) CERTIDÃO(ÕES) DE NASCIMENTO – para filhos até 21 anos</p></td>
+								<td><input type="text" class="form-control bloc" name="obs16" id="obs16"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado17" name="anexado17" id="anexado17"></td>
+								<td><p>01 CÓPIA DO CPF DOS FILHOS – obrigatório para dependente do imposto de renda</p></td>
+								<td><input type="text" class="form-control bloc" name="obs17" id="obs17"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado18" name="anexado18" id="anexado18"></td>
+								<td><p>01 CÓPIA DA CARTEIRA DE VACINAÇÃO – obrigatória vacina Covid para os filhos até 5 anos</p></td>
+								<td><input type="text" class="form-control bloc" name="obs18" id="obs18"></td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+				<br>
+				<legend style="color:red">DOCUMENTOS PARA MOTORISTAS – Habilitar</legend>
+				<div class="row">
+					<div class="col-md-12">
+						<table   class="table table-bordered">
+							<thead>
+								<tr>
+									<th class="col-md-1">Check</th>
+									<th class="col-md-5">Dodumento</th>
+									<th class="col-md-5">Observação</th>
+								</tr>
+							</thead>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado19" name="anexado19" id="anexado19"></td>
+								<td><p>TODOS: CONSULTA NACIONAL DE HABILITAÇÃO (PONTUAÇÃO DA CARTEIRA)</p></td>
+								<td><input type="text" class="form-control bloc" name="obs19" id="obs19"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado20" name="anexado20" id="anexado20"></td>
+								<td><p>OPERADORES E MOTORISTAS: CNH (PARA AS FUNÇÕES QUE NECESSITAM)</p></td>
+								<td><input type="text" class="form-control bloc" name="obs20" id="obs20"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado21" name="anexado21" id="anexado21"></td>
+								<td><p>EXAME TOXICOLÓGICO</p></td>
+								<td><input type="text" class="form-control bloc" name="obs21" id="obs21"></td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado22" name="anexado22" id="anexado22"></td>
+								<td><p>COMBOIO E CAMINHÃO ESPARGIDOR, MICRO USINA: 01 CÓPIA DA CARTEIRA DO MOPP</p></td>
+								<td><input type="text" class="form-control bloc" name="obs22" id="obs22"></td>
+							</tr>
+
+							<tr>
+								<td><input class="form-check-input bloc" type="checkbox" value="anexado23" name="anexado23" id="anexado23"></td>
+								<td><p>ÔNIBUS: 01 CÓPIA DO CERTIFICADO DO CURSO PARA TRANSPORTE DE PESSOAS</p></td>
+								<td><input type="text" class="form-control bloc" name="obs23" id="obs23"></td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+				<legend style="color:red"><strong>Atenção: Certifique que todos os documentos estão lançados corretamente no RM</strong></legend>
+			
+			
+			
+
+
+
+		</div>
+	</div>
+</form>
+</div>
+</body>
+</html>

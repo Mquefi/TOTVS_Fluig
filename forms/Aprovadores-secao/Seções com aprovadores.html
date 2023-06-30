@@ -1,0 +1,327 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+    <script type="text/javascript" src="inputs.js"></script>
+    <script type="text/javascript" src="zoom.js"></script>
+  </head>
+  <body>
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <input type="hidden" id="hid_desc_reg" name="hid_desc_reg" />
+
+        <input type="hidden" id="hid_id_Enca" name="hid_id_Enca" />
+        <input type="hidden" id="hid_id_Enge" name="hid_id_Enge" />
+        <input type="hidden" id="hid_id_RH" name="hid_id_RH" />
+        <input type="hidden" id="hid_id_Cord" name="hid_id_Cord" />
+        <input type="hidden" id="hid_id_Dire" name="hid_id_Dire" />
+
+        <fieldset class="fieldset">
+          <div class="row">
+            <div class="col-md-8">
+              <br />
+              <p>
+                <font size="5">
+                  <b>SEÇÃO DA COMPASA</b>
+                </font>
+              </p>
+            </div>
+            <div class="col-md-2">
+              <label>Data Criação:</label>
+              <input type="text" name="data_create_form" id="data_create_form" class="form-control" readonly />
+            </div>
+            <div class="col-md-2">
+              <label>Data Edição:</label>
+              <input type="text" name="data_edit_form" id="data_edit_form" class="form-control" readonly />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>SEÇÃO</legend>
+          <div class="row">
+            <div class="form-group col-sm-2 col-md-2">
+              <label for="razao_cadastro" class="control-label">Código:</label>
+              <input type="text" name="S0_txt_cod" id="S0_txt_cod" class="form-control" onchange="preenhe_desc();" />
+            </div>
+            <div class="form-group col-sm-4 col-md-4">
+              <label for="razao_cadastro" class="control-label">Descrição:</label>
+              <input type="text" name="S0_txt_desc" id="S0_txt_desc" class="form-control" onchange="preenhe_desc();" />
+            </div>
+            <div class="form-group col-sm-3 col-md-3">
+            	<label for="razao_cadastro" class="control-label">Centro de Custo:</label>
+            	<input type="text" name="S0_txt_ccusto" id="S0_txt_desc" class="form-control" onchange="preenhe_desc();" />
+            </div>
+            <div class="form-group col-sm-3 col-md-3">
+          		<label for="razao_cadastro" class="control-label">Reginal:</label>
+          		<input type="text" name="S0_txt_grupo" id="S0_txt_desc" class="form-control" onchange="preenhe_desc();" />
+          	</div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>APROVADORES</legend>
+          <div class="row">
+            <div class="form-group col-sm-6 col-md-6">
+              <label for="razao_cadastro" class="control-label">Encarregado:</label>
+              <input
+                type="zoom"
+                name="S0_txt_enca"
+                id="S0_txt_enca"
+                class="form-control"
+                data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o usuário',
+                'fields':[
+                  {
+                  'field':'colleagueId',
+                  'label':'colleagueId',
+                  'visible':'false'
+                  },{
+                  'field':'colleagueName',
+                  'label':'Nome',
+                  'standard':'true'
+                  }
+                ]
+              }"
+              />
+            </div>
+            <div class="form-group col-sm-6 col-md-6">
+              <label for="razao_cadastro" class="control-label">Engenheiro:</label>
+              <input
+                type="zoom"
+                name="S0_txt_eng"
+                id="S0_txt_eng"
+                class="form-control"
+                data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o usuário',
+                'fields':[
+                  {
+                  'field':'colleagueId',
+                  'label':'colleagueId',
+                  'visible':'false'
+                  },{
+                  'field':'colleagueName',
+                  'label':'Nome',
+                  'standard':'true'
+                  }
+                ]
+              }"
+              />
+            </div>
+            <div class="form-group col-sm-6 col-md-6">
+              <label for="razao_cadastro" class="control-label">RH:</label>
+              <input
+                type="zoom"
+                name="S0_txt_rh"
+                id="S0_txt_rh"
+                class="form-control"
+                data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o usuário',
+                'fields':[
+                  {
+                  'field':'colleagueId',
+                  'label':'colleagueId',
+                  'visible':'false'
+                  },{
+                  'field':'colleagueName',
+                  'label':'Nome',
+                  'standard':'true'
+                  }
+                ]
+              }"
+              />
+            </div>
+            <div class="form-group col-sm-6 col-md-6">
+              <label for="razao_cadastro" class="control-label">Coordenador Engenheiro:</label>
+              <input
+                type="zoom"
+                name="S0_txt_cordeng"
+                id="S0_txt_cordeng"
+                class="form-control"
+                data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o usuário',
+                'fields':[
+                  {
+                  'field':'colleagueId',
+                  'label':'colleagueId',
+                  'visible':'false'
+                  },{
+                  'field':'colleagueName',
+                  'label':'Nome',
+                  'standard':'true'
+                  }
+                ]
+              }"
+              />
+            </div>
+            <div class="form-group col-sm-6 col-md-6">
+              <label for="razao_cadastro" class="control-label">Diretor:</label>
+              <input
+                type="zoom"
+                name="S0_txt_dire"
+                id="S0_txt_dire"
+                class="form-control"
+                data-zoom="{
+                'displayKey':'colleagueName',
+                'datasetId':'colleague',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o usuário',
+                'fields':[
+                  {
+                  'field':'colleagueId',
+                  'label':'colleagueId',
+                  'visible':'false'
+                  },{
+                  'field':'colleagueName',
+                  'label':'Nome',
+                  'standard':'true'
+                  }
+                ]
+              }"
+              />
+            </div>
+
+
+
+            <div class="form-group col-sm-6 col-md-6">
+              <label for="razao_cadastro" class="control-label">Papel:</label>
+              <input
+                type="zoom"
+                name="S0_txt_papel"
+                id="S0_txt_papel"
+                class="form-control"
+                data-zoom="{
+                'displayKey':'roleId',
+                'datasetId':'workflowRole',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o usuário',
+                'fields':[
+                  {
+                  'field':'roleId',
+                  'label':'PaelId',
+                  'standard':'true'
+                  },{
+                  'field':'roleDescription',
+                  'label':'descricao',
+                  'standard':'true'
+                  }
+                ]
+              }"
+              />
+            </div>
+          </div>
+        </fieldset>
+
+      <legend>Usuários da Seção</legend>
+            <div class="row">
+							<div class="col-md-10">
+							  <button type="button" id="addItem" class="btn btn-primary">Adicionar</button>
+							</div>
+						</div>
+        <div class="row">
+          <div class="col-md-12">
+      
+            <table tablename="usuario" id="pre-nota-itens-table2" class="table" noaddbutton="true" nodeletebutton="true">
+              <thead>
+                <tr>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="fluigicon fluigicon-trash fluigicon-sm" onclick="fnWdkRemoveChild(this)" style="cursor: pointer"></i>
+                      </div>
+                      <div class="col-md-4">
+                        <label>Usuário</label>
+                        <input type="zoom" name="usuaio" id="usuaio"
+                            data-zoom="{
+                                'displayKey':'colleagueName',
+                                'datasetId':'colleague',
+                                'maximumSelectionLength':'1',
+                                'placeholder':'Escolha o usuário',
+                                'fields':[
+                                    {
+                                      'field':'colleagueName',
+                                      'label':'Nome',
+                                      'standard':'true'
+                                    },
+                                    {
+                                      'field':'colleagueId',
+                                      'label':'codUsuario',
+                                      'standard':'true'
+                                    }
+                                ]
+                              }"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <label>Codigo Usuário</label>
+                        <input type="text" class="form-control" name="codUsuario" id="codUsuario" readonly/>
+                      </div>
+                    </div>
+                  
+                 
+                  </td>
+                
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </form>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+		$(document).on("click", "#addItem", function () {
+      		var n = wdkAddChild("usuario");
+    	});
+
+    function setSelectedZoomItem(selectedItem) {
+
+      if (selectedItem['inputName'].match(/usuaio/g)) {
+
+        var index = selectedItem.inputId.split("___");
+
+			  $("#codUsuario___"+index[1]).val(selectedItem.codUsuario);
+		  }
+
+
+      if (selectedItem.inputName == "S0_txt_enca") document.querySelector("#hid_id_Enca").value = selectedItem.colleagueId;
+      if (selectedItem.inputName == "S0_txt_eng") document.querySelector("#hid_id_Enge").value = selectedItem.colleagueId;
+      if (selectedItem.inputName == "S0_txt_rh") document.querySelector("#hid_id_RH").value = selectedItem.colleagueId;
+      if (selectedItem.inputName == "S0_txt_cordeng") document.querySelector("#hid_id_Cord").value = selectedItem.colleagueId;
+      if (selectedItem.inputName == "S0_txt_dire") document.querySelector("#hid_id_Dire").value = selectedItem.colleagueId;
+    }
+    
+	</script>
+</html>

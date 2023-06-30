@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+
+    <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.2/xlsx.full.min.js"></script>
+    <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+    <script type="text/javascript" src="zoomFields.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+    <script src="/webdesk/vcXMLRPC.js"></script>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form" style="margin-right: 10;">
+            <!--HIDDEN INPUTS-->
+            <input type="hidden" name="fName_Emp" id="fName_Emp" />
+            <div class="row">
+                <div class="col-md-4 form-group tenant">
+                    <label>Empresa/Filial</label>
+                    <input type="hidden" name="hidden_tenant" id="hidden_tenant" />
+                    <input type="hidden" name="hidden_filial" id="hidden_filial" />
+                    <input type="zoom" name="tenant" id="tenant" zoomvalue="chave" data-zoom="{
+                'width': '500px',
+                'zoomvalue':'chave',
+                'displayKey':'chave',
+                'datasetId':'dsEmpresaProtheusSync',
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o Grupo de empresa/Filial',
+                'filterValues':'',
+                'fields':[
+                    {'field':'codfil', 'label':'Código'},
+                    {'field':'descgrp', 'label':'Companhia'},
+                    {'field':'descemp', 'label':'Empresa'},
+                    {'field':'filial', 'label':'Filial'},
+                    {'field':'cgc', 'label':'CNPJ'}]
+                }" />
+                    <p class="help-block has-info"></p>
+                </div>
+                <div class="col-md-4">
+                    <label>Descrição</label>
+                    <input type="text" readonly class="form-control" name="descgrp" id="descgrp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 form-group">
+                    <label for="dataEmissao">Data de Emissão</label>
+                    <input type="text" id="dataEmissao" class="form-control" name="dataEmissao" readonly>
+                </div>
+                <div class="col-md-2 form-group">
+                    <label for="QtdPrograma">Quantidade Programada</label>
+                    <input type="text" id="QtdPrograma" class="form-control" name="QtdPrograma" readonly value="0">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label>Cliente/Loja</label>
+                    <input type="hidden" name="hidden_cliente" id="hidden_cliente" />
+                    <input type="text" class="form-control" name="cliente" id="cliente" />
+                </div>
+                <div class="col-md-4 form-group">
+                    <label>Observação Interna</label>
+                    <input type="text" class="form-control" name="obsinterna" id="obsinterna" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label for="msgnfe" class="control-label">Mensagem na nota</label>
+                    <textarea class="form-control" name="msgnfe" id="msgnfe" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Local de Entrega
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group col-sm-12 col-md-4 col-xs-12">
+                                <label>Estado<strong>*</strong></label>
+                                <input autocomplete="off" type="zoom" id="A2_EST" name="A2_EST" data-zoom="{
+                                    'displayKey':'X5_DESCRI',
+                                    'datasetId':'ds_estado',
+                                    'maximumSelectionLength':'1',
+                                    'placeholder':'Escolha um estado',
+                                    'fields':[
+                                        {
+                                        'field':'X5_CHAVE',
+                                        'label':'Codigo'
+                                        },{
+                                        'field':'X5_DESCRI',
+                                        'label':'Descrição',
+                                        'standard':'true'
+                                        }
+                                    ]
+                                }" />
+                                <input type="text" class="form-control hide" name="A2_EST_COD" id="A2_EST_COD">
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4 col-xs-12">
+                                <label>Municipio<strong>*</strong></label>
+                                <input autocomplete="off" type="zoom" id="A2_COD_MUN" name="A2_COD_MUN" data-zoom="{
+                                    'displayKey':'CC2_MUN',
+                                    'datasetId':'ds_municipio',
+                                    'maximumSelectionLength':'1',
+                                    'placeholder':'Escolha o minicipio',
+                                    'fields':[
+                                        {
+                                        'field':'CC2_CODMUN',
+                                        'label':'Codigo'
+                                        },{
+                                        'field':'CC2_MUN',
+                                        'label':'Descrição',
+                                        'standard':'true'
+                                        }
+                                    ]
+                                }" />
+                                <input type="text" class="form-control hide" name="A2_COD_MUN_COD" id="A2_COD_MUN_COD">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="localentrega" class="control-label">Destino</label>
+                                <input class="form-control" name="localentrega" id="localentrega" rows="2"></input>
+
+                            </div>
+                            <div class="form-group  col-md-4">
+                                <label for="usina" class="control-label">Usina</label>
+                                <input class="form-control" name="usina" id="usina" rows="2"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+    <script type="text/javascript" src="setSelectedZoomItem.js" charset="utf-8"></script>
+    <script type="text/javascript" src="pedido.js" charset="utf-8"></script>
+
+    <style>
+      .label-input {
+        outline: none;
+        border: none;
+        width: 100%;
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <header>
+    <div class="row">
+      <div class="col-md-12">
+        <h1 id="tituloFormulario">Solicitação de Pagamento Antecipado</h1>
+      </div>
+      <div>
+        <hr size="3" color="red" margin />
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="solicitante">Solicitante</label>
+                <input type="text" name="solicitante" id="solicitante" class="form-control" readonly />
+              </div>
+              <div class="col-md-4">
+                <label for="campoData">Data da Solicitação</label>
+                <input type="text" name="campoData" id="campoData" class="form-control" readonly />
+              </div>
+              <div class="col-md-4">
+                <label for="gCusto">Aplicação do Custo</label>
+                <select name="gCusto" id="gCusto" class="form-control" dataset="DsGrupoCusto" datasetkey="id" datasetvalue="grupoCusto"></select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Empresa/Filial</label>
+                <input type="hidden" name="filial" id="filial" />
+                <input
+                  type="zoom"
+                  name="codEmpresa"
+                  zoomvalue="chave"
+                  data-zoom="{
+						        'width': '500px',
+						        'zoomvalue':'chave',
+						        'displayKey':'chave',
+						        'datasetId':'dsEmpresaProtheusSync',
+						        'maximumSelectionLength':'1',
+						        'placeholder':'Escolha o Grupo de empresa/Filial',
+						        'filterValues':'',
+						        'fields':[
+						        	{'field':'chave', 'label':'Código'},
+						        	{'field':'nomecom', 'label':'Companhia'},
+						        	{'field':'descemp', 'label':'Empresa'},
+						        	{'field':'codfil', 'label':'Codigo Filial'},
+						        	{'field':'filial', 'label':'Filial'},
+						        	{'field':'cgc', 'label':'CNPJ'}]
+						        }"
+                />
+                <p class="help-block has-info"></p>
+              </div>
+              <div class="col-md-6">
+                <label>Descrição</label>
+                <input type="text" class="form-control bloqueia" name="descricaoEmpresa" id="descricaoEmpresa" readonly />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="cCusto">Centro de Custo</label>
+                <input
+                  type="zoom"
+                  name="cCusto"
+                  id="cCusto"
+                  class="form-control"
+                  data-zoom="{
+			        			'displayKey':'cCusto',
+                                'datasetId':'DsCadAprovadores',
+                                'placeholder':'Digite o Centro de Custo',
+                                'fields':[
+                                	{
+                                    	'field':'cCusto',
+                                        'label':'Código'
+
+                                    },{
+                                        'field':'descCentroCusto',
+                                        'label':'Descrição'
+                                    },{
+                                        'field':'regional',
+                                        'label':'Regional'                                      
+                                    }
+                            	]
+			        		}"
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="descCentCusto">Descrição C/C</label>
+                <input type="text" name="descCentCusto" id="descCentCusto" class="form-control" placeholder="Descrição do C/C" readonly />
+              </div>
+              <div class="col-md-4">
+                <label for="regional">Regional</label>
+                <input type="text" name="regional" id="regional" class="form-control" placeholder="Regional" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fluigicon fluigicon-company icon-sm"></i> Identificação do Fornecedor</h3>
+          </div>
+          <div class="panel-body">
+            <input type="hidden" name="condPagamento" id="condPagamento" />
+            <input type="hidden" name="pedidoAprovado" id="pedidoAprovado" />
+            
+            <div class="row">
+              <div class="col-md-2">
+                <label for="pedido">Nº Pedido Protheus</label>
+                <input
+                  type="number"
+                  name="pedido"
+                  id="pedido"
+                  class="form-control"
+                  placeholder="Nº PEDIDO"
+                  mask="000000"
+                  onchange="pedidoChangeHandler(event)"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="razaSocial">Razão Social</label>
+                <input type="text" name="razaSocial" id="razaSocial" class="form-control" placeholder="Razão Social" readonly />
+              </div>
+              <div class="col-md-4">
+                <label for="cnpj">CNPJ/CPF</label>
+                <input
+                  type="text"
+                  name="cnpj"
+                  id="cnpj"
+                  class="form-control"
+                  maxlength="18"
+                  autocomplet="off"
+                  placeholder="CNPJ/CPF"
+                  mask="00.000.000/0000-00"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="table-responsive fs-md-margin-top">
+              <table class="table table-bordered table-striped table-hover" tablename="itens_pedido" nodeletebutton="true" noaddbutton="true">
+                <thead>
+                  <tr>
+                    <th>DESCRIÇÃO</th>
+                    <th>UN</th>
+                    <th>QTDE</th>
+                    <th>VALOR</th>
+                    <th>TOTAL</th>
+                    <th>OBSERVAÇÃO</th>
+                    <th>C.CUSTO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_DESCRI" id="C7_DESCRI" readonly /></td>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_UM" id="C7_UM" readonly /></td>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_QUANT" id="C7_QUANT" readonly /></td>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_PRECO" id="C7_PRECO" readonly /></td>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_TOTAL" id="C7_TOTAL" readonly /></td>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_OBSM" id="C7_OBSM" readonly /></td>
+                    <td class="fs-no-padding"><input type="text" class="label-input" name="C7_CC" id="C7_CC" readonly /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <label for="justificativa">Justificativa</label>
+                <textarea
+                  name="justificativa"
+                  id="justificativa"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Informe o motivo do pagamento antecipado"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h4 style="color: red">Favor anexar o pedido de compra APROVADO na guia Anexos</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fluigicon fluigicon-activity-list-pending icon-sm"></i> Programação do Pagamento</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="dataNecessidade">Data da Necessidade</label>
+                <input type="text" name="dataNecessidade" id="dataNecessidade" class="form-control" placeholder="Data da Necessidade" />
+              </div>
+              <div class="col-md-4">
+                <label for="valor">Valor - R$</label>
+                <input type="text" name="valor" id="valor" class="form-control" placeholder="Valor a ser pago" mask="#00.000.000.000.000,00" />
+              </div>
+              <div class="col-md-4">
+                <label for="tipoPag">Tipo de Pagamento</label>
+                <select
+                  name="tipoPag"
+                  id="tipoPag"
+                  class="form-control"
+                  dataset="DsTiposPagamentos"
+                  datasetkey="id"
+                  datasetvalue="tpPagamento"
+                ></select>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="banco">Nome do Banco</label>
+                <input type="text" name="banco" id="banco" class="form-control" placeholder="Nome do Banco" />
+              </div>
+              <div class="col-md-4">
+                <label for="agencia">Nº Agência - Dígito</label>
+                <input type="text" name="agencia" id="agencia" class="form-control" placeholder="Agência - Dígito" />
+              </div>
+              <div class="col-md-4">
+                <label for="conta">Nº C.Corrente - Dígito</label>
+                <input type="text" name="conta" id="conta" class="form-control" placeholder="C.Corrente - Dígito" />
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12">
+                <label for="chavePix">Chave Pix</label>
+                <input type="text" name="chavePix" id="chavePix" class="form-control" placeholder="Chave Pix" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fluigicon fluigicon-money icon-sm"></i> Informações do Pagamento</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-8">
+                <label for="dataPagamento">Data do Pagamento</label>
+                <input type="text" name="dataPagamento" id="dataPagamento" class="form-control" placeholder="Data do Pagamento" />
+              </div>
+              <div class="col-md-4">
+                <label for="valorPago">Valor Pago - R$</label>
+                <input type="text" name="valorPago" id="valorPago" class="form-control" placeholder="Valor pago" mask="#00.000.000.000.000,00" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h4 style="color: red">Favor anexar o comprovante na guia Anexos</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fluigicon fluigicon-enrollment-verified icon-sm"></i> Informações para Baixa do Título</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="cnpjNF">CNPJ/CPF da Nota Fiscal</label>
+                <input type="text" name="cnpjNF" id="cnpjNF" class="form-control" placeholder="CNPJ/CPF contido na NF" mask="00.000.000/0000-00" />
+              </div>
+              <div class="col-md-4">
+                <label for="numNf">Nº NF</label>
+                <input type="text" name="numNf" id="numNf" class="form-control" placeholder="Número da NF" mask="000000000" />
+              </div>
+              <div class="col-md-4">
+                <label for="dataNf">Data de Emissão da NF</label>
+                <input type="text" name="dataNf" id="dataNf" class="form-control" placeholder="Data Emissão NF" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var calendarioDataSolicitação = FLUIGC.calendar('#dtsolicitacao');
+    var calendarioDataNecessidade = FLUIGC.calendar('#dataNecessidade');
+    var calendarioDataPagamento = FLUIGC.calendar('#dataPagamento');
+    var calendarioDataNf = FLUIGC.calendar('#dataNf');
+  </script>
+</html>

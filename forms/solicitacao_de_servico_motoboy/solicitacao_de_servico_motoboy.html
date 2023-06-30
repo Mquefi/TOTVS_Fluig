@@ -1,0 +1,193 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="jquery.mask.js" charset="utf-8"></script>
+	<script type="text/javascript" src="chamado.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="panel panel-default">
+		<div class="panel-heading"><strong> Solicitação de Serviço MotoBoy</strong></div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 style="color: red;">Saída do motoboy para serviço externos: 10:30 / 14:00 - Saída para serviços internos(Fábrica): 17:30</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<label>Solicitante</label>
+					<input type="text" class="form-control" name="solicitante" id="solicitante" readonly>
+				</div>
+				<div class="col-md-2">
+					<label>Data Solicitacao</label>
+					<input type="text" class="form-control" name="dataSolicitacao" id="dataSolicitacao" readonly>
+					<input type="text" class="form-control hide" name="idSolicitacao" id="idSolicitacao">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					<label>Data do Serviço</label>
+					<input type="text" class="form-control" name="dataDoServico" id="dataDoServico">
+				</div>
+				<div class="col-md-3">
+					<label>Centro de Custo</label>
+					<input
+						type="zoom"
+						id = "centroCusto"
+						name="centroCusto"
+						data-zoom="{
+							'displayKey':'S0_txt_desc',
+							'datasetId':'ds_secoes_com_aprovadores',
+							'maximumSelectionLength':'1',
+							'placeholder':'Escolha a Seção',
+							'fields':[
+								{
+								'field':'S0_txt_cod',
+								'label':'ID SeÃ§Ã£o'
+								},{
+								'field':'S0_txt_desc',
+								'label':'Nome',
+								'standard':'true'
+								},
+								{
+									'field':'hid_id_Enca',
+									'label':'hid_id_Enca',
+									'visible':'false'
+								},
+								{
+									'field':'hid_id_Enge',
+									'label':'hid_id_Enge',
+									'visible':'false'
+								},
+								{
+									'field':'hid_id_RH',
+									'label':'hid_id_RH',
+									'visible':'false'
+								},
+								{
+									'field':'hid_id_Cord',
+									'label':'hid_id_Cord',
+									'visible':'false'
+								},
+								{
+									'field':'hid_id_Dire',
+									'label':'hid_id_Dire',
+									'visible':'false'
+								},
+								{
+									'field':'S0_txt_enca',
+									'label':'S0_txt_enca',
+									'visible':'false'
+								},
+								{
+									'field':'S0_txt_eng',
+									'label':'S0_txt_enge',
+									'visible':'false'
+								},
+								{
+									'field':'S0_txt_rh',
+									'label':'S0_txt_rh',
+									'visible':'false'
+								},
+								{
+									'field':'S0_txt_cordeng',
+									'label':'S0_txt_cordeng',
+									'visible':'false'
+								},
+								{
+									'field':'S0_txt_dire',
+									'label':'S0_txt_dire',
+									'visible':'false'
+								}
+							]
+						}"  
+					/>		
+					
+				</div>
+				<div class="col-md-3">
+					<label>Solicitação de Valor - R$</label>
+					<input type="text" class="form-control" name="solicitacaoDeValor" id="solicitacaoDeValor">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label>Relação dos Documentos</label>
+					<textarea class="form-control" name="relacaoDoc" id="relacaoDoc" rows="10"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label>Descrição do Serviço</label>
+					<textarea class="form-control" name="descricaoDoServico" id="descricaoDoServico" rows="10"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<label>Empresa</label>
+					<input type="text" class="form-control" name="empresa" id="empresa">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label>Contato</label>
+					<input type="text" class="form-control" name="contato" id="contato">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+					<label>Endereço</label>
+					<input type="text" class="form-control" name="endereco" id="endereco">
+				</div>
+				<div class="col-md-2">
+					<label>Numero</label>
+					<input type="text" class="form-control" name="numero" id="numero">
+				</div>
+			</div>
+
+
+			<div class="recepcao">
+				<br>
+				<legend style="color: red;">Recepção</legend>
+				<div class="row">
+					<div class="col-md-12">
+						<label>Observação Recepção</label>
+						<textarea class="form-control" name="observaocaoRecepcao" id="observaocaoRecepcao" rows="10"></textarea>
+					</div>
+				</div>
+			</div>
+
+
+
+			
+			<div class="solicitante">
+				<br>
+				<legend style="color: red;">Solicitante</legend>
+				<div class="row">
+					<div class="col-md-12">
+						<label>Observação Recepção</label>
+						<textarea class="form-control" name="observaocaoSolicitante" id="observaocaoSolicitante" rows="10"></textarea>
+					</div>
+				</div>
+			</div>
+			
+
+			
+
+
+		</div>
+	</div>
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+	"version": "0.0.1",
+	"configurations": [
+		{
+			"id": "a15a2g90465ljj1nwi9j1nbrpx3bz",
+			"name": "Fluig_8180",
+			"host": "fluig.compasa.com.br",
+			"ssl": false,
+			"port": 8180,
+			"username": "informatica@compasa.com.br",
+			"password": "U2FsdGVkX1/CU72MaGYSfSP0yL/qvYdHErteLo5eWvo=",
+			"userCode": "admin",
+			"confirmExporting": false,
+			"companyId": 1
+		}
+	]
+}
