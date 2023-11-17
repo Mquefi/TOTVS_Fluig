@@ -1,0 +1,3483 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Modelo Padrão</title>
+		
+		<link type="text/css" rel="stylesheet" href="http://fluig.compasa.com.br:8180/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<link type="text/css" rel="stylesheet" href="./Checklist Contrato/style.css"/> <!-- Design do formulário -->
+		<script type="text/javascript" src="./Checklist Contrato/script.js" charset="utf-8"></script> <!-- Scripts padrões -->
+	</head>
+	
+	<header>
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="tituloFormulario">Checklist - Contrato</h1>
+			</div>
+			<div>
+				<hr size="3" color="red" margin>
+			</div>
+		</div>
+	</header>
+	
+	<body>
+		<div class="fluig-style-guide" >
+			<form name="form" role="form">
+			
+				<!-- ############ ETAPA INICIAL - DADOS OCULTOS ############# -->
+				<div class="panel panel-primary" id="dadosOcultosBd">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Ocultos</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3">
+								<label>Número Sol. Fluig</label>
+								<input type="text" class="form-control" name="numSolFluig" id="numSolFluig" readonly>
+							</div>
+							<div class="col-md-3">
+								<label>Vazio</label>
+								<input type="text" class="form-control" name="vazio1" id="vazio1" readonly>
+							</div>
+							<div class="col-md-3">
+								<label>Vazio</label>
+								<input type="text" class="form-control" name="vazio2" id="vazio2" readonly>
+							</div>
+								<div class="col-md-3">
+								<label>Vazio</label>
+								<input type="text" class="form-control" name="vazio3" id="vazio3" readonly>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>Solicitante</label>
+								<input type="text" class="form-control" name="solicitante" id="solicitante" readonly>
+							</div>
+							<div class="col-md-4">
+								<label>Email</label>
+								<input type="text" class="form-control" name="email" id="email" readonly>
+							</div>
+							<div class="col-md-4">
+								<label>Data Criação</label>
+								<input type="text" class="form-control" name="DataCriacao" id="DataCriacao" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- FASE 00 -->
+                <!-- ############ ETAPA HOMOLOCAÇÃO - DADOS GERAIS ############# -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais do Edital</h3>
+				    </div>
+					<div class="panel-body">	
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<label>Nome para Identificação do Contrato</label>
+								<input type="text" class="form-control" name="nomeIdContrato" id="nomeIdContrato">
+							</div>
+						</div>					
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<label>Número Edital</label>
+								<input type="text" class="form-control" name="numEdital" id="numEdital" placeholder="">
+							</div>	
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<label>Modalidade</label>
+									<select class="form-control" name="modalidade" id="modalidade">
+										<option value=""></option>
+										<option value="1">Conservação</option>
+										<option value="2">Fornecimento de Produto</option>
+										<option value="3">Industrialização</option>										
+										<option value="4">Novo Pavimento</option>
+									</select>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<label>Valor Máximo</label>
+								<input type="number" class="form-control" name="vlrMax" id="vlrMax">
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<label>Data Abertura Licitação</label>
+								<input type="date" class="form-control" name="dateAbLicitacao" id="dateAbLicitacao">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label>Consórcio?</label>
+								<select class="form-control" name="consorcio" id="consorcio">
+										<option value="1">Não</option>
+										<option value="2">Sim</option>
+									</select>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label>Participação</label>
+								<input type="number" class="form-control" name="participacao" id="participacao" placeholder="%">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label>Objeto</label>
+								<textarea class="form-control" name="objeto" id="objeto" rows="5"></textarea>
+							</div>							
+						</div>
+
+						<br>
+
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+								<label>Nome do Documento</label>
+								<input type="text" class="form-control" name="nomeEdital" id="nomeEdital" value="Edital" readonly>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+								<label>Link pra Download</label>
+								<input type="text" class="form-control" id="linkEdital" name="linkEdital" placeholder="Cole o link aqui"/>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+								<label>Abrir</label><br>
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkEdital')" style="cursor: pointer"></i>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+								<input type="text" class="form-control" name="termoRef" id="termoRef" value="Termo de Referência" readonly>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+								<input type="text" class="form-control" id="linkTermoRef" name="linkTermoRef" placeholder="Cole o link aqui"/>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTermoRef')" style="cursor: pointer"></i>
+							</div>		
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+								<input type="text" class="form-control" name="nomeICC" id="nomeICC" value="Instrumento de Constituição do Consórcio" readonly>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+								<input type="text" class="form-control" id="linkICC" name="linkICC" placeholder="Cole o link aqui"/>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkICC')" style="cursor: pointer"></i>
+							</div>		
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+								<input type="text" class="form-control" name="nomeCartaoCnpj" id="nomeCartaoCnpj" value="Cartão CNPJ" readonly>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+								<input type="text" class="form-control" id="linkCartaoCnpj" name="linkCartaoCnpj" placeholder="Cole o link aqui"/>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkCartaoCnpj')" style="cursor: pointer"></i>
+							</div>		
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+								<input type="text" class="form-control" name="nomeSintegra" id="nomeSintegra" value="Cartão Contribuinte ICMS (Sintegra)" readonly>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+								<input type="text" class="form-control" id="linkSintegra" name="linkSintegra" placeholder="Cole o link aqui"/>
+							</div>
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkSintegra')" style="cursor: pointer"></i>
+							</div>		
+						</div>
+					</div>
+				</div>
+                
+                <!-- FASE 01 -->
+                <!-- ############ ETAPA HOMOLOCAÇÃO - DOCUMENTOS INICIAIS ############# -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor Comercial</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-2 col-lg-4">
+								<label>Nº DIOU</label>
+								<input type="text" class="form-control" name="numDiou" id="numDiou">
+							</div>
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Data Publicação</label>
+								<input type="date" class="form-control" name="dataPublicacao" id="dataPublicacao">
+							</div>
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Vencemos?</label>
+								<select class="form-control" name="vencemos" id="vencemos">
+									<option value="1">Não</option>
+									<option value="2">Sim</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Vencedor </label>
+								<input type="text" class="form-control" name="venc1" id="venc1">
+							</div>
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Valor Licitado</label>
+								<input type="number" class="form-control" name="vlrLicitado1" id="vlrLicitado1">
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<label>Garantia Contrato</label>
+								<input type="number" class="form-control" name="garantiaContrato" id="garantiaContrato">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Vencedor 2</label>
+								<input type="text" class="form-control" name="venc2" id="venc1">
+							</div>
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Valor Licitado</label>
+								<input type="number" class="form-control" name="vlrLicitado2" id="vlrLicitado2">
+							</div>
+						</div>	
+						<div class="row">
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Vencedor 3</label>
+								<input type="text" class="form-control" name="venc3" id="venc3">
+							</div>
+							<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+								<label>Valor Licitado</label>
+								<input type="number" class="form-control" name="vlrLicitado3" id="vlrLicitado3">
+							</div>
+						</div>	
+					</div>
+				</div>	
+				
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor Gestão de Contratos</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<label>Comunicado Início de Obra</label>
+								<input type="date" class="form-control" name="dataComIniObra" id="dataComIniObra">
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<label>Kickoff Meeting</label>
+								<input type="date" class="form-control" name="dataKickoff" id="dataKickoff">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor TI</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">							
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Base Protheus Nº</label>
+								<input type="text" class="form-control" name="baseProtheus" id="baseProtheus">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Data Criação Base Protheus</label>
+								<input type="date" class="form-control" name="DtbaseProtheus" id="DtbaseProtheus">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Papel de Trabalho Protheus</label>
+								<input type="text" class="form-control" name="papelProtheus" id="papelProtheus" value="Aguardando indicação da Regional e Centros de custos">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Data Criação Papel Protheus</label>
+								<input type="date" class="form-control" name="DtpapelProtheus" id="DtpapelProtheus">
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col-md-12" id="checkbox1">
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist01" name="checklist01" />
+									<label for="checklist01">Copiar tabela CC3 (Cadastro CNAE) da empresa x</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist02" name="checklist02" />
+									<label for="checklist02">Copiar tabela CCG (Cadastro detalhado CNAE) da empresa x </label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist03" name="checklist03" />
+									<label for="checklist03">Cadastrar armazém padrão (01 PADRAO) </label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist04" name="checklist04" />
+									<label for="checklist04">Alterar modo de compartilhamento para (CCC) - CC2 – Cadastro Município </label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist05" name="checklist05" />
+									<label for="checklist05">Alterar modo de compartilhamento para (CCC) - SF4 - Cadastro de TES</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist06" name="checklist06" />
+									<label for="checklist06">Alterar modo de compartilhamento para (CCC) - SED - Cadastro de Natureza Financeira</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id=checklist07 name="checklist07" />
+									<label for="checklist07">Alterar modo de compartilhamento para (CCC) - SB1 - Cadastro de Produtos</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist08" name="checklist08" />
+									<label for="checklist08">Alterar modo de compartilhamento para (CCC) - SAH - Cadastro de Unidade de Medida </label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist09" name="checklist09" />
+									<label for="checklist09">Alterar modo de compartilhamento para (CCC) - SA1 – Cadastro de clientes</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist10" name="checklist10" />
+									<label for="checklist10">Alterar modo de compartilhamento para (CCC) - SA2 - Cadastro de fornecedores </label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist11" name="checklist11" />
+									<label for="checklist11">Alterar modo de compartilhamento para (CCC) - SBM - Cadastro de Grupo de produto </label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist12" name="checklist12" />
+									<label for="checklist12">Alterar modo de compartilhamento para (CCC) - SX5/02 - Cadastro Tipos de produtos</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist13" name="checklist13" />
+									<label for="checklist13">Alterar modo de compartilhamento para (CCC) - SE4 - Cadastro Condições de Pagamento</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist14" name="checklist14" />
+									<label for="checklist14">Alterar modo de compartilhamento para (CCC) - SX5/42 - Cadastro de Espécie de Documento fiscal</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist15" name="checklist15" />
+									<label for="checklist15">Aplicar fonte customizada pra série das notas fiscais de saída</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist16" name="checklist16" />
+									<label for="checklist16">Aplicar parâmetros - SX6</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklist17" name="checklist17" />
+									<label for="checklist17">Carregar certificado digital</label>
+								  </div>
+							  </div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+								<label>Base RM</label>
+								<input type="text" class="form-control" name="baseRM" id="baseRM">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+								<label>Data Criação Base RM</label>
+								<input type="date" class="form-control" name="DtbaseRM" id="DtbaseRM">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+								<label>Papel de Trabalho RM</label>
+								<input type="text" class="form-control" name="PapelRM" id="PapelRM">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+								<label>Data Criação Papel RM</label>
+								<input type="date" class="form-control" name="DtPapelRM" id="DtPapelRM">
+							</div>
+						</div>
+
+						<div class="row">								
+							<div class="col-md-12" id="checkbox1">
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklistRm01" name="checklistRm01" />
+									<label for="checklistRm01">Copiar tabela CC3 (Cadastro CNAE) da empresa x</label>
+								  </div>
+								  <div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="checklistRm02" name="checklistRm02" />
+									<label for="checklistRm02">Copiar tabela CCG (Cadastro detalhado CNAE) da empresa x </label>
+								  </div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+								<label>Teams</label>
+								<input type="text" class="form-control" name="nomeTeams" id="nomeTeams">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				
+				
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor Fiscal</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">						
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<label>Código do centro de custo</label>
+								<input type="text" class="form-control" name="codCC" id="codCC">
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<label>Descrição</label>
+								<input type="text" class="form-control" name="descCC" id="descCC">
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<label>Possui Certificado Digital?</label>
+								<select class="form-control" name="tipoContrato" id="tipoContrato">
+									<option value="">Não</option>
+									<option value="1">Sim (Anexar arquivo)</option>
+								</select>
+							</div>
+						</div>
+						<div><h3>Obs: Salvar certificado digital na pasta da rede: xxxx</h3></div>
+					</div>
+				</div>
+
+
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor Engenharia</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">							
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Nome do Engenheiro</label>
+								<input type="text" class="form-control" name="nomeEng" id="nomeEng" placeholder="Necessário pra rotinas RH">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Nome do Encarregado</label>
+								<input type="text" class="form-control" name="nomeEnc" id="nomeEnc" placeholder="Necessário pra rotinas Compras">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Regional de Administração</label>
+								<input type="text" class="form-control" name="nomeRegional" id="nomeRegional" placeholder="Necessário pra cadastro do centro de custo">
+							</div>
+						</div>						
+						<div class="row">							
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Cód. Planejamento Criado</label>
+								<input type="text" class="form-control" name="codPlanejRm" id="codPlanejRm">
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+								<label>Link. Arquivo Caderneta de Produção</label>
+								<input type="text" class="form-control" name="linkCaderneta" id="linkCaderneta">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor Gestão Técnicas de Obras</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<h3>Na necessidade de aumento de quadro funcional, solicitar a contratação de administrativos, encarregados e engenheiros.</h3>
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+								<label>Solicitação de Contratação</label>
+								<input type="text" class="form-control" id="linkContratacao" name="linkContratacao" value="http://fluig.compasa.com.br:8180/portal/p/01/pageworkflowview?processID=solicitacao_admissao" readonly/>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+								<label>Solicitar</label><br>
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkContratacao')" style="cursor: pointer"></i>
+							</div>	
+						</div>	
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<h3>Tendo os funcionários para a nova obra, solicitar acesso aos sistemas para os administrativos, encarregados e engenheiros</h3>
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+								<label>Solicitação de Acesso aos Sistemas</label>
+								<input type="text" class="form-control" id="linkAcessos" name="linkAcessos" value="http://fluig.compasa.com.br:8180/portal/p/01/pageworkflowview?processID=solic_cadast_func_pj" readonly/>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+								<label>Solicitar</label><br>
+								<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkAcessos')" style="cursor: pointer"></i>
+							</div>	
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor Suprimentos</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label>Cadastro Aprovador</label>
+								<input type="text" class="form-control" name="codGrupoAprov" id="codGrupoAprov" placeholder="Informe o código do grupo aprovador">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> HOMOLOGADO - Setor RH</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12" id="checkbox1">
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="codSecao01" name="codSecao01" />
+									<label for="codSecao01">Cadastrar: Código da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="codCusto01" name="codCusto01" />
+									<label for="codCusto01">Cadastrar: Centro de Custo da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="codRegional01" name="codRegional01" />
+									<label for="codRegional01">Cadastrar: Regional da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="codAprovEnc01" name="codAprovEnc01" />
+									<label for="codAprovEnc01">Cadastrar: Encarregado Aprovador da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="codAprovEng01" name="codAprovEng01" />
+									<label for="codAprovEng01">Cadastrar: Engenheiro Aprovador da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="CodAprovRh01" name="CodAprovRh01" />
+									<label for="CodAprovRh01">Cadastrar: RH Aprovador da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="codAprovCoordEng01" name="codAprovCoordEng01" />
+									<label for="codAprovCoordEng01">Cadastrar: Coordenador Engenheiro Aprovador da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="CodAprovDiretor01" name="CodAprovDiretor01" />
+									<label for="CodAprovDiretor01">Cadastrar: Diretor Aprovador da Seção</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+									<input type="checkbox" id="CodAprovAdm01" name="CodAprovAdm01" />
+									<label for="CodAprovAdm01">Cadastrar: Usuários Autorizados a Visualizarem o Centro de Custo da Seção</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+								<label>Código da Seção Obra Criada</label>
+								<input type="text" class="form-control" name="secaoRM" id="secaoRM">
+							</div>
+						</div>
+					</div>
+				</div>
+
+															
+
+                <!-- FASE 04 -->
+                <!-- ############ ETAPA CONTRATADO ############# -->
+				<div class="panel panel-info" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> CONTRATADO - Setor Comercial</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+									<label>Nome do Documento</label>
+									<input type="text" class="form-control" id="instContr" name="instContr" value="Instrumento Contratual" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+									<label>Nº Contrato</label>
+									<input type="text" class="form-control" id="numInstContr" name="numInstContr"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+									<label>Data de Assinatura</label>
+									<input type="date" class="form-control" id="dataInstContr" name="dataInstContr"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-4 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkInstContr" name="linkInstContr" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkInstContr')" style="cursor: pointer"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+									<label>Nome do Documento</label>
+									<input type="text" class="form-control" id="npo" name="npo" value="NPO - Normas e Procedimentos Operacionais" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+									<label>Nº NPO</label>
+									<input type="text" class="form-control" id="numNpo" name="numNpo"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+									<label>Data Assinatura NPO</label>
+									<input type="date" class="form-control" id="dataNpo" name="dataNpo"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-4 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkNpo" name="linkNpo" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkInslinkNpoContr')" style="cursor: pointer"></i>
+								</div>
+							</div>						
+				        </div>		
+					</div>
+				</div>
+
+				<div class="panel panel-info" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> CONTRATADO - Setor Engenharia</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<label>Número Revisão Planejamento RM - Ajustar</label>
+									<input type="text" class="form-control" name="numRevPlanejamento" id="numRevPlanejamento" placeholder="Informe o código do grupo aprovador">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="plTrabalhoIni" name="plTrabalhoIni" value="Plano de Trabalho Inicial" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+									<label>Nº</label>
+									<input type="text" class="form-control" id="numPlTrabalhoIni" name="numPlTrabalhoIni"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+									<label>Data de Elaboração</label>
+									<input type="date" class="form-control" id="dataPlTrabalhoIni" name="dataPlTrabalhoIni"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-4 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkPlTrabalhoIni" name="linkPlTrabalhoIni" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPlTrabalhoIni')" style="cursor: pointer"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="planRm" name="planRm" value="Planejamento RM" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2">
+									<label>Nº</label>
+									<input type="text" class="form-control" id="numPlanRm" name="numPlanRm"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+									<label>Data de Elaboração</label>
+									<input type="date" class="form-control" id="dataPlanRm" name="dataPlanRm"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-4 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkPlanRm" name="linkPlanRm" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPlanRm')" style="cursor: pointer"></i>
+								</div>
+							</div>					
+				        </div>						
+					</div>
+				</div>
+
+				<div class="panel panel-info" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> CONTRATADO - Programas SMS</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="pgr" name="pgr" value="PGR - Programa Ger. Riscos" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data Elaboração</label>
+									<td><input type="date" class="form-control" id="numPgr" name="numPgr"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Validade</label>
+									<input type="date" class="form-control" id="dataPgr" name="dataPgr"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-2 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkPgr" name="linkPgr" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPgr')" style="cursor: pointer"></i>
+								</div>
+							</div>	
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="pgrcc" name="pgrcc" value="PGRCC - Programa Ger. Resíduos Const. Civil" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data Elaboração</label>
+									<input type="date" class="form-control" id="numPgrcc" name="numPgrcc"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Validade</label>
+									<input type="date" class="form-control" id="dataPgrcc" name="dataPgrcc"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-2 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkPgrcc" name="linkPgrcc" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPgrcc')" style="cursor: pointer"></i>
+								</div>
+							</div>	
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="pcmso" name="pcmso" value="PCMSO - Programa Contr. Médico Saúde Ocup." readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data Elaboração</label>
+									<input type="date" class="form-control" id="numPcmso" name="numPcmso"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Validade</label>
+									<input type="date" class="form-control" id="dataPcmso" name="dataPcmso"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-2 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkPcmso" name="linkPcmso" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPcmso')" style="cursor: pointer"></i>
+								</div>
+							</div>						
+				        </div>						
+					</div>
+				</div>
+
+				<div class="panel panel-info" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> CONTRATADO - Licenças Ambientais</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="lp" name="lp" value="LP - Licença Prévia" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data Elaboração</label>
+									<input type="date" class="form-control" id="numLp" name="numLp"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Validade</label>
+									<input type="date" class="form-control" id="dataLp" name="dataLp"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-2 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkLp" name="linkLp" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkLp')" style="cursor: pointer"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="li" name="li" value="LI - Licença de Instalação" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data Elaboração</label>
+									<input type="date" class="form-control" id="numLi" name="numLi"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Validade</label>
+									<input type="date" class="form-control" id="dataLi" name="dataLi"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-2 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkLi" name="linkLi" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkLi')" style="cursor: pointer"></i>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<label>Nome do documento</label>
+									<input type="text" class="form-control" id="lo" name="lo" value="LO - Licença de Operação" readonly/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data Elaboração</label>
+									<input type="date" class="form-control" id="numLo" name="numLo"/>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Validade</label>
+									<input type="date" class="form-control" id="dataLo" name="dataLo"/>
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-2 col-lg-3">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkLo" name="linkLo" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkLo')" style="cursor: pointer"></i>
+								</div>
+							</div>						
+				        </div>						
+					</div>
+				</div>
+
+                <!-- FASE 05 -->
+                <!-- ############ ETAPA EM OPERAÇÃO ############# -->
+				<div class="panel panel-success" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> EM OPERAÇÃO - Setor Comercial</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+                            <div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Número Ordem Serviço</label>
+									<input type="text" class="form-control" name="numOs" id="numOs">
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Início Ordem Serviço</label>
+									<input type="date" class="form-control" name="dataOs" id="dataOs">
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Valor Contratual PI</label>
+									<input type="text" class="form-control" name="vlrContrPi" id="vlrContrPi">
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Execução Inicial (dias)</label>
+									<input type="number" class="form-control" name="numDiasExec" id="numDiasExec">
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Fim Execução</label>
+									<input type="date" class="form-control" name="dataFimExec" id="dataFimExec">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Vigência Contratual (dias)</label>
+									<input type="number" class="form-control" name="vigContrat" id="vigContrat">
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+									<label>Fim vigência Contratual</label>
+									<input type="date" class="form-control" name="vigContratFim" id="vigContratFim">
+								</div>							
+								<div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
+									<label>Link pra Download</label>
+									<input type="text" class="form-control" name="linkVigContrat" id="linkVigContrat" placeholder="Ordem de Serviço">
+								</div>
+								<div class="col-xs-2 col-sm-4 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumento(this)" style="cursor: pointer"></i>
+								</div>							
+							</div>
+							<br>
+							<div class="form-group documentos" >
+								<div class="row">
+									<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+										<label>Número Ordem Paralisação 1</label>
+										<input type="text" class="form-control" id="numParalisacao" name="numParalisacao"/>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+										<label>Início Paralisação 1</label>
+										<input type="date" class="form-control" id="dataIniParalisacao" name="dataIniParalisacao"/>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+										<label>Fim Paralisação 1</label>
+										<input type="date" class="form-control" id="dataFimParalisacao" name="dataFimParalisacao"/>
+									</div>
+									<div class="col-xs-8 col-sm-4 col-md-3 col-lg-3">
+										<label>Link pra download 1</label>
+										<input type="text" class="form-control" id="linkParalisacao" name="linkParalisacao" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkParalisacao')" style="cursor: pointer"></i>
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+										<label>Número Ordem Paralisação 2</label>
+										<input type="text" class="form-control" id="numParalisacao2" name="numParalisacao2"/>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+										<label>Início Paralisação 2</label>
+										<input type="date" class="form-control" id="dataIniParalisacao2" name="dataIniParalisacao2"/>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+										<label>Fim Paralisação 2</label>
+										<input type="date" class="form-control" id="dataFimParalisacao2" name="dataFimParalisacao2"/>
+									</div>
+									<div class="col-xs-8 col-sm-4 col-md-3 col-lg-3">
+										<label>Link pra download 2</label>
+										<input type="text" class="form-control" id="linkParalisacao2" name="linkParalisacao2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkParalisacao2')" style="cursor: pointer"></i>
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+										<label>Número Ordem Paralisação 3</label>
+										<input type="text" class="form-control" id="numParalisacao3" name="numParalisacao3"/>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+										<label>Início Paralisação 3</label>
+										<input type="date" class="form-control" id="dataIniParalisacao3" name="dataIniParalisacao3"/>
+									</div>
+									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+										<label>Fim Paralisação 3</label>
+										<input type="date" class="form-control" id="dataFimParalisacao3" name="dataFimParalisacao3"/>
+									</div>
+									<div class="col-xs-8 col-sm-4 col-md-3 col-lg-3">
+										<label>Link pra download 3</label>
+										<input type="text" class="form-control" id="linkParalisacao3" name="linkParalisacao3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkParalisacao3')" style="cursor: pointer"></i>
+									</div>
+								</div>						
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+										<label>Termo Rescisão Contratual</label>
+										<input type="text" class="form-control" id="numRescisao" name="numRescisao"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+										<label>Fim Rescisão</label>
+										<input type="date" class="form-control" id="dataFimPRescisao" name="dataRescisao"/>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-5">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkRescisao" name="linkRescisao" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkRescisao')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<h3>ART - Engenheiro Responsável Técnico</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<label>Nº ART</label>
+										<input type="text" class="form-control" id="nART1" name="nART1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+										<label>Engenheiro Responsável</label>
+										<input type="text" class="form-control" id="engART1" name="engART1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Data Início</label>
+										<input type="date" class="form-control" id="dtArtIni1" name="dtArtIni1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Data Fim</label>
+										<input type="date" class="form-control" id="dtArtFim1" name="dtArtFim1"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkArt1" name="linkArt1" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArt1')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nART2" name="nART2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engART2" name="engART2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIni2" name="dtArtIni2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFim2" name="dtArtFim2"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArt2" name="linkArt2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArt2')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nART3" name="nART3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engART3" name="engART3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIni3" name="dtArtIni3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFim3" name="dtArtFim3"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArt3" name="linkArt3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArt3')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nART4" name="nART4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engART4" name="engART4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIni4" name="dtArtIni4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFim4" name="dtArtFim4"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArt4" name="linkArt4" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArt4')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<br>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<h3>ART - Engenheiro Preposto</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<label>Nº ART</label>
+										<input type="text" class="form-control" id="nARTegP1" name="nARTegP1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+										<label>Engenheiro Responsável</label>
+										<input type="text" class="form-control" id="engARTegP1" name="engARTegP1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Data Início</label>
+										<input type="date" class="form-control" id="dtArtIniegP1" name="dtArtIniegP1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Data Fim</label>
+										<input type="date" class="form-control" id="dtArtFimegP1" name="dtArtFimegP1"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkArtegP1" name="linkArtegP1" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegP1')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nARTegP2" name="nARTegP2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engARTegP2" name="engARTegP2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIniegP2" name="dtArtIniegP2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFimegP2" name="dtArtFimegP2"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArtegP2" name="linkArtegP2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegP2')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nARTegP3" name="nARTegP3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engARTegP3" name="engARTegP3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIniegP3" name="dtArtIniegP3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFimegP3" name="dtArtFimegP3"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArtegP3" name="linkArtegP3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegP3')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nARTegP4" name="nARTegP4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engARTegP4" name="engARTegP4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIniegP4" name="dtArtIniegP4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFimegP4" name="dtArtFimegP4"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArtegP4" name="linkArtegP4" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegP4')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<br>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<h3>ART - Engenheiro Auxiliar/Junior</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<label>Nº ART</label>
+										<input type="text" class="form-control" id="nARTegAj1" name="nARTegAj1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+										<label>Engenheiro Responsável</label>
+										<input type="text" class="form-control" id="engARTegAj1" name="engARTegAj1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Data Início</label>
+										<input type="date" class="form-control" id="dtArtIniegAj1" name="dtArtIniegAj1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Data Fim</label>
+										<input type="date" class="form-control" id="dtArtFimegAj1" name="dtArtFimegAj1"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkArtegAj1" name="linkArtegAj1" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegAj1')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nARTegAj2" name="nARTegAj2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engARTegAj2" name="engARTegAj2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIniegAj2" name="dtArtIniegAj2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFimegAj2" name="dtArtFimegAj2"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArtegAj2" name="linkArtegAj2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegAj2')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nARTegAj3" name="nARTegAj3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engARTegAj3" name="engARTegAj3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIniegAj3" name="dtArtIniegAj3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFimegAj3" name="dtArtFimegAj3"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArtegAj3" name="linkArtegAj3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegAj3')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+
+										<input type="text" class="form-control" id="nARTegAj4" name="nARTegAj4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+
+										<input type="text" class="form-control" id="engARTegAj4" name="engARTegAj4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtIniegAj4" name="dtArtIniegAj4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+
+										<input type="date" class="form-control" id="dtArtFimegAj4" name="dtArtFimegAj4"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+
+										<input type="text" class="form-control" id="linkArtegAj4" name="linkArtegAj4" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkArtegAj4')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<br>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<h3>TA - Termo Aditivo</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<label>Nº TA</label>
+										<input type="text" class="form-control" id="nTa1" name="nTa1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<label>Tipo</label>
+										<input type="text" class="form-control" id="tipoTA1" name="tipoTA1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<label>Valor PI (R$)</label>
+										<input type="number" class="form-control" id="vlrTa1" name="vlrTa1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<label>Execução (Dias)</label>
+										<input type="number" class="form-control" id="execTa1" name="execTa1"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkTa1" name="linkTa1" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa1')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa2" name="nTa2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA2" name="tipoTA2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa2" name="vlrTa2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa2" name="execTa2"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa2" name="linkTa2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa2')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa3" name="nTa3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA3" name="tipoTA3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa3" name="vlrTa3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa3" name="execTa3"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa3" name="linkTa3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa3')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa4" name="nTa4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA4" name="tipoTA4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa4" name="vlrTa4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa4" name="execTa4"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa4" name="linkTa4" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa4')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa5" name="nTa5"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA5" name="tipoTA5"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa5" name="vlrTa5"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa5" name="execTa5"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa5" name="linkTa5" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa5')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa6" name="nTa6"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA6" name="tipoTA6"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa6" name="vlrTa6"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa6" name="execTa6"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa6" name="linkTa6" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa6')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa7" name="nTa7"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA7" name="tipoTA7"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa7" name="vlrTa7"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa7" name="execTa7"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa7" name="linkTa7" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa7')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa8" name="nTa8"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA8" name="tipoTA8"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa8" name="vlrTa8"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa8" name="execTa8"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa8" name="linkTa8" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa8')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa9" name="nTa9"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA9" name="tipoTA9"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa9" name="vlrTa9"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa9" name="execTa9"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa9" name="linkTa9" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa9')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa10" name="nTa10"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA10" name="tipoTA10"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa10" name="vlrTa10"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa10" name="execTa10"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa10" name="linkTa10" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa10')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa11" name="nTa11"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA11" name="tipoTA11"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa11" name="vlrTa11"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa11" name="execTa11"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa11" name="linkTa11" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa11')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Nº TA</label> -->
+										<input type="text" class="form-control" id="nTa12" name="nTa12"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+										<!-- <label>Tipo</label> -->
+										<input type="text" class="form-control" id="tipoTA12" name="tipoTA12"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-2">
+										<!-- <label>Valor PI (R$)</label> -->
+										<input type="number" class="form-control" id="vlrTa12" name="vlrTa12"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-1 col-lg-1">
+										<!-- <label>Execução (Dias)</label> -->
+										<input type="number" class="form-control" id="execTa12" name="execTa12"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-3 col-lg-3">
+										<!-- <label>Link pra download</label> -->
+										<input type="text" class="form-control" id="linkTa12" name="linkTa12" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<!-- <label>Abrir</label><br> -->
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTa12')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<br>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<h3>Notas Fiscais e Medições</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<h4>NF / Med. 01</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf1" name="numNf1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf1" id="tipoNf1">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf1" name="vlrNf1"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf1" name="dtNf1"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag1" name="dtPag1"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag1" name="linkPag1" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag1')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed1" name="numMed1"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni1" name="dtMedIni1"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim1" name="dtMedFim1"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni1" name="dtProtIni1"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim1" name="dtProtFim1"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed1" name="linkMed1" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed1')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 02</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf2" name="numNf2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf2" id="tipoNf2">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf2" name="vlrNf2"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf2" name="dtNf2"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag2" name="dtPag2"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag2" name="linkPag2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag2')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed2" name="numMed2"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni2" name="dtMedIni2"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim2" name="dtMedFim2"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni2" name="dtProtIni2"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim2" name="dtProtFim2"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed2" name="linkMed2" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed2')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 03</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf3" name="numNf3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf3" id="tipoNf3">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf3" name="vlrNf3"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf3" name="dtNf3"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag3" name="dtPag3"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag3" name="linkPag3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag3')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed3" name="numMed3"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni3" name="dtMedIni3"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim3" name="dtMedFim3"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni3" name="dtProtIni3"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim3" name="dtProtFim3"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed3" name="linkMed3" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed3')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 04</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf4" name="numNf4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf4" id="tipoNf4">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf4" name="vlrNf4"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf4" name="dtNf4"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag4" name="dtPag4"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag4" name="linkPag4" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag4')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed4" name="numMed4"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni4" name="dtMedIni4"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim4" name="dtMedFim4"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni4" name="dtProtIni4"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim4" name="dtProtFim4"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed4" name="linkMed4" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed4')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 05</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf5" name="numNf5"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf5" id="tipoNf5">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf5" name="vlrNf5"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf5" name="dtNf5"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag5" name="dtPag5"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag5" name="linkPag5" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag5')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed5" name="numMed5"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni5" name="dtMedIni5"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim5" name="dtMedFim5"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni5" name="dtProtIni5"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim5" name="dtProtFim5"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed5" name="linkMed5" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed5')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 06</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf6" name="numNf6"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf6" id="tipoNf6">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf6" name="vlrNf6"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf6" name="dtNf6"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag6" name="dtPag6"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag6" name="linkPag6" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag6')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed6" name="numMed6"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni6" name="dtMedIni6"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim6" name="dtMedFim6"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni6" name="dtProtIni6"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim6" name="dtProtFim6"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed6" name="linkMed6" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed6')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 07</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf7" name="numNf7"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf7" id="tipoNf7">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf7" name="vlrNf7"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf7" name="dtNf7"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag7" name="dtPag7"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag7" name="linkPag7" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag7')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed7" name="numMed7"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni7" name="dtMedIni7"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim7" name="dtMedFim7"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni7" name="dtProtIni7"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim7" name="dtProtFim7"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed7" name="linkMed7" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed7')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 08</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf8" name="numNf8"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf8" id="tipoNf8">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf8" name="vlrNf8"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf8" name="dtNf8"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag8" name="dtPag8"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag8" name="linkPag8" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag8')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed8" name="numMed8"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni8" name="dtMedIni8"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim8" name="dtMedFim8"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni8" name="dtProtIni8"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim8" name="dtProtFim8"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed8" name="linkMed8" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed8')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 09</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf9" name="numNf9"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf9" id="tipoNf9">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf9" name="vlrNf9"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf9" name="dtNf9"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag9" name="dtPag9"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag9" name="linkPag9" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag9')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed9" name="numMed9"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni9" name="dtMedIni9"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim9" name="dtMedFim9"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni9" name="dtProtIni9"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim9" name="dtProtFim9"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed9" name="linkMed9" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed9')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 10</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf10" name="numNf10"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf10" id="tipoNf10">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf10" name="vlrNf10"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf10" name="dtNf10"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag10" name="dtPag10"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag10" name="linkPag10" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag10')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed10" name="numMed10"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni10" name="dtMedIni10"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim10" name="dtMedFim10"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni10" name="dtProtIni10"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim10" name="dtProtFim10"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed10" name="linkMed10" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed10')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 11</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf11" name="numNf11"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf11" id="tipoNf11">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf11" name="vlrNf11"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf11" name="dtNf11"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag11" name="dtPag11"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag11" name="linkPag11" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag11')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed11" name="numMed11"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni11" name="dtMedIni11"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim11" name="dtMedFim11"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni11" name="dtProtIni11"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim11" name="dtProtFim11"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed11" name="linkMed11" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed11')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 12</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf12" name="numNf12"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf12" id="tipoNf12">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf12" name="vlrNf12"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf12" name="dtNf12"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag12" name="dtPag12"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag12" name="linkPag12" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag12')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed12" name="numMed12"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni12" name="dtMedIni12"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim12" name="dtMedFim12"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni12" name="dtProtIni12"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim12" name="dtProtFim12"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed12" name="linkMed12" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed12')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 13</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf13" name="numNf13"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf13" id="tipoNf13">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf13" name="vlrNf13"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf13" name="dtNf13"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag13" name="dtPag13"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag13" name="linkPag13" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag13')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed13" name="numMed13"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni13" name="dtMedIni13"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim13" name="dtMedFim13"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni13" name="dtProtIni13"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim13" name="dtProtFim13"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed13" name="linkMed13" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed13')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 14</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf14" name="numNf14"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf14" id="tipoNf14">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf14" name="vlrNf14"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf14" name="dtNf14"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag14" name="dtPag14"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag14" name="linkPag14" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag14')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed14" name="numMed14"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni14" name="dtMedIni14"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim14" name="dtMedFim14"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni14" name="dtProtIni14"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim14" name="dtProtFim14"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed14" name="linkMed14" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed14')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 15</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf15" name="numNf15"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf15" id="tipoNf15">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf15" name="vlrNf15"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf15" name="dtNf15"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag15" name="dtPag15"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag15" name="linkPag15" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag15')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed15" name="numMed15"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni15" name="dtMedIni15"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim15" name="dtMedFim15"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni15" name="dtProtIni15"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim15" name="dtProtFim15"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed15" name="linkMed15" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed15')" style="cursor: pointer"></i>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<hr size="3" color="red" margin>
+										<h4>NF / Med. 16</h4>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº NF</label>
+										<input type="text" class="form-control" id="numNf16" name="numNf16"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+										<label>Tipo</label>
+										<select class="form-control" name="tipoNf16" id="tipoNf16">
+											<option value=""></option>
+											<option value="1">Parcial</option>
+											<option value="2">Parcial Final</option>
+											<option value="3">Provisória Reajustada</option>										
+											<option value="4">Provisória Reajustada Final</option>
+											<option value="5">Provisória</option>
+											<option value="6">Provisória Final</option>
+											<option value="7">Reajustada</option>
+											<option value="8">Reajustada Final</option>
+											<option value="9">Reequilíbrio</option>
+											<option value="10">Reequilíbrio Final</option>
+										</select>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Valor (R$)</label>
+										<input type="number" class="form-control" id="vlrNf16" name="vlrNf16"/>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Emissão</label>
+										<input type="date" class="form-control" id="dtNf16" name="dtNf16"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Pagamento</label>
+										<input type="date" class="form-control" id="dtPag16" name="dtPag16"/>
+									</div>									
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkPag16" name="linkPag16" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPag16')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-1">
+										<label>Nº Medição</label>
+										<input type="text" class="form-control" id="numMed16" name="numMed16"/>
+									</div>									
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Ini</label>
+										<input type="date" class="form-control" id="dtMedIni16" name="dtMedIni16"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Período Medição Fim</label>
+										<input type="date" class="form-control" id="dtMedFim16" name="dtMedFim16"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Ini</label>
+										<input type="date" class="form-control" id="dtProtIni16" name="dtProtIni16"/>
+									</div>	
+									<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+										<label>Protocolo/Atesto Fim</label>
+										<input type="date" class="form-control" id="dtProtFim16" name="dtProtFim16"/>
+									</div>								
+									<div class="col-xs-10 col-sm-10 col-md-4 col-lg-2">
+										<label>Link pra download</label>
+										<input type="text" class="form-control" id="linkMed16" name="linkMed16" placeholder="Cole o link aqui"/>
+									</div>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+										<label>Abrir</label><br>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkMed16')" style="cursor: pointer"></i>
+									</div>
+								</div>
+								
+							</div>
+				        </div>						
+					</div>
+				</div>
+
+				<div class="panel panel-success" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> EM OPERAÇÃO - Setor Fiscal</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+                            <div class="row">							
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
+									<label>CNO - Cadastro Nacional de Obras</label>
+									<input type="text" class="form-control" name="numCNO" id="numCNO" placeholder="Número da Matrícula">
+								</div>
+								<div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="LinkCno" name="LinkCno" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('LinkCno')" style="cursor: pointer"></i>
+								</div>
+                            </div>
+				        </div>						
+					</div>
+				</div>
+
+				<div class="panel panel-success" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> EM OPERAÇÃO - Setor Engenharia</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+							<div class="row">
+								<h4>Mobilização</h4>
+							</div>
+                            <div class="row">							
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
+									<label>Iniciou as Atividades?</label>
+									<select class="form-control" name="inicAtv" id="inicAtv">
+										<option value="1">Não</option>
+										<option value="2">Sim</option>
+									</select>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
+									<label>Data Início</label>
+									<input type="date" class="form-control" name="dateIniAtv" id="dateIniAtv">
+								</div>
+							</div>
+							
+							<div class="row">
+								<h4>Desmobilização</h4>
+							</div>
+							<div class="row">							
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
+									<label>Finalizou as Atividades?</label>
+									<select class="form-control" name="fimAtv" id="fimAtv">
+										<option value="1">Não</option>
+										<option value="2">Sim</option>
+									</select>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
+									<label>Data Finalização</label>
+									<input type="date" class="form-control" name="dateFimAtv" id="dateFimAtv">
+								</div>
+							</div>
+				        </div>	
+						<!-- Link Documento -->
+						<div class="form-group documentos" >
+							<h3>Projeto de Dosagem CAUQ</h3>
+							<button type="button" class="btn btn-primary" id="btn_add_documentoCAUQ" onclick="wdkAddChild('documentos_CAUQ')">
+								Adicionar documento
+							</button>
+							<hr />
+														
+							<table tablename="documentos_CAUQ" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+								<thead>
+								<tr>
+									<th style="width: 20%;">Nº Protocolo</th>
+									<th style="width: 20%;">Data Protocolo</th>
+									<th style="width: 30%;">Descrição do Projeto</th>
+									<th style="width: 25%;">Link para Download</th>				                
+									<th style="width: 5%;">Abrir</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<input type="text" class="form-control" id="numProtocoloCAUQ" name="numProtocoloCAUQ" />
+									</td>
+									<td>
+										<input type="date" class="form-control" id="dateProcolocoCAUQ" name="dateProcolocoCAUQ" />
+									</td>
+									<td>
+										<input type="text" class="form-control" id="descProjetoCAUQ" name="descProjetoCAUQ" />
+									</td>
+									<td>
+										<input type="text" class="form-control" id="link_documentoCAUQ" name="link_documentoCAUQ" />
+									</td>
+									<td>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumento(this)" style="cursor: pointer"></i>
+									</td>
+								</tr>
+								</tbody>
+							</table>	
+						</div>					
+					</div>
+				</div>
+
+				
+
+
+				<div class="panel panel-success" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> EM OPERAÇÃO - Setor Gestão de Contratos</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <!-- Link Documento -->
+						<div class="form-group documentos" >
+							<h3>Notificações e Ofícios</h3>
+							<button type="button" class="btn btn-primary" id="btn_add_documentoNOP" onclick="wdkAddChild('documentos_NOP')">
+								Adicionar documento
+							</button>
+							<hr />
+														
+							<table tablename="documentos_NOP" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+								<thead>
+								<tr>
+									<th style="width: 10%;">Tipo</th>
+									<th style="width: 10%;">Nº Documento</th>
+									<th style="width: 10%;">Data Documento</th>
+									<th style="width: 10%;">Remetente</th>
+									<th style="width: 15%;">Assunto</th>
+									<th style="width: 10%;">Data Conhecimento</th>
+									<th style="width: 10%;">Prazo (Dias)</th>
+									<th style="width: 10%;">Data Resposta</th>
+									<th style="width: 10%;">Link</th>				                
+									<th style="width: 5%;">Abrir</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<select class="form-control" name="tipoNOP" id="tipoNOP">
+											<option value=""></option>
+											<option value="1">Notificação</option>
+											<option value="2">Ofício</option>
+											<option value="2">Processo Adm.</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="form-control" id="numNOP" name="numNOP" />
+									</td>
+									<td>
+										<input type="date" class="form-control" id="emissNOP" name="emissNOP" />
+									</td>
+									<td>
+										<input type="text" class="form-control" id="remNOP" name="remNOP" />
+									</td>
+									<td>
+										<input type="text" class="form-control" id="assNOP" name="assNOP" />
+									</td>
+									<td>
+										<input type="date" class="form-control" id="conhecNOP" name="conhecNOP" />
+									</td>
+									<td>
+										<input type="number" class="form-control" id="prazoNOP" name="prazoNOP" />
+									</td>
+									<td>
+										<input type="date" class="form-control" id="respNOP" name="respNOP" />
+									</td>
+									<td>
+										<input type="text" class="form-control" id="link_documentoNOPQ" name="link_documentoNOPQ" />
+									</td>
+									<td>
+										<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumento(this)" style="cursor: pointer"></i>
+									</td>
+								</tr>
+								</tbody>
+							</table>	
+						</div>						
+					</div>
+				</div>
+
+                <!-- FASE 06 -->
+                <!-- ############ ETAPA EM ENCERRAMENTO ############# -->
+				<div class="panel panel-warning" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> EM ENCERRAMENTO</h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+							<div class="row">
+								<h3>Enrerramento Geral</h3>
+							</div>
+                            <div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Ata de encerramento</label>
+									<input type="text" class="form-control" id="numAtaEncerramento" name="numAtaEncerramento"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data Encerramento</label>
+									<input type="date" class="form-control" id="dateAtaEncerramento" name="dateAtaEncerramento"/>
+								</div>						
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkAtaEncerramento" name="linkAtaEncerramento" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkAtaEncerramento')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+							<div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Termo Receb Provisório</label>
+									<input type="text" class="form-control" id="numTermoRecebProvis" name="numTermoRecebProvis"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data Encerramento</label>
+									<input type="date" class="form-control" id="dateTermoRecebProvis" name="dateTermoRecebProvis"/>
+								</div>						
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkTermoRecebProvis" name="linkTermoRecebProvis" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTermoRecebProvis')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+							<div class="row">
+								<h3>Vistoria Final da Obra</h3>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateVistFinalObra" name="dateVistFinalObra"/>
+								</div>	
+							</div>
+							<div class="row">
+								<h3>Relatório de entrega da obra - Relatório "As Built"</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Número</label>
+									<input type="text" class="form-control" id="numAsBuilt" name="numAsBuilt"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateAsBuilt" name="dateAsBuilt"/>
+								</div>						
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkAsBuilt" name="linkAsBuilt" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkAsBuilt')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+							<div class="row">
+								<h3>RGO - Relatóiro Geral da Obra - Final</h3>
+							</div>
+							<div class="row">								
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateRGO" name="dateRGO"/>
+								</div>						
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkRGO" name="linkRGO" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkRGO')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+							<div class="row">
+								<h3>Reequilíbio Econômico Financeiro Final</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Número</label>
+									<input type="text" class="form-control" id="numREFF" name="numREFF"/>
+								</div>		
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateREFF" name="dateREFF"/>
+								</div>	
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Valor</label>
+									<input type="number" class="form-control" id="vlrREFF" name="vlrREFF"/>
+								</div>							
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkREFF" name="linkREFF" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkREFF')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+							<div class="row">
+								<h3>Pleitos / Indenizações</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Tipo</label>
+									<select name="tpPleitoIndeniz" id="tpPleitoIndeniz">
+										<option value=""></option>
+										<option value="1">Apostilamento</option>
+										<option value="2">Reeq. Econômico Financ.</option>
+										<option value="3">Indenização</option>
+										<option value="4">Multa</option>
+									</select>
+								</div>		
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="datePleitoIndeniz" name="datePleitoIndeniz"/>
+								</div>	
+								<div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+									<label>Valor</label>
+									<input type="number" class="form-control" id="vlrPleitoIndeniz" name="vlrPleitoIndeniz"/>
+								</div>							
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkPleitoIndeniz" name="linkPleitoIndeniz" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkPleitoIndeniz')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+
+							<div class="row">
+								<h3>Termo de Recebimento Definitivo</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Nº TR Definitivo</label>
+									<input type="number" class="form-control" id="numTrDefinitivo" name="numTrDefinitivo"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateTrDefinitivo" name="dateTrDefinitivo"/>
+								</div>							
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkTrDefinitivo" name="linkTrDefinitivo" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkTrDefinitivo')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+
+							<div class="row">
+								<h3>Bloqueio Centro de Custo</h3>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateBloqCc" name="dateBloqCc"/>
+								</div>	
+							</div>
+
+							<div class="row">
+								<h3>Alteração de Status Base de Dados</h3>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateAltStatusBd" name="dateAltStatusBd"/>
+								</div>	
+							</div>
+
+							<div class="row">
+								<h3>Baixa ART</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Nº ART</label>
+									<input type="number" class="form-control" id="numART" name="numART"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateART" name="dateART"/>
+								</div>							
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkART" name="linkART" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkART')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+
+							<div class="row">
+								<h3>Atestado de Capacidade Técnica</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Nº Atestado</label>
+									<input type="number" class="form-control" id="numAtestCapTec" name="numAtestCapTec"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateAtestCapTec" name="dateAtestCapTec"/>
+								</div>							
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkAtestCapTec" name="linkAtestCapTec" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkAtestCapTec')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+
+							<div class="row">
+								<h3>Certidão de Acervo Técnico - CAT CREA</h3>
+							</div>
+							<div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Nº CAT</label>
+									<input type="number" class="form-control" id="numCAT" name="numCAT"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateCAT" name="dateCAT"/>
+								</div>							
+								<div class="col-xs-10 col-sm-10 col-md-5 col-lg-2">
+									<label>Link pra download</label>
+									<input type="text" class="form-control" id="linkCAT" name="linkCAT" placeholder="Cole o link aqui"/>
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+									<label>Abrir</label><br>
+									<i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumentoInput('linkCAT')" style="cursor: pointer"></i>
+								</div>						
+							</div>
+
+				        </div>						
+					</div>
+				</div>
+
+
+				<!-- FASE 01 -->
+                <!-- ############ ETAPA ENCERRADO ############# -->
+				<div class="panel panel-danger" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> ENCERRADO - </h3>
+				    </div>
+
+					<div class="panel-body">
+				        <div class="form-group documentos" >
+
+							<div class="row">
+								<h3>Baixa CNPJ - Cadastro Nacional de Pessoa Jurídica</h3>
+							</div>
+                            <div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Nº CNPJ</label>
+									<input type="text" class="form-control" id="numCNPJ" name="numCNPJ"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateCNPJ" name="dateCNPJ"/>
+								</div>												
+							</div>
+
+							<div class="row">
+								<h3>Baixa CNO - Cadastro Nacional de Obras</h3>
+							</div>
+                            <div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Nº CNO</label>
+									<input type="text" class="form-control" id="numCnoBaixa" name="numCnoBaixa"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateCnoBaixa" name="dateCnoBaixa"/>
+								</div>												
+							</div>
+
+							<div class="row">
+								<h3>Encerramento Conta Corrente (Consórcio ou se houver necessidade)</h3>
+							</div>
+                            <div class="row">							
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Nº CNO</label>
+									<input type="text" class="form-control" id="numCCorrenteBaixa" name="numCCorrenteBaixa"/>
+								</div>		
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateCCorrenteBaixa" name="dateCCorrenteBaixa"/>
+								</div>												
+							</div>
+
+							<div class="row">
+								<h3>Balanço Contábil (Consórcio)</h3>
+							</div>
+                            <div class="row">								
+								<div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+									<label>Data</label>
+									<input type="date" class="form-control" id="dateBalancoCont" name="dateBalancoCont"/>
+								</div>												
+							</div>
+
+				        </div>						
+					</div>
+				</div>
+
+
+                <!-- ###################### ARQUIVO GERAL ###################### -->
+                <!-- ###################### ANEXOS GÉNERICOS ###################### -->
+                <div class="panel panel-primary" id="criacaoEmpresa">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Documentos Adicionais</h3>
+				    </div>
+
+					<div class="panel-body">
+						<!-- Link Documento -->
+				        <div class="form-group documentos" >
+                            <h3>Demais Documentos <small> Links para download</small></h3>
+                            <button type="button" class="btn btn-primary" id="btn_add_documento" onclick="wdkAddChild('documentos_links')">
+                                Adicionar documento
+                            </button>
+                            <hr />
+                                                        
+                            <table tablename="documentos_links" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+                                <thead>
+                                <tr>
+                                    <th style="width: 50%;">Descrição</th>
+                                    <th style="width: 45%;">Link</th>				                
+                                    <th style="width: 5%;">Abrir</th>
+                                    <!-- <th style="width: 10%;">Deletar</th>  -->
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><input type="text" class="form-control" id="descricao_documento" name="descricao_documento" /></td>
+                                    <td><input type="text" class="form-control" id="link_documento" name="link_documento" /></td>				                
+                                    <td>
+                                    <i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumento(this)" style="cursor: pointer"></i>
+                                    </td>
+                                    <!-- 
+                                    <td>
+                                    <i class="fluigicon fluigicon-trash fluigicon-sm" onclick="fnWdkRemoveChild(this)" style="cursor: pointer"></i>
+                                    </td>
+                                     -->
+                                </tr>
+                                </tbody>
+                            </table>	
+                        </div>
+                    </div>
+                </div>
+            </form>
+		</div>
+	</body>	
+</html>

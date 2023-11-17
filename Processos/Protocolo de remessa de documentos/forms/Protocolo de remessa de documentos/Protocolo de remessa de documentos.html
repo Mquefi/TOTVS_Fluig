@@ -1,0 +1,199 @@
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- ############################ SCRIPTS-JS ############################# -->		
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="http://fluig.compasa.com.br:8180/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8" src="script.js"></script>
+		<!-- ############################ SCRIPTS-CSS ############################# -->
+		<link type="text/css" rel="stylesheet" href="http://fluig.compasa.com.br:8180/style-guide/css/fluig-style-guide.min.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<title>Protocolo</title>
+	<header>
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="tituloFormulario">Protocolo de remessa de documentos</h1>
+			</div>
+			<div>
+				<hr size="3" color="red" margin>
+			</div>
+		</div>
+	</header>
+	<body onload="main()">
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+			<!-- ######################### INÍCIO DO FORMULÁRIO ######################### -->
+			
+			<!-- ######################### 
+				<div class="panel panel-primary" id="dadosOcultosBd">
+					<div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Ocultos</h3>
+				    </div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3">
+								<label>Número Sol. Fluig</label>
+								<input type="text" class="form-control" name="numSolFluig" id="numSolFluig" readonly>
+							</div>
+							<div class="col-md-3">
+								<label>Vazio</label>
+								<input type="text" class="form-control" name="vazio1" id="vazio1" readonly>
+							</div>
+							<div class="col-md-3">
+								<label>Vazio</label>
+								<input type="text" class="form-control" name="vazio2" id="vazio2" readonly>
+							</div>
+								<div class="col-md-3">
+								<label>Vazio</label>
+								<input type="text" class="form-control" name="vazio3" id="vazio3" readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+			-->
+			
+			<!-- ######################### -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+			        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+			    </div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4">
+							<label>Emissor</label>
+							<input type="text" class="form-control" name="solicitante" id="solicitante" readonly>
+						</div>
+						<div class="col-md-4">
+							<label for="setorOrigem">Local Origem</label>
+							<input
+							    type="zoom"
+										id = "setorOrigem"
+										name="setorOrigem"
+										data-zoom="{
+											'displayKey':'S0_txt_grupo',
+											'datasetId':'ds_aprovadores_secao',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o local',
+											'fields':[
+												{
+												'field':'S0_txt_grupo',
+												'label':'Local',
+												'standard':'true'
+												}
+											]
+										}"
+							/>
+						</div>
+						<div class="col-md-2">
+							<label>Data de Emissão</label>
+							<input type="text" class="form-control" name="DataSolicitacao" id="DataSolicitacao" readonly>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Destinatário</label>
+							<input type="text" class="form-control" name="destinatario" id="destinatario" readonly>
+						</div>
+						<div class="col-md-4">
+							<label for="setorDestino">Local Destino</label>
+							<input
+							    type="zoom"
+										id = "setorDestino"
+										name="setorDestino"
+										data-zoom="{
+											'displayKey':'S0_txt_grupo',
+											'datasetId':'ds_aprovadores_secao',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o local',
+											'fields':[
+												{
+												'field':'S0_txt_grupo',
+												'label':'Local',
+												'standard':'true'
+												}
+											]
+										}"
+							/>
+						</div>
+						<div class="col-md-2">
+							<label>Data de Recebimento</label>
+							<input type="text" class="form-control" name="DataRecebimento" id="DataRecebimento" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- ######################### -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+			        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Itens do Protocolo</h3>
+			    </div>
+				<div class="panel-body">
+			
+					<!-- Link Documento -->
+			        <div class="form-group documentos" >
+			          <h3>Documentos <small> Relação</small></h3>
+			          <button type="button" class="btn btn-primary" id="btn_add_documento" onclick="wdkAddChild('documentosLista')">
+			            Adicionar documento
+			          </button>
+			          <hr />
+		
+			          <table tablename="documentosLista" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+			            <thead>
+			              <tr>
+			                <th style="width: 67%;">Discriminação dos documentos</th>
+			                <th style="width: 8%;">Nº Folhas</th>
+			                <th style="width: 5%;">Revisão</th>
+			                <th style="width: 5%;">Qtde</th>		                
+			                <th style="width: 15%;">Tipo</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td><input type="text" class="form-control" id="discriminacao" name="discriminacao" /></td>
+			                <td><input type="number" class="form-control" id="nFolhas" name="nFolhas" maxlength="4" /></td>
+			                <td><input type="number" class="form-control" id="revisao" name="revisao" maxlength="3"/></td>
+			                <td><input type="number" class="form-control" id="qtde" name="qtde" maxlength="4"/></td>
+			                <td><select class="form-control" name="tipo" id="tipo">
+										<option value="C">Cópia Fisica</option>
+										<option value="CCD">Cópia em CD</option>
+										<option value="CPD">Cópia em PenDrive</option>
+										<option value="OF">Original Físico</option>
+									</select>
+			                <td>
+		                  		<i class="fluigicon fluigicon-trash fluigicon-sm" onclick="fnWdkRemoveChild(this)" style="cursor: pointer" name="trash" id="trash"></i>
+		               		</td>
+			              </tr>
+			            </tbody>
+			          </table>
+			        </div>
+			        <!-- Fim Link Documento -->
+				</div>
+			</div>
+			
+			<!-- ######################### -->
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+			        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Observações no Recebimento</h3>
+			    </div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12">
+							<label for="observacoes">Observações</label><br>
+							<textarea class="form-control" name="campoObs" id="campoObs"></textarea>
+						</div>						
+					</div>
+				</div>
+			</div>			        
+			
+			<!-- ######################### FIM DO FORMULÁRIO ######################### -->
+			
+			</form>
+		</div>
+	</body>
+</html>

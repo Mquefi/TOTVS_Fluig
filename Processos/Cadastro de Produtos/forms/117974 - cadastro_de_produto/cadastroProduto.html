@@ -1,0 +1,392 @@
+<html>
+
+	<head>
+	    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	    <script type="text/javascript" src="/webdesk/vcXMLRPC-mobile.js"></script>
+	    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+	    <script type="text/javascript" src="chamado.js" charset="utf-8"></script>
+	</head>
+
+	<header>
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="tituloFormulario">Cadastro de Produto</h1>
+			</div>
+			<div>
+				<hr size="3" color="red" margin>
+			</div>
+		</div>
+	</header>
+	
+	<body>
+	    <div class="fluig-style-guide">
+	        <form name="form" role="form">
+	            <div class="panel panel-default">	                
+	                <div class="panel-body">
+	                    <input type="hidden" name="fCodigoProduto" id="fCodigoProduto" />
+	                    <!-- inputs hidden para descricao dos dados selecionados no zoom -->
+	                    <!--header empresa-->
+	                    <input type="hidden" name="fName_Emp" id="fName_Emp" />
+	                    <!--PRIMEIRA ETAPA-->
+	                    <input type="hidden" name="fDescri_Grupo" id="fDescri_Grupo" />
+	                    <input type="hidden" name="fDescri_Tipo" id="fDescri_Tipo" />
+	                    <input type="hidden" name="fDescri_Unidade" id="fDescri_Unidade" />
+	                    <input type="hidden" name="fDescri_Local" id="fDescri_Local" />
+	                    <input type="hidden" name="fDescri_SegUnidade" id="fDescri_SegUnidade" />
+	                    <input type="hidden" name="fDescri_Comprador" id="fDescri_Comprador" />
+	
+	                    <!--SEGUNDA ETAPA-->
+	                    <input type="hidden" name="fDescri_PosIPI" id="fDescri_PosIPI" />
+	                    <input type="hidden" name="fDescri_Origem" id="fDescri_Origem" />
+	
+	                    <!--TERCEIRA ETAPA-->
+	                    <input type="hidden" name="fDescri_Estoque" id="fDescri_Estoque" />
+	                    <input type="hidden" name="fDescri_Despesa" id="fDescri_Despesa" />
+	                    <input type="hidden" name="fDescri_Custo" id="fDescri_Custo" />
+	                    <input type="hidden" name="fDescri_Gerencia" id="fDescri_Gerencia" />
+	
+	                    
+	                    <ul class="nav nav-tabs clearfix" role="tablist">
+	                        <li class="active"><a data-toggle="tab" href="#divCadastrais">Cadastrais</a></li>
+	                        <li><a data-toggle="tab" href="#divImpostos">Impostos</a></li>
+	                        <li><a data-toggle="tab" href="#divContabil">Contabil</a></li>
+	                    </ul>
+	                    <!-- ######################### -->
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+						        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+						    </div>
+							<div class="panel-body">
+						
+			                    <div class="tab-content">
+			                        <div id="divCadastrais" class="tab-pane fade in active">
+			                            <div class="row produtoOK hide">
+			                                <div class="alert alert-success showCodProduto" role="alert">
+			                                </div>
+			                            </div>
+			                            <div class="row">
+					                        <div class="col-md-12 form-group tenant">
+					                            <label>Empresa/Filial</label><span class="required text-danger"><strong>*</strong></span>
+					                            <input type="hidden" name="hidden_tenant" id="hidden_tenant" />
+					                            <input type="hidden" name="hidden_filial" id="hidden_filial" />
+					                            <input type="zoom" name="tenant" zoomvalue="chave" data-zoom="{
+													'width': '500px',
+													'zoomvalue':'chave',
+													'displayKey':'chave',
+													'datasetId':'dsEmpresaProtheusSync',
+													'maximumSelectionLength':'1',
+													'placeholder':'Escolha o Grupo de empresa/Filial',
+													'filterValues':'',
+													'fields':[
+														{'field':'codfil', 'label':'Código'},
+														{'field':'descgrp', 'label':'Companhia'},
+														{'field':'descemp', 'label':'Empresa'},
+														{'field':'nomred', 'label':'Filial'},
+					                                    {'field':'filial', 'label':'Codigo Filial'},
+					                                    {'field':'fieldtext', 'label':'Nome Completo'},
+														{'field':'cgc', 'label':'CNPJ'}]
+													}" />
+					                            <p class="help-block has-info"></p>
+					                            <!--<input type="zoom" name="tenant" zoomvalue="GENERAL_ID" data-zoom="{
+												'width': '500px',
+												'zoomvalue':'GENERAL_ID',
+												'displayKey':'hidden_SEARCH_FIELD',
+												'datasetId':'dsEmpresasProtheus',
+												'filterValues':'',
+												'fields':[
+													{'field':'GENERAL_ID', 'label':'Código'},
+													{'field':'NAME', 'label':'Nome'},
+													{'field':'CNPJ', 'label':'CNPJ'}]
+												}" />-->
+					                        </div>
+			                    		</div>
+			                            <div class="row">
+			                                <!--<div class="col-md-2 col-sm-12 col-xs-12">
+													<label for="fCodigo">Código</label><i
+													class="flaticon flaticon-question icon-sm bs-docs-popover-hover"
+													id="popover-B1COD" data-toggle="popover" title=""
+													data-content="Esse campo será preenchido de forma automatica pelo integração com o Protheus"
+													data-original-title="Código do produto"></i>
+													<input type="text" class="form-control" name="fCodigo" id="fCodigo" autocomplete="off" readonly>
+												</div>-->
+			                                <div class="col-md-4 col-sm-12 col-xs-12">
+			                                    <label for="fDescricao">Descricao</label><span class="required text-danger"><strong>*</strong></span>
+			                                    <input type="text" class="form-control bloqueiaCadastrais" name="fDescricao" id="fDescricao" autocomplete="off" Maxlength="60">
+			                                </div>
+			                                <div class="col-md-4 col-sm-12 col-xs-12 fGrupo">
+			                                    <label for="fGrupo">Grupo</label><span class="required text-danger"><strong>*</strong></span>
+			                                    <input type="zoom" name="fGrupo" id="fGrupo" zoomvalue="GENERAL_ID" data-zoom="{
+															'zoomvalue':'GENERAL_ID',
+															'displayKey':'SEARCH_FIELD',
+															'datasetId':'dsGrupoProduto',
+															'filterValues':'',
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o Grupo de Produtos',
+															'fields':[
+																{'field':'GENERAL_ID', 'label':'Grupo'},
+																{'field':'DOCUMENT_TYPE', 'label':'Descrição'}]
+															}" class="form-control bloqueiaCadastrais" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-4 col-sm-12 col-xs-12 fTipo">
+			                                    <label for="fTipo">Tipo</label><span class="required text-danger"><strong>*</strong></span>
+			                                    <input type="zoom" name="fTipo" id="fTipo" zoomvalue="GENERAL_ID" data-zoom="{
+																'zoomvalue':'GENERAL_ID',
+																'displayKey':'SEARCH_FIELD',
+																'datasetId':'dsTipoProduto',
+																'filterValues':'',
+																'maximumSelectionLength':'1',
+																'placeholder':'Escolha o Tipo de Produto',
+																'fields':[
+																	{'field':'GENERAL_ID', 'label':'Tipo'},
+																	{'field':'DOCUMENT_TYPE', 'label':'Descrição'}]
+																}" class="form-control bloqueiaCadastrais" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                            </div>
+			                            <div class="row">
+			                                <div class="col-md-2 col-sm-12 col-xs-12 fUnidade">
+			                                    <label for="fUnidade">Unidade</label><span class="required text-danger"><strong>*</strong></span>
+			                                    <input type="zoom" name="fUnidade" id="fUnidade" zoomvalue="GENERAL_ID" data-zoom="{
+															'zoomvalue':'GENERAL_ID',
+															'displayKey':'SEARCH_FIELD',
+															'datasetId':'dsUnidadeMedida',
+															'filterValues':'',
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha a unidade de medida',
+															'fields':[
+																{'field':'GENERAL_ID', 'label':'Codigo'},
+																{'field':'DOCUMENT_TYPE', 'label':'Descrição'}]
+															}" class="form-control bloqueiaCadastrais" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12 fLocal">
+			                                    <label for="fLocal">Armazem Pad.</label><span class="required text-danger"><strong>*</strong></span>
+			                                    <input type="zoom" name="fLocal" id="fLocal" zoomvalue="GENERAL_ID" data-zoom="{
+																	'zoomvalue':'GENERAL_ID',
+																	'displayKey':'SEARCH_FIELD',
+																	'datasetId':'dsArmazem',
+																	'filterValues':'',
+																	'maximumSelectionLength':'1',
+																	'placeholder':'Escolha o Armazem do Produto',
+																	'fields':[
+																		{'field':'GENERAL_ID', 'label':'Codigo'},
+																		{'field':'DOCUMENT_TYPE', 'label':'Descrição'}]
+																	}" class="form-control bloqueiaCadastrais" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fProdANP">Cod Prod ANP</label>
+			                                    <input type="text" class="form-control bloqueiaCadastrais" name="fProdANP" id="fProdANP" autocomplete="off">
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fSeqANP">Cod Seq ANP</label>
+			                                    <input type="text" class="form-control bloqueiaCadastrais" name="fSeqANP" id="fSeqANP" autocomplete="off">
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12 fSegUnidade">
+			                                    <label for="fSegUnidade">Seg.Un.Medida</label>
+			                                    <input type="zoom" name="fSegUnidade" id="fSegUnidade" zoomvalue="GENERAL_ID" data-zoom="{
+															'zoomvalue':'GENERAL_ID',
+															'displayKey':'SEARCH_FIELD',
+															'datasetId':'dsUnidadeMedida',
+															'filterValues':'',
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha a unidade de medida',
+															'fields':[
+																{'field':'GENERAL_ID', 'label':'Codigo'},
+																{'field':'DOCUMENT_TYPE', 'label':'Descrição'}]
+															}" class="form-control bloqueiaCadastrais" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12 fSegUnidade">
+			                                    <label for="fSegUnidade">Contrato?</label>
+			                                    <select class="form-control bloqueiaCadastrais" name="BI_CONTRA" id="BI_CONTRA">
+			                                        <option value="N">Não</option>
+			                                        <option value="S">Sim</option>
+			                                    </select>
+			                                </div>
+			                            </div>
+			                            <div class="row">
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fFatConv">Fator Conversão</label>
+			                                    <input type="text" class="form-control bloqueiaCadastrais" name="fFatConv" id="fFatConv" autocomplete="off">
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fTipoConv">Tipo Conversão</label>
+			                                    <select class="form-control bloqueiaCadastrais" name="fTipoConv" id=fTipoConv>
+													<option value="M">Multiplicador</option>
+													<option value="D">Divisor</option>
+												</select>
+			                                </div>
+			                                <div class="col-md-4 col-sm-12 col-xs-12 fComprador">
+			                                    <label for="fComprador">Comprador</label>
+			                                    <input type="zoom" name="fComprador" id="fComprador" zoomvalue="GENERAL_ID" data-zoom="{
+														'zoomvalue':'GENERAL_ID',
+														'displayKey':'SEARCH_FIELD',
+														'datasetId':'dsComprador',
+														'filterValues':'',
+														'maximumSelectionLength':'1',
+														'placeholder':'Escolha o comprador',
+														'fields':[
+															{'field':'GENERAL_ID', 'label':'Codigo'},
+															{'field':'DOCUMENT_TYPE', 'label':'Nome'}]
+														}" class="form-control bloqueiaCadastrais" />
+			                                            <input type="text" name="fCompradorId" id="fCompradorId" class="form-control hide">
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                            </div>
+			                        </div>
+			                        
+			                        
+			                        <div id="divImpostos" class="tab-pane fade">
+			                            <div class="row">
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fAliqICMS">Aliq ICMS</label>
+			                                    <input type="text" class="form-control " name="fAliqICMS" id="fAliqICMS" autocomplete="off" maxlength="7" onkeyup="somenteNumeros(this);">
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fAliqIPI">Aliq IPI</label>
+			                                    <input type="text" class="form-control bloqueiaImpostos" name="fAliqIPI" id="fAliqIPI" autocomplete="off" maxlength="7" onkeyup="somenteNumeros(this);">
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fRetemCsll">Retem CSLL</label>
+			                                    <select class="form-control bloqueiaImpostos" name="fRetemCsll" id=fRetemCsll>
+													<option value="1">Sim</option>
+													<option value="2">Não</option>
+												</select>
+			                                </div>
+			                                
+			                                <div class="col-md-4 col-sm-12 col-xs-12 fposIPINCM">
+			                                    <label for="fposIPINCM">Pos.IPI/NCM</label>
+			                                    <input type="hidden" name="codIPINCM" id="codIPINCM">
+			                                    <input type="zoom" name="fposIPINCM" id="fposIPINCM" zoomvalue="GENERAL_ID" data-zoom="{
+			                                        'zoomvalue':'GENERAL_ID',
+			                                        'displayKey':'SEARCH_FIELD',
+			                                        'datasetId':'dsPosIPINCM_Jornalizado',
+			                                        'filterValues':'',
+			                                        'maximumSelectionLength':'1',
+			                                        'placeholder':'Escolha o IPI/NCM',
+			                                        'fields':[
+			                                            {'field':'GENERAL_ID', 'label':'Codigo'},
+			                                            {'field':'DOCUMENT_TYPE', 'label':'Descricao'}]
+			                                        }" class="form-control bloqueiaCadastrais" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                            </div>
+			                            <div class="row">
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fCalcINSS">Calcula INSS</label>
+			                                    <select class="form-control bloqueiaImpostos" name="fCalcINSS" id=fCalcINSS>
+													<option value="S">Sim</option>
+													<option value="N">Não</option>
+												</select>
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fRetemPis">Retem PIS</label>
+			                                    <select class="form-control bloqueiaImpostos" name="fRetemPis" id=fRetemPis>
+													<option value="1">Sim</option>
+													<option value="2">Não</option>
+												</select>
+			                                </div>
+			                                <div class="col-md-2 col-sm-12 col-xs-12">
+			                                    <label for="fRetemCof">Retem COF</label>
+			                                    <select class="form-control bloqueiaImpostos" name="fRetemCof" id=fRetemCof>
+													<option value="1">Sim</option>
+													<option value="2">Não</option>
+												</select>
+			                                </div>
+			                                <div class="col-md-4 col-sm-12 col-xs-12 fOrigem">
+			                                    <label for="fOrigem">Origem</label><span class="required text-danger"><strong>*</strong></span>
+			                                    <input type="zoom" name="fOrigem" id="fOrigem" zoomvalue="GENERAL_ID" data-zoom="{
+			                                        'zoomvalue':'GENERAL_ID',
+			                                        'displayKey':'SEARCH_FIELD',
+			                                        'datasetId':'dsOrigemProduto',
+			                                        'filterValues':'',
+			                                        'maximumSelectionLength':'1',
+			                                        'placeholder':'Escolha a origem do Produto',
+			                                        'fields':[
+			                                            {'field':'GENERAL_ID', 'label':'Codigo'},
+			                                            {'field':'DOCUMENT_TYPE', 'label':'Descrição'}]
+			                                        }" class="form-control " />
+			
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                            </div>
+			                        </div>
+			                        
+			                        
+			                        <div id="divContabil" class="tab-pane fade">
+			                            <div class="row">
+			                                <div class="col-md-3 col-sm-12 col-xs-12 fConta">
+			                                    <label for="fConta">Cta.Estoque</label>
+			                                    <input type="zoom" name="fConta" id="fConta" zoomvalue="CT1_CONTA" data-zoom="{
+			                                            'zoomvalue':'CT1_CONTA',
+			                                            'displayKey':'SEARCH_FIELD',
+														'datasetId':'dsContasContabeis',
+														'maximumSelectionLength':'1',
+														'placeholder':'Escolha a conta de Estoque',
+														'fields':[
+														{'field':'CT1_CONTA','label':'Grupo'},
+														{'field':'CT1_DESC01','label':'Descrição','standard':'true','search':'true'}
+														]}" class="form-control bloqueiaContabeis" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-3 col-sm-12 col-xs-12 fXConta">
+			                                    <label for="fXConta">Cta.Despesas</label>
+			                                    <input type="zoom" name="fXConta" id="fXConta" zoomvalue="CT1_CONTA" data-zoom="{
+			                                        'zoomvalue':'CT1_CONTA',
+			                                        'displayKey':'SEARCH_FIELD',
+														'datasetId':'dsContasContabeis',
+														'maximumSelectionLength':'1',
+														'placeholder':'Escolha a conta de Despesa',
+														'fields':[
+														{'field':'CT1_CONTA','label':'Grupo'},
+														{'field':'CT1_DESC01','label':'Descrição','standard':'true','search':'true'}
+														]}" class="form-control bloqueiaContabeis" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-3 col-sm-12 col-xs-12 fYConta">
+			                                    <label for="fYConta">Cta.Custos</label>
+			                                    <input type="zoom" name="fYConta" id="fYConta" zoomvalue="CT1_CONTA" data-zoom="{
+			                                        'zoomvalue':'CT1_CONTA',
+			                                        'displayKey':'SEARCH_FIELD',
+														'datasetId':'dsContasContabeis',
+														'maximumSelectionLength':'1',
+														'placeholder':'Escolha a conta de Custo',
+														'fields':[
+														{'field':'CT1_CONTA','label':'Grupo'},
+														{'field':'CT1_DESC01','label':'Descrição','standard':'true','search':'true'}
+														]}" class="form-control bloqueiaContabeis" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                                <div class="col-md-3 col-sm-12 col-xs-12 fVConta">
+			                                    <label for="fVConta">Cta.Gerencia</label>
+			                                    <input type="zoom" name="fVConta" id="fVConta" zoomvalue="CT1_CONTA" data-zoom="{
+			                                        'zoomvalue':'CT1_CONTA',
+			                                        'displayKey':'SEARCH_FIELD',
+														'datasetId':'dsContasContabeis',
+														'maximumSelectionLength':'1',
+														'placeholder':'Escolha a conta de Gerencia',
+														'fields':[
+														{'field':'CT1_CONTA','label':'Grupo'},
+														{'field':'CT1_DESC01','label':'Descrição','standard':'true','search':'true'}
+														]}" class="form-control bloqueiaContabeis" />
+			                                    <p class="help-block has-info"></p>
+			                                </div>
+			                            </div>
+			                        </div>
+			                    </div>
+		                    </div>
+	                    </div>
+                	</div>
+                </div>
+	        </form>
+        </div>
+	</body>
+
+</html>

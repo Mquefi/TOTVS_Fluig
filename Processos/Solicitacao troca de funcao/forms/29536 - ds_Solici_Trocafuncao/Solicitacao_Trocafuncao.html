@@ -1,0 +1,712 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>	
+	<script type="text/javascript" src="solicitacao.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+	<script type="text/javascript" src="validate.js" charset="utf-8"></script>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+	<script type="text/javascript" src="functions.js" charset="utf-8"></script>
+	<script type="text/javascript" src="class.solvs.js" charset="utf-8"></script>
+	<script type="text/javascript" src="jquery.fileupload.js" charset="utf-8"></script>
+	<script type="text/javascript" src="jquery.mask.js" charset="utf-8"></script>
+	<script type="text/javascript" src="soapclient.js" charset="utf-8"></script>
+	<script type="text/javascript" src="upload_file_rest.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<input type="hidden" id="hid_form_mod" name="hid_form_mod"/>
+
+	<input type="hidden" id="hid_aprov_1" name="hid_aprov_1" value="F">
+	<input type="hidden" id="hid_aprov_2" name="hid_aprov_2" value="F"/>
+	<input type="hidden" id="hid_aprov_3" name="hid_aprov_3" value="F"/>
+	<input type="hidden" id="hid_aprov_4" name="hid_aprov_4" value="F"/>	
+	<input type="hidden" id="hid_aprov_5" name="hid_aprov_5" value="F"/>
+	<input type="hidden" id="hid_aprov_encarregado" name="hid_aprov_encarregado"/>
+	<input type="hidden" id="hid_aprov_engenharia" name="hid_aprov_engenharia"/>
+	<input type="hidden" id="hid_aprov_RH" name="hid_aprov_RH"/>
+	<input type="hidden" id="hid_aprov_cordEng" name="hid_aprov_cordEng"/>	
+	<input type="hidden" id="hid_aprov_Diretoria" name="hid_aprov_Diretoria"/>
+	<input type="hidden" id="num_ativ" name="num_ativ"/>
+	<input type="hidden" id="nm_user" name="nm_user"/>
+	<input type="hidden" id="hid_user_abertura" name="hid_user_abertura"/>
+	<input type="hidden" id="hid_secao" name="hid_secao"/>
+	<input type="hidden" id="hid_funcao" name="hid_funcao"/>
+	<input type="hidden" id="hid_check_subs" name="hid_check_subs"/>
+	<input type="hidden" id="hid_check_candidato" name="hid_check_candidato"/>
+	<input type="hidden" id="hid_check_func" name="hid_check_func"/>
+	<input type="hidden" id="dt_abertura" name="dt_abertura"/>
+	<input type="hidden" id="hid_filial" name="hid_filial"/>
+	<input type="hidden" id="hid_folders" name="hid_folders"/>
+	<input type="hidden" id="hid_etapa" name="hid_etapa"/>
+	<input type="hidden" id="hid_hash" name="hid_hash"/>	
+	<input type="hidden" id="hid_idSolicitante" name="hid_idSolicitante"/>
+	<input type="hidden" id="hid_checks" name="hid_checks"/>	
+	<input type="hidden" id="hid_objAnexos_S0" 				name="hid_objAnexos_S0"/>
+	<input type="hidden" id="hid_filenames_S0" 				name="hid_filenames_S0"/>
+	
+	<section id="S0_capa" name="S0_capa">	
+		<section id="header">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 id="tituloFormulario">Troca de Função</h1>
+				</div>
+			</div>
+		</section>
+		<section id="body">
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="menuli " id="nav0" onclick="carrega_formulario(0);">
+					<a class="aba0" href="#S0_Abertura" aria-controls="S0_Abertura" role="tab" data-toggle="tab" aria-expanded="true">
+						<span class="fluigicon fluigicon-stats fluigicon-sm"></span> Troca de Função
+					</a>
+				</li>
+				<li class="menuli  " id="nav1" onclick="carrega_formulario(1);">
+					<a class="aba1" href="#S1_aprovacao" aria-controls="S1_aprovacao" role="tab" data-toggle="tab" aria-expanded="true">
+						<span class="fluigicon fluigicon-user-pending fluigicon-sm"></span> Aprovação Encarregado
+					</a>
+				</li>
+				<li class="menuli  " id="nav2" onclick="carrega_formulario(2);">
+					<a class="aba2" href="#S2_aprovacao" aria-controls="S2_aprovacao" role="tab" data-toggle="tab" aria-expanded="true">
+						<span class="fluigicon fluigicon-user-pending fluigicon-sm"></span> Aprovação Engenheiro
+					</a>
+				</li>
+				<li class="menuli  " id="nav3" onclick="carrega_formulario(3);">
+					<a class="aba3" href="#S3_aprovacao" aria-controls="S3_aprovacao" role="tab" data-toggle="tab" aria-expanded="true">
+						<span class="fluigicon fluigicon-user-pending fluigicon-sm"></span> Aprovação RH
+					</a>
+				</li>
+				<li class="menuli  " id="nav4" onclick="carrega_formulario(4);">
+					<a class="aba4" href="#S4_aprovacao" aria-controls="S4_aprovacao" role="tab" data-toggle="tab" aria-expanded="true">
+						<span class="fluigicon fluigicon-user-pending fluigicon-sm"></span> Aprovação CoordenaÃ§Ã£o Engenharia
+					</a>
+				</li>
+				<li class="menuli  " id="nav5" onclick="carrega_formulario(5);">
+					<a class="aba5" href="#S5_aprovacao" aria-controls="S5_aprovacao" role="tab" data-toggle="tab" aria-expanded="true">
+						<span class="fluigicon fluigicon-user-pending fluigicon-sm"></span> Aprovação Diretoria
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane" id="S0_Abertura">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Dados do Processo de Troca de FunÃ§Ã£o</legend>
+						<div class="row">
+							<div class="col-sm-12 col-md-3 valida todos_campos" id="sec_fun_lab_hide"> 
+								<label class="control-label">Sessão:</label>	
+								<input
+										type="zoom"
+										id = "sec_fun"
+										name="sec_fun"
+										data-zoom="{
+											'displayKey':'S0_txt_desc',
+											'datasetId':'ds_secoes_com_aprovadores',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a Sessão',
+											'fields':[
+												{
+												'field':'S0_txt_cod',
+												'label':'ID SeÃ§Ã£o'
+												},{
+												'field':'S0_txt_desc',
+												'label':'Nome',
+												'standard':'true'
+												},
+												{
+												 'field':'hid_id_Enca',
+												 'label':'hid_id_Enca',
+												 'visible':'false'
+												},
+												{
+												 'field':'hid_id_Enge',
+												 'label':'hid_id_Enge',
+												 'visible':'false'
+												},
+												{
+												 'field':'hid_id_RH',
+												 'label':'hid_id_RH',
+												 'visible':'false'
+												},
+												{
+												 'field':'hid_id_Cord',
+												 'label':'hid_id_Cord',
+												 'visible':'false'
+												},
+												{
+												 'field':'hid_id_Dire',
+												 'label':'hid_id_Dire',
+												 'visible':'false'
+												},
+												{
+												 'field':'S0_txt_enca',
+												 'label':'S0_txt_enca',
+												 'visible':'false'
+												},
+												{
+												 'field':'S0_txt_eng',
+												 'label':'S0_txt_enge',
+												 'visible':'false'
+												},
+												{
+												 'field':'S0_txt_rh',
+												 'label':'S0_txt_rh',
+												 'visible':'false'
+												},
+												{
+												 'field':'S0_txt_cordeng',
+												 'label':'S0_txt_cordeng',
+												 'visible':'false'
+												},
+												{
+												 'field':'S0_txt_dire',
+												 'label':'S0_txt_dire',
+												 'visible':'false'
+												}
+											]
+										}" 
+									/>
+									
+									
+									
+									
+									
+								<!--<select class="form-control aba1 S0" name="sec_fun" id="sec_fun" onchange="busca_aprovs(this.value);">
+									<option value="0">Selecione uma opção</option>
+									<option value="01.01.01.01.002">01.01.01.01.002 - COMERCIAL</option>
+									<option value="01.01.01.01.003">01.01.01.01.003 - ASFALTO</option>
+									<option value="01.01.01.01.004">01.01.01.01.004 - SECRETARIA EXECUTIVA</option>
+									<option value="01.01.01.01.005">01.01.01.01.005 - CONTROLADORIA</option>
+									<option value="01.01.02.01.001">01.01.02.01.001 - OPERAÃ‡Ã•ES</option>
+									<option value="01.01.02.01.002">01.01.02.01.002 - FINANCEIRO</option>
+									<option value="01.01.02.01.003">01.01.02.01.003 - RECURSOS HUMANOS</option>
+									<option value="01.01.02.01.004">01.01.02.01.004 - FISCAL</option>
+									<option value="01.01.02.01.005">01.01.02.01.005 - CONTABILIDADE</option>
+									<option value="01.01.02.01.006">01.01.02.01.006 - PATRIMONIO</option>
+									<option value="01.01.02.01.007">01.01.02.01.007 - C.E.Q</option>
+									<option value="01.01.02.01.008">01.01.02.01.008 - SECRETARIA GERAL</option>
+									<option value="01.01.02.01.009">01.01.02.01.009 - JURIDICO</option>
+									<option value="01.01.02.01.010">01.01.02.01.010 - T.I.</option>
+									<option value="01.01.03.01.001">01.01.03.01.001 - SUPERVISÃƒO DE OBRAS</option>
+									<option value="01.01.03.01.002">01.01.03.01.002 - PLANEJAMENTO E ACOMPANHAMENTO DE OBRAS</option>
+									<option value="01.01.04.01.001">01.01.04.01.001 - Q.S.M.S</option>
+									<option value="01.02.01.01.001">01.02.01.01.001 - ADMINISTRAÃ‡ÃƒO</option>
+									<option value="01.02.01.01.002">01.02.01.01.002 - PRODUÃ‡ÃƒO</option>
+									<option value="01.03.01.01.006">01.03.01.01.006 - MICRO REVESTIMENTO</option>
+									<option value="01.03.01.01.099">01.03.01.01.099 - OBRAS ENCERRADAS - UN IBIPORÃƒ</option>
+									<option value="01.03.01.02.001">01.03.01.02.001 - ADMINISTRAÃ‡ÃƒO LOCAL - ARAPOTI</option>
+									<option value="01.03.01.02.006">01.03.01.02.006 - CT 67/2018  PM CARAMBEI 073</option>
+									<option value="01.03.01.02.007">01.03.01.02.007 - CT 079/2018 - CREMEP-3 CAMP.GERAIS - 076</option>
+									<option value="01.03.01.02.008">01.03.01.02.008 - CT 083/2018 - COP-04 CAMPOS GERAIS - 080</option>
+									<option value="01.03.01.03.099">01.03.01.03.099 - OBRAS ENCERRADAS - UN FRANCISCO BELTRÃƒO</option>
+									<option value="01.03.01.04.001">01.03.01.04.001 - ADMINISTRAÃ‡ÃƒO LOCAL - CASCAVEL</option>
+									<option value="01.03.01.04.002">01.03.01.04.002 - CT 271/2012 - COMPASA/VIA VENETO - 049</option>
+									<option value="01.03.01.04.003">01.03.01.04.003 - CT 087/2018 - CREMEP-12 OESTE - 082</option>
+									<option value="01.03.01.04.004">01.03.01.04.004 - CT 88/2018 COP-15 OESTE - 083</option>
+									<option value="01.03.01.04.005">01.03.01.04.005 - CT 069/2018 - COP 16 OESTE DER - 075</option>
+									<option value="01.03.01.04.099">01.03.01.04.099 - OBRAS ENCERRADAS - UN CASCAVEL</option>
+									<option value="01.03.01.05.001">01.03.01.05.001 - ADMINISTRACAO LOCAL - LONDRINA</option>
+									<option value="01.03.01.05.003">01.03.01.05.003 - CT 086/2018 - CREMEP-06 NORTE - 081</option>
+									<option value="01.03.01.08.002">01.03.01.08.002 - CT 093/2018 - CREMEP-10 NORTE - 084</option>									
+									<option value="01.03.01.05.004">01.03.01.05.004 - CT 106/2018 - CREMEP-05 NORTE - 085</option>
+									<option value="01.03.01.08.003">01.03.01.08.003 - CT 025/2019 - CREMEP11 - NOROESTE - 088</option>
+									<option value="01.03.01.06.001">01.03.01.06.001 - CT 080/2018 - CREMEP-02 LESTE - 077</option>
+									<option value="01.03.01.06.002">01.03.01.06.002 - CT 082/2018 - COP-02 LESTE - 079</option>
+									<option value="01.03.01.06.003">01.03.01.06.003 - CT 081/2018 - CREMEP-01 LESTE - 078</option>
+									<option value="01.03.01.07.001">01.03.01.07.001 - ADMINISTRAÃ‡ÃƒO LOCAL - PITANGA</option>
+									<option value="01.03.01.07.002">01.03.01.07.002 - CT 134/2018 - CONS. COMP/GAIS/VIA - 086</option>
+									<option value="01.03.01.09.002">01.03.01.09.002 - CT 131/2014 BRUSQUE A BR 101 - OBRA 60</option>
+									<option value="01.03.02.01.001">01.03.02.01.001 - ADMINISTRAÃ‡ÃƒO LOCAL - COXILHA RICA</option>
+									<option value="01.03.02.01.002">01.03.02.01.002 - CT 099/2017 - COXILHA RICA - 070</option>
+									<option value="01.04.03.01.001">01.04.03.01.001 - INDIRETO COXILHA</option>
+									<option value="01.04.03.01.002">01.04.03.01.002 - BRITAGEM COXILHA</option>
+									<option value="01.04.03.01.003">01.04.03.01.003 - USINA COXILHA</option>
+									<option value="01.04.03.01.098">01.04.03.01.098 - C.E.Q. SANTA CATARINA</option>
+									<option value="02.01.01.01.001">02.01.01.01.001 - INDIRETO</option>
+									<option value="02.01.01.01.002">02.01.01.01.002 - BRITAGEM ARAPOTI</option>
+									<option value="02.01.01.01.003">02.01.01.01.003 - USINA ARAPOTI</option>
+									<option value="01.03.01.04.006">01.03.01.04.006 - USINA TOLEDO</option>
+									<option value="01.03.01.08.001">01.03.01.08.001 - ADMINISTRAÃ‡ÃƒO LOCAL - CIANORTE</option>
+									<option value="01.03.01.08.004">01.03.01.08.004 - USINA DE CIANORTE</option>
+									<option value="01.03.01.10.001">01.03.01.10.001 - ADMINISTRAÃ‡ÃƒO LOCAL - MARINGÃ�</option>
+									<option value="01.03.01.08.005">01.03.01.08.005 - CT 005/2020 - COP 14 - NOROESTE - 090</option>
+									<option value="01.03.01.08.006">01.03.01.08.006 - CT 009/2020 - COP 12 - NOROESTE Â– 094</option>
+									<option value="01.03.01.10.002">01.03.01.10.002 - CT 142/2018 - CREMEP-08 - NOROESTE Â– 087</option>
+									<option value="01.03.01.10.004">01.03.01.10.004 - USINA DE MARINGA</option>
+									<option value="01.03.01.11.002">01.03.01.10.004 - CT 24.137 ESTAÇÃO TUBO PORTÃƒO - OBRA 95</option>
+									<option value="01.03.01.10.003">01.03.01.10.003 - CT 004/2020 - COP 10 - NOROESTE - 089</option>
+									<option value="01.03.01.05.006">01.03.01.05.006 - CT 007/2020 - COP 08 - NORTE - 092</option>
+									<option value="01.03.01.01.001">01.03.01.01.001 - CT 134/2018 - CT 134/2018 - MATO RICO - 086</option>
+									<option value="01.03.01.05.007">01.03.01.05.007 - CT 006/2020 - COP-07 NORTE - 091</option>
+									<option value="01.03.01.05.008">01.03.01.05.008 - LONDRINA</option>
+									<option value="01.03.01.11.003">01.03.01.11.003 - LINHA VERDE LOTE 3.1 - OBRA 096</option>
+									<option value="01.01.01.01.001">01.01.01.01.001 - ADMINISTRAÇÃO LOCAL - CONSÃ“RCIO CONSTRUTOR</option>
+									<option value="01.01.01.01.002">01.01.01.01.001 - CT 026/2020 - CONSÃ“RCIO CONSTRUTOR PR 323 - 097</option>
+									<option value="01.03.02.04.001">01.03.02.04.001 - ADMINISTRAÇÃO LOCAL - MATO GROSSO DO SUL</option>
+									<option value="01.03.01.02.001">01.03.01.02.001 - ADMINISTRAÇÃO LOCAL - CAMPOS GERAIS</option>
+									
+								</select>	-->										
+							</div>	
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 valida todos_campos">
+								<label class="control-label">Nome Solicitante:</label>
+								<input type="text" class="form-control aba1 S0" name="sec_fun_user" id="sec_fun_user" readonly />
+							</div>
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 required">
+								<label class="control-label">Cargo do Solicitante:</label>
+								<input type="text" class="form-control aba1 S0" name="set_sol" id="set_sol"  />
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-sm-12 col-md-3 required">
+							<label class="control-label">Função Atual do Funcionário:</label>
+								<select class="form-control aba1 S0" name="func_fun" id="func_fun" onchange="preenche_funcao(this.value);">
+									<option value="0"></option>
+									<option value="ADVOGADO">ADVOGADO</option>
+									<option value="AJUDANTE_DE_LABORATORIO">AJUDANTE DE LABORATORIO</option>
+									<option value="AJUDANTE_MECANICO">AJUDANTE MECANICO</option>
+									<option value="AJUDANTE_DE_TOPOGRAFIA">AJUDANTE DE TOPOGRAFO</option>
+									<option value="ANALISTA_COMERCIAL">ANALISTA COMERCIAL</option>
+									<option value="ANALISTA_CONTABIL">ANALISTA CONTABIL</option>
+									<option value="ANALISTA_DEPARTAMENTO_PESSOAL">ANALISTA DEPARTAMENTO PESSOAL</option>
+									<option value="ANALISTA_FINANCEIRO">ANALISTA FINANCEIRO</option>
+									<option value="ANALISTA_FISCAL">ANALISTA FISCAL</option>
+									<option value="ANALISTA_LOGISTICA">ANALISTA LOGISTICA</option>
+									<option value="ANALISTA_SISTEMAS">ANALISTA SISTEMAS</option>
+									<option value="ANALISTA_DE_CUSTO">ANALISTA DE CUSTO</option>
+									<option value="APONTADOR">APONTADOR</option>
+									<option value="APRENDIZ">APRENDIZ</option>
+									<option value="APROPRIADOR">APROPRIADOR</option>
+									<option value="ARQUIVISTA">ARQUIVISTA</option>
+									<option value="ARMADOR">ARMADOR</option>
+									<option value="ASSISTENTE_ADMINISTRATIVO_I">ASSISTENTE ADMINISTRATIVO I</option>
+									<option value="ASSISTENTE_ADMINISTRATIVO_II">ASSISTENTE ADMINISTRATIVO II</option>
+									<option value="ASSISTENTE_ADMINISTRATIVO_III">ASSISTENTE ADMINISTRATIVO III</option>
+									<option value="ASSISTENTE_DE_COMPRAS">ASSISTENTE DE COMPRAS</option>
+									<option value="ASSISTENTE_DE_CUSTOS">ASSISTENTE DE CUSTOS</option>
+									<option value="ASSISTENTE_DE_DEPARTAMENTO_PESSOAL">ASSISTENTE DE DEPARTAMENTO PESSOAL</option>
+									<option value="ASSISTENTE_TECNICO_I">ASSISTENTE TECNICO I</option>
+									<option value="ASSISTENTE_TECNICO_II">ASSISTENTE TECNICO II</option>
+									<option value="ASSISTENTE_TECNICO_DE_ENGENHARIA">ASSISTENTE TECNICO DE ENGENHARIA</option>
+									<option value="AUXILIAR_ADMINISTRATIVO">AUXILIAR ADMINISTRATIVO</option>
+									<option value="AUXILIAR_DE_ALMOXARIFADO">AUXILIAR DE ALMOXARIFADO</option>
+									<option value="AUXILIAR_DE_COMPRAS">AUXILIAR DE COMPRAS</option>
+									<option value="AUXILIAR_DE_EXECUCAO">AUXILIAR DE EXECUCAO</option>
+									<option value="AUXILIAR_DE_LIMPEZA">AUXILIAR DE LIMPEZA</option>
+									<option value="AUXILIAR_DE_SINALIZACAO">AUXILIAR DE SINALIZACAO</option>
+									<option value="AUXILIAR_DE_FATURAMENTO">AUXILIAR DE FATURAMENTO</option>
+									<option value="AUXILIAR_FISCAL">AUXILIAR FISCAL</option>
+									<option value="AUXILIAR_JURIDICO">AUXILIAR JURIDICO</option>
+									<option value="AUXILIAR_DE_LABORATORIO">AUXILIAR DE LABORATORIO</option>
+									<option value="AUXILIAR_DE_LUBRIFICACAO">AUXILIAR DE LUBRIFICACAO</option>
+									<option value="AUXILIAR_DE_MANUTENÇÃO">AUXILIAR DE MANUTENCAO</option>
+									<option value="AUXILIAR_DE_PRODUCAO">AUXILIAR DE PRODUCAO</option>
+									<option value="AUXILIAR_DE_PRODUCAO_USINA">AUXILIAR DE PRODUCAO USINA</option>
+									<option value="AUXILIAR_DE_SERVICOS_GERAIS">AUXILIAR DE SERVICOS GERAIS</option>
+									<option value="AUXILIAR_DE_TOPOGRAFIA">AUXILIAR DE TOPOGRAFIA</option>
+									<option value="AUXILIAR_TECNICO_DE_ENGENHARIA">AUXILIAR TECNICO DE ENGENHARIA</option>
+									<option value="CARPINTEIRO">CARPINTEIRO </option>
+									<option value="COMPRADOR">COMPRADOR</option>
+									<option value="CONTROLADOR_DE_MANUTENCAO">CONTROLADOR DE MANUTENCAO</option>
+									<option value="ELETRICISTA">ELETRICISTA</option>
+									<option value="ELETRICISTA_INDUSTRIAL">ELETRICISTA INDUSTRIAL</option>									
+									<option value="ENCARREGADO_ADMINISTRATIVO">ENCARREGADO ADMINISTRATIVO</option>
+									<option value="ENCARREGADO GERAL">ENCARREGADO GERAL</option>
+									<option value="ENCARREGADO_DE_BRITAGEM">ENCARREGADO DE BRITAGEM</option>
+									<option value="ENCARREGADO_DE_CUSTO">ENCARREGADO DE CUSTO</option>
+									<option value="ENCARREGADO_DE_OBRAS">ENCARREGADO DE OBRAS</option>
+									<option value="ENCARREGADO_DE_LUBRIFICACAO">ENCARREGADO DE LUBRIFICACAO</option>
+									<option value="ENCARREGADO_DE_MANUTENCAO">ENCARREGADO DE MANUTENCAO</option>
+									<option value="ENCARREGADO_DE_MECANICA_DE_EQUIPAMENTOS_PESADOS">ENCARREGADO DE MECANICA DE EQUIPAMENTOS PESADOS</option>
+									<option value="ENCARREGADO_DE_MICRO_USINA">ENCARREGADO DE MICRO USINA</option>
+									<option value="ENCARREGADO_DE_PAVIMENTACAO">ENCARREGADO DE PAVIMENTACAO</option>
+									<option value="ENCARREGADO_DE_PRODUCAO">ENCARREGADO DE PRODUCAO</option>
+									<option value="ENCARREGADO_SETOR_TECNICO">ENCARREGADO SETOR TECNICO</option>
+									<option value="ENCARREGADO_DE_TERRAPLENAGEM">ENCARREGADO DE TERRAPLENAGEM</option>
+									<option value="ENCARREGADO_DE_TOPOGRAFIA">ENCARREGADO DE TOPOGRAFIA</option>
+									<option value="ENCARREGADO_DE_USINA">ENCARREGADO DE USINA</option>
+									<option value="ENGENHEIRO_CIVIL">ENGENHEIRO CIVIL</option>
+									<option value="ENGENHEIRO_SEGURANCA_DO_TRABALHO">ENGENHEIRO DE SEGURANCA DO TRABALHO</option>
+									<option value="ESTAGIARIO_(A)">ESTAGIARIO (A)</option>
+									<option value="FEITOR_DE_BRITAGEM">FEITOR DE BRITAGEM</option>
+									<option value="FEITOR_DE_DRENAGEM">FEITOR DE DRENAGEM</option>
+									<option value="FEITOR_DE_SINALIZACAO">FEITOR DE SINALIZACAO</option>
+									<option value="FEITOR_DE_TERRAPLENAGEM">FEITOR DE TERRAPLENAGEM</option>
+									<option value="FEITOR_MICRO_ASFALTO">FEITOR MICRO ASFALTO</option>
+									<option value="FEITOR_PAVIMENTACAO">FEITOR PAVIMENTACAO</option>
+									<option value="FEITOR_SERVICOS_GERAIS_">FEITOR SERVICOS GERAIS </option>									
+									<option value="GREIDISTA">GREIDISTA</option>
+									<option value="GREIDISTA II">GREIDISTA II</option>
+									<option value="GREIDISTA III">GREIDISTA III</option>
+									<option value="GERENTE_DE_EQUIPAMENTOS">GERENTE DE EQUIPAMENTOS</option>
+									<option value="INSPETOR_DE_MANUTENCAO">INSPETOR DE MANUTENCAO</option>
+									<option value="LABORATORISTA">LABORATORISTA</option>
+									<option value="LIDER DE BRITAGEM">LIDER DE BRITAGEM</option>
+									<option value="LIDER_DE_USINA">LIDER DE USINA</option>
+									<option value="LIDER_DE_EQUIPE">LIDER DE EQUIPE</option>
+									<option value="LUBRIFICADOR">LUBRIFICADOR</option>
+									<option value="LUBRIFICADOR INDUSTRIAL">LUBRIFICADOR INDUSTRIAL</option>
+									<option value="MARROEIRO">MARROEIRO</option>
+									<option value="MARTELETEIRO">MARTELETEIRO</option>
+									<option value="MECANICO_DE_EQUIPAMENTOS_PESADOS">MECANICO DE EQUIPAMENTOS PESADOS</option>
+									<option value="MECANICO_INDUSTRIAL">MECANICO INDUSTRIAL</option>
+									<option value="MECANICO_DE_MANUTENCAO">MECANICO DE MANUTENCAO</option>
+									<option value="MOTORISTA_CAMINHAO_ESPARGIDOR">MOTORISTA CAMINHAO ESPARGIDOR</option>
+									<option value="MOTORISTA_CAMINHAO_PIPA">MOTORISTA CAMINHAO PIPA</option>
+									<option value="MOTORISTA_CARRETA">MOTORISTA CARRETA</option>
+									<option value="MOTORISTA_CARRETA_PRANCHA">MOTORISTA CARRETA PRANCHA</option>
+									<option value="MOTORISTA_COMBOIO_">MOTORISTA COMBOIO </option>
+									<option value="MOTORISTA_MICRO_USINA">MOTORISTA MICRO USINA</option>
+									<option value="MOTORISTA_VEICULOS_LEVES">MOTORISTA VEICULOS LEVES</option>
+									<option value="MOTORISTA_VEICULOS_MEDIOS">MOTORISTA VEICULOS MEDIOS</option>
+									<option value="MOTORISTA_VEICULOS_PESADOS">MOTORISTA VEICULOS PESADOS</option>
+									<option value="MOTORISTA_FRETE">MOTORISTA FRETE</option>
+									<option value="MOTORISTA_DE_ONIBUS">MOTORISTA DE ONIBUS</option>						
+									<option value="NIVELADOR">NIVELADOR</option>
+									<option value="OPERADOR_ROLO_COMPACTADOR">OPERADOR ROLO COMPACTADOR</option>
+									<option value="OPERADOR_BALANCA">OPERADOR BALANCA</option>
+									<option value="OPERADOR_BRITAGEM">OPERADOR BRITAGEM</option>
+									<option value="OPERADOR_CALDEIRA">OPERADOR CALDEIRA</option>
+									<option value="OPERADOR_DE_FRESADORA_I">OPERADOR DE FRESADORA I</option>
+									<option value="OPERADOR_DE_FRESADORA_II">OPERADOR DE FRESADORA II</option>
+									<option value="OPERADOR_DE_FRESADORA_III">OPERADOR DE FRESADORA III</option>
+									<option value="OPERADOR_DE_ROLO">OPERADOR DE ROLO</option>
+									<option value="OPERADOR_DE_USINA">OPERADOR DE USINA</option>
+									<option value="OPERADOR_ESCAVADEIRA">OPERADOR ESCAVADEIRA</option>
+									<option value="OPERADOR_ESPARGIDOR">OPERADOR ESPARGIDOR</option>
+									<option value="OPERADOR_FORA_DE_ESTRADA">OPERADOR FORA DE ESTRADA</option>
+									<option value="OPERADOR_FRESADORA">OPERADOR FRESADORA</option>
+									<option value="OPERADOR_MAQUINA_INTERCOSTAL">OPERADOR MAQUINA INTERCOSTAL</option>
+									<option value="OPERADOR_MESA_ACABADORA">OPERADOR MESA ACABADORA</option>
+									<option value="OPERADOR_MICRO_ACABADORA">OPERADOR MICRO ACABADORA</option>
+									<option value="OPERADOR_MICRO_ASFALTO">OPERADOR MICRO ASFALTO</option>
+									<option value="OPERADOR_MICRO_USINA">OPERADOR MICRO USINA</option>
+									<option value="OPERADOR_MINICARREGADEIRA">OPERADOR MINICARREGADEIRA</option>
+									<option value="OPERADOR_MOTONIVELADORA">OPERADOR MOTONIVELADORA</option>
+									<option value="OPERADOR_MULTIFUNCIONAL">OPERADOR MULTIFUNCIONAL</option>
+									<option value="OPERADOR_MUNCK">OPERADOR MUNCK</option>
+									<option value="OPERADOR_PA_CARREGADEIRA">OPERADOR PA-CARREGADEIRA</option>
+									<option value="OPERADOR_PAINEL_BRITA">OPERADOR PAINEL BRITA</option>
+									<option value="OPERADOR_PRODUCAO">OPERADOR PRODUCAO</option>
+									<option value="OPERADOR_RETROESCAVADEIRA">OPERADOR RETROESCAVADEIRA</option>
+									<option value="OPERADOR_ROLO_COMPACTADOR">OPERADOR ROLO COMPACTADOR</option>
+									<option value="OPERADOR_ROLO_PNEUS">OPERADOR ROLO PNEUS</option>
+									<option value="OPERADOR_ROLO_PNEUS_I">OPERADOR ROLO PNEUS I</option>
+									<option value="OPERADOR_ROLO_PNEUS_II">OPERADOR ROLO PNEUS II</option>
+									<option value="OPERADOR_ROLO_PNEUS_III">OPERADOR ROLO PNEUS III</option>
+									<option value="OPERADOR_ROLO_PNEUS_IV">OPERADOR ROLO PNEUS IV</option>
+									<option value="OPERADOR_TRATOR_AGRICOLA">OPERADOR TRATOR AGRICOLA</option>
+									<option value="OPERADOR_USINA">OPERADOR USINA</option>
+									<option value="OPERADOR_USINA_SOLO">OPERADOR USINA SOLO</option>
+									<option value="OPERADOR_VIBROACABADORA">OPERADOR VIBROACABADORA</option>
+									<option value="OPERADOR_TRATOR_DE_ESTEIRA">OPERADOR TRATOR DE ESTEIRA</option>
+									<option value="OPERADOR_TRATOR_DE_PNEUS">OPERADOR TRATOR DE PNEUS</option>
+									<option value="OPERADOR_MOTOSSERRA">OPERADOR MOTOSSERRA</option>
+									<option value="PEDREIRO">PEDREIRO</option>
+									<option value="PORTEIRO">PORTEIRO</option>
+									<option value="RASTELEIRO">RASTELEIRO</option>
+									<option value="RECEPCIONISTA">RECEPCIONISTA</option>
+									<option value="SERVENTE">SERVENTE</option>
+									<option value="SERVENTE_DE_LIMPEZA">SERVENTE DE LIMPEZA</option>
+									<option value="SOLDADOR">SOLDADOR</option>
+									<option value="SUPERVISOR_ADMINISTRATIVO">SUPERVISOR ADMINISTRATIVO</option>
+									<option value="SUPERVISOR_DE_FROTA">SUPERVISOR DE FROTA</option>
+									<option value="SUPERVISOR_DE_SMS">SUPERVISOR DE SMS</option>
+									<option value="TECNICO_DE_MEIO_AMBIENTE">TECNICO DE MEIO AMBIENTE</option>
+									<option value="TECNICO_SEGURANCA_DO_TRABALHO">TECNICO SEGURANCA DO TRABALHO</option>
+									<option value="TOPOGRAFO">TOPOGRAFO</option>
+									<option value="VIGIA">VIGIA</option>
+								</select>
+							</div>
+							<div class="col-sm-12 col-md-3 required">
+								<label>Salário Atual</label>																				
+								<input type="text" class="form-control aba1 S0" name="info_cand_4" mask="#00.000.000.000.000,00">										
+							</div>
+							<div class="col-sm-12 col-md-3 required">
+								<label>Nome</label>																				
+								<input type="text" class="form-control aba1 S0" name="info_cand_3">										
+							</div>
+							<div class="col-sm-12 col-md-3 required">
+								<label>Matrícula</label>																				
+								<input type="text" class="form-control aba1 S01" name="info_cand_2">										
+							</div>	
+						</div>
+						<br>						
+						<div class="row">
+								<div class="col-sm-12 col-md-6 required">
+							<label class="control-label">Função Pretendida:</label>
+								<select class="form-control aba1 S0" name="func_pre" id="func_pre" onchange="preenche_pre(this.value);">
+									<option value="0"></option>
+									<option value="ADVOGADO">ADVOGADO</option>
+									<option value="AJUDANTE_DE_LABORATORIO">AJUDANTE DE LABORATORIO</option>
+									<option value="AJUDANTE_MECANICO">AJUDANTE MECANICO</option>
+									<option value="AJUDANTE_DE_TOPOGRAFIA">AJUDANTE DE TOPOGRAFO</option>
+									<option value="ANALISTA_COMERCIAL">ANALISTA COMERCIAL</option>
+									<option value="ANALISTA_CONTABIL">ANALISTA CONTABIL</option>
+									<option value="ANALISTA_DEPARTAMENTO_PESSOAL">ANALISTA DEPARTAMENTO PESSOAL</option>
+									<option value="ANALISTA_FINANCEIRO">ANALISTA FINANCEIRO</option>
+									<option value="ANALISTA_FISCAL">ANALISTA FISCAL</option>
+									<option value="ANALISTA_LOGISTICA">ANALISTA LOGISTICA</option>
+									<option value="ANALISTA_SISTEMAS">ANALISTA SISTEMAS</option>
+									<option value="ANALISTA_DE_CUSTO">ANALISTA DE CUSTO</option>
+									<option value="APONTADOR">APONTADOR</option>
+									<option value="APRENDIZ">APRENDIZ</option>
+									<option value="APROPRIADOR">APROPRIADOR</option>
+									<option value="ARQUIVISTA">ARQUIVISTA</option>
+									<option value="ARMADOR">ARMADOR</option>
+									<option value="ASSISTENTE_ADMINISTRATIVO_I">ASSISTENTE ADMINISTRATIVO I</option>
+									<option value="ASSISTENTE_ADMINISTRATIVO_II">ASSISTENTE ADMINISTRATIVO II</option>
+									<option value="ASSISTENTE_ADMINISTRATIVO_III">ASSISTENTE ADMINISTRATIVO III</option>
+									<option value="ASSISTENTE_DE_COMPRAS">ASSISTENTE DE COMPRAS</option>
+									<option value="ASSISTENTE_DE_CUSTOS">ASSISTENTE DE CUSTOS</option>
+									<option value="ASSISTENTE_DE_DEPARTAMENTO_PESSOAL">ASSISTENTE DE DEPARTAMENTO PESSOAL</option>
+									<option value="ASSISTENTE_TECNICO_I">ASSISTENTE TECNICO I</option>
+									<option value="ASSISTENTE_TECNICO_II">ASSISTENTE TECNICO II</option>
+									<option value="ASSISTENTE_TECNICO_DE_ENGENHARIA">ASSISTENTE TECNICO DE ENGENHARIA</option>
+									<option value="AUXILIAR_ADMINISTRATIVO">AUXILIAR ADMINISTRATIVO</option>
+									<option value="AUXILIAR_DE_ALMOXARIFADO">AUXILIAR DE ALMOXARIFADO</option>
+									<option value="AUXILIAR_DE_COMPRAS">AUXILIAR DE COMPRAS</option>
+									<option value="AUXILIAR_DE_EXECUCAO">AUXILIAR DE EXECUCAO</option>
+									<option value="AUXILIAR_DE_LIMPEZA">AUXILIAR DE LIMPEZA</option>
+									<option value="AUXILIAR_DE_SINALIZACAO">AUXILIAR DE SINALIZACAO</option>
+									<option value="AUXILIAR_DE_FATURAMENTO">AUXILIAR DE FATURAMENTO</option>
+									<option value="AUXILIAR_FISCAL">AUXILIAR FISCAL</option>
+									<option value="AUXILIAR_JURIDICO">AUXILIAR JURIDICO</option>
+									<option value="AUXILIAR_DE_LABORATORIO">AUXILIAR DE LABORATORIO</option>
+									<option value="AUXILIAR_DE_LUBRIFICACAO">AUXILIAR DE LUBRIFICACAO</option>
+									<option value="AUXILIAR_DE_MANUTENÇÃO">AUXILIAR DE MANUTENCAO</option>
+									<option value="AUXILIAR_DE_PRODUCAO">AUXILIAR DE PRODUCAO</option>
+									<option value="AUXILIAR_DE_PRODUCAO_USINA">AUXILIAR DE PRODUCAO USINA</option>
+									<option value="AUXILIAR_DE_TOPOGRAFIA">AUXILIAR DE TOPOGRAFIA</option>
+									<option value="AUXILIAR_TECNICO_DE_ENGENHARIA">AUXILIAR TECNICO DE ENGENHARIA</option>
+									<option value="CARPINTEIRO">CARPINTEIRO </option>
+									<option value="COMPRADOR">COMPRADOR</option>
+									<option value="CONTROLADOR_DE_MANUTENCAO">CONTROLADOR DE MANUTENCAO</option>
+									<option value="ELETRICISTA">ELETRICISTA</option>
+									<option value="ELETRICISTA_INDUSTRIAL">ELETRICISTA INDUSTRIAL</option>									
+									<option value="ENCARREGADO_ADMINISTRATIVO">ENCARREGADO ADMINISTRATIVO</option>
+									<option value="ENCARREGADO_DE_BRITAGEM">ENCARREGADO DE BRITAGEM</option>
+									<option value="ENCARREGADO_DE_CUSTO">ENCARREGADO DE CUSTO</option>
+									<option value="ENCARREGADO_DE_OBRAS">ENCARREGADO DE OBRAS</option>
+									<option value="ENCARREGADO_DE_LUBRIFICACAO">ENCARREGADO DE LUBRIFICACAO</option>
+									<option value="ENCARREGADO_DE_MANUTENCAO">ENCARREGADO DE MANUTENCAO</option>
+									<option value="ENCARREGADO_DE_MECANICA_DE_EQUIPAMENTOS_PESADOS">ENCARREGADO DE MECANICA DE EQUIPAMENTOS PESADOS</option>
+									<option value="ENCARREGADO_DE_MICRO_USINA">ENCARREGADO DE MICRO USINA</option>
+									<option value="ENCARREGADO_DE_PAVIMENTACAO">ENCARREGADO DE PAVIMENTACAO</option>
+									<option value="ENCARREGADO_DE_PRODUCAO">ENCARREGADO DE PRODUCAO</option>
+									<option value="ENCARREGADO_SETOR_TECNICO">ENCARREGADO SETOR TECNICO</option>
+									<option value="ENCARREGADO_DE_TERRAPLENAGEM">ENCARREGADO DE TERRAPLENAGEM</option>
+									<option value="ENCARREGADO_DE_TOPOGRAFIA">ENCARREGADO DE TOPOGRAFIA</option>
+									<option value="ENCARREGADO_DE_USINA">ENCARREGADO DE USINA</option>
+									<option value="ENGENHEIRO_CIVIL">ENGENHEIRO CIVIL</option>
+									<option value="ENGENHEIRO_SEGURANCA_DO_TRABALHO">ENGENHEIRO DE SEGURANCA DO TRABALHO</option>
+									<option value="ESTAGIARIO_(A)">ESTAGIARIO (A)</option>
+									<option value="FEITOR_DE_BRITAGEM">FEITOR DE BRITAGEM</option>
+									<option value="FEITOR_DE_DRENAGEM">FEITOR DE DRENAGEM</option>
+									<option value="FEITOR_DE_SINALIZACAO">FEITOR DE SINALIZACAO</option>
+									<option value="FEITOR_DE_TERRAPLENAGEM">FEITOR DE TERRAPLENAGEM</option>
+									<option value="FEITOR_MICRO_ASFALTO">FEITOR MICRO ASFALTO</option>
+									<option value="FEITOR_PAVIMENTACAO">FEITOR PAVIMENTACAO</option>
+									<option value="FEITOR_SERVICOS_GERAIS_">FEITOR SERVICOS GERAIS </option>									
+									<option value="GREIDISTA">GREIDISTA</option>
+									<option value="GREIDISTA II">GREIDISTA II</option>
+									<option value="GREIDISTA III">GREIDISTA III</option>
+									<option value="GERENTE_DE_EQUIPAMENTOS">GERENTE DE EQUIPAMENTOS</option>
+									<option value="INSPETOR_DE_MANUTENCAO">INSPETOR DE MANUTENCAO</option>
+									<option value="LABORATORISTA">LABORATORISTA</option>
+									<option value="LIDER_DE_USINA">LIDER DE USINA</option>
+									<option value="LIDER_DE_EQUIPE">LIDER DE EQUIPE</option>
+									<option value="LUBRIFICADOR">LUBRIFICADOR</option>
+									<option value="MARROEIRO">MARROEIRO</option>
+									<option value="MARTELETEIRO">MARTELETEIRO</option>
+									<option value="MECANICO_DE_EQUIPAMENTOS_PESADOS">MECANICO DE EQUIPAMENTOS PESADOS</option>
+									<option value="MECANICO_INDUSTRIAL">MECANICO INDUSTRIAL</option>
+									<option value="MECANICO_DE_MANUTENCAO">MECANICO DE MANUTENCAO</option>
+									<option value="MOTORISTA_CAMINHAO_ESPARGIDOR">MOTORISTA CAMINHAO ESPARGIDOR</option>
+									<option value="MOTORISTA_CAMINHAO_PIPA">MOTORISTA CAMINHAO PIPA</option>
+									<option value="MOTORISTA_CARRETA">MOTORISTA CARRETA</option>
+									<option value="MOTORISTA_CARRETA_PRANCHA">MOTORISTA CARRETA PRANCHA</option>
+									<option value="MOTORISTA_COMBOIO_">MOTORISTA COMBOIO </option>
+									<option value="MOTORISTA_MICRO_USINA">MOTORISTA MICRO USINA</option>
+									<option value="MOTORISTA_VEICULOS_LEVES">MOTORISTA VEICULOS LEVES</option>
+									<option value="MOTORISTA_VEICULOS_MEDIOS">MOTORISTA VEICULOS MEDIOS</option>
+									<option value="MOTORISTA_VEICULOS_PESADOS">MOTORISTA VEICULOS PESADOS</option>
+									<option value="MOTORISTA_FRETE">MOTORISTA FRETE</option>
+									<option value="MOTORISTA_DE_ONIBUS">MOTORISTA DE ONIBUS</option>						
+									<option value="NIVELADOR">NIVELADOR</option>
+									<option value="OPERADOR_ROLO_COMPACTADOR">OPERADOR ROLO COMPACTADOR</option>
+									<option value="OPERADOR_BALANCA">OPERADOR BALANCA</option>
+									<option value="OPERADOR_BRITAGEM">OPERADOR BRITAGEM</option>
+									<option value="OPERADOR_CALDEIRA">OPERADOR CALDEIRA</option>
+									<option value="OPERADOR_DE_FRESADORA_I">OPERADOR DE FRESADORA I</option>
+									<option value="OPERADOR_DE_FRESADORA_II">OPERADOR DE FRESADORA II</option>
+									<option value="OPERADOR_DE_FRESADORA_III">OPERADOR DE FRESADORA III</option>
+									<option value="OPERADOR_DE_ROLO">OPERADOR DE ROLO</option>
+									<option value="OPERADOR_DE_USINA">OPERADOR DE USINA</option>
+									<option value="OPERADOR_ESCAVADEIRA">OPERADOR ESCAVADEIRA</option>
+									<option value="OPERADOR_ESPARGIDOR">OPERADOR ESPARGIDOR</option>
+									<option value="OPERADOR_FORA_DE_ESTRADA">OPERADOR FORA DE ESTRADA</option>
+									<option value="OPERADOR_FRESADORA">OPERADOR FRESADORA</option>
+									<option value="OPERADOR_MAQUINA_INTERCOSTAL">OPERADOR MAQUINA INTERCOSTAL</option>
+									<option value="OPERADOR_MESA_ACABADORA">OPERADOR MESA ACABADORA</option>
+									<option value="OPERADOR_MICRO_ACABADORA">OPERADOR MICRO ACABADORA</option>
+									<option value="OPERADOR_MICRO_ASFALTO">OPERADOR MICRO ASFALTO</option>
+									<option value="OPERADOR_MICRO_USINA">OPERADOR MICRO USINA</option>
+									<option value="OPERADOR_MINICARREGADEIRA">OPERADOR MINICARREGADEIRA</option>
+									<option value="OPERADOR_MOTONIVELADORA">OPERADOR MOTONIVELADORA</option>
+									<option value="OPERADOR_MULTIFUNCIONAL">OPERADOR MULTIFUNCIONAL</option>
+									<option value="OPERADOR_MUNCK">OPERADOR MUNCK</option>
+									<option value="OPERADOR_PA_CARREGADEIRA">OPERADOR PA-CARREGADEIRA</option>
+									<option value="OPERADOR_PAINEL_BRITA">OPERADOR PAINEL BRITA</option>
+									<option value="OPERADOR_PRODUCAO">OPERADOR PRODUCAO</option>
+									<option value="OPERADOR_RETROESCAVADEIRA">OPERADOR RETROESCAVADEIRA</option>
+									<option value="OPERADOR_ROLO_COMPACTADOR">OPERADOR ROLO COMPACTADOR</option>
+									<option value="OPERADOR_ROLO_PNEUS">OPERADOR ROLO PNEUS</option>
+									<option value="OPERADOR_ROLO_PNEUS_I">OPERADOR ROLO PNEUS I</option>
+									<option value="OPERADOR_ROLO_PNEUS_II">OPERADOR ROLO PNEUS II</option>
+									<option value="OPERADOR_ROLO_PNEUS_III">OPERADOR ROLO PNEUS III</option>
+									<option value="OPERADOR_ROLO_PNEUS_IV">OPERADOR ROLO PNEUS IV</option>
+									<option value="OPERADOR_TRATOR_AGRICOLA">OPERADOR TRATOR AGRICOLA</option>
+									<option value="OPERADOR_USINA">OPERADOR USINA</option>
+									<option value="OPERADOR_USINA_SOLO">OPERADOR USINA SOLO</option>
+									<option value="OPERADOR_VIBROACABADORA">OPERADOR VIBROACABADORA</option>
+									<option value="OPERADOR_TRATOR_DE_ESTEIRA">OPERADOR TRATOR DE ESTEIRA</option>
+									<option value="OPERADOR_TRATOR_DE_PNEUS">OPERADOR TRATOR DE PNEUS</option>
+									<option value="OPERADOR_MOTOSSERRA">OPERADOR MOTOSSERRA</option>
+									<option value="PEDREIRO">PEDREIRO</option>
+									<option value="PORTEIRO">PORTEIRO</option>
+									<option value="RASTELEIRO">RASTELEIRO</option>
+									<option value="RECEPCIONISTA">RECEPCIONISTA</option>
+									<option value="SERVENTE">SERVENTE</option>
+									<option value="SERVENTE_DE_LIMPEZA">SERVENTE DE LIMPEZA</option>
+									<option value="SOLDADOR">SOLDADOR</option>
+									<option value="SUPERVISOR_ADMINISTRATIVO">SUPERVISOR ADMINISTRATIVO</option>
+									<option value="SUPERVISOR_DE_FROTA">SUPERVISOR DE FROTA</option>
+									<option value="SUPERVISOR_DE_SMS">SUPERVISOR DE SMS</option>
+									<option value="TECNICO_DE_MEIO_AMBIENTE">TECNICO DE MEIO AMBIENTE</option>
+									<option value="TECNICO_SEGURANCA_DO_TRABALHO">TECNICO SEGURANCA DO TRABALHO</option>
+									<option value="TOPOGRAFO">TOPOGRAFO</option>
+									<option value="VIGIA">VIGIA</option>
+								</select>
+							</div>
+							<div class="col-sm-12 col-md-6">
+								<label class="control-label">Salário pretendido:</label>
+								<input type = "text" class="form-control aba1 S0"  name="det_jus" mask="#00.000.000.000.000,00">
+							</div>
+							</div>
+							<div class="col-sm-12 col-md-12">
+								<label>Detalhamento e justificativa da solicitação:</label>																			
+								<textarea  class="form-control aba1 S0"  rows="5" name="rec_fun"></textarea>										
+							</div>	
+						</div>
+						<hr>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<label>Nome Aprovador:</label>																				
+								<input type="text" class="form-control aba1 S0" name="aprov_aba1" id="aprov_aba1" readonly />										
+							</div>								
+						</div>
+					
+				</div>
+				<div class="tab-pane eachAba active hide" id="S1_aprovacao">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Aprovação Encarregado:</legend>
+						<div class="row">
+							<div class="col-sm-12 col-md-3" id="S1_div_aprova">								
+								<label class="control-label">Aprovado?</label>
+								<br>
+								<input name="S1_ckb_aprova" id="S1_ckb_aprova" type="checkbox" data-on-text="Sim" data-off-text="Não" data-on-color="success" data-off-color="danger">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12" id="S1_div_obs">
+								<label class="control-label">Observações</label>
+								<textarea class="form-control S1" rows="3" id="S1_txa_obs_aprova" name="S1_txa_obs_aprova" ></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tab-pane eachAba active hide" id="S2_aprovacao">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Aprovação Engenheiro:</legend>
+						<div class="row">
+							<div class="col-sm-12 col-md-3" id="S2_div_aprova">								
+								<label class="control-label">Aprovado?</label>
+								<br>
+								<input name="S2_ckb_aprova" id="S2_ckb_aprova" type="checkbox" data-on-text="Sim" data-off-text="Não" data-on-color="success" data-off-color="danger">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12" id="S2_div_obs">
+								<label class="control-label">Observações</label>
+								<textarea class="form-control S2" rows="3" id="S2_txa_obs_aprova" name="S2_txa_obs_aprova" ></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tab-pane eachAba active hide" id="S3_aprovacao">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Aprovação RH:</legend>
+						<div class="row">
+							<div class="col-sm-12 col-md-3" id="S3_div_aprova">								
+								<label class="control-label">Aprovado?</label>
+								<br>
+								<input name="S3_ckb_aprova" id="S3_ckb_aprova" type="checkbox" data-on-text="Sim" data-off-text="Não" data-on-color="success" data-off-color="danger">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12" id="S3_div_obs">
+								<label class="control-label">Observações</label>
+								<textarea class="form-control S3" rows="3" id="S3_txa_obs_aprova" name="S3_txa_obs_aprova" ></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tab-pane eachAba active hide" id="S4_aprovacao">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Aprovação CoordenaÃ§Ã£o Engenharia:</legend>
+						<div class="row">
+							<div class="col-sm-12 col-md-3" id="S4_div_aprova">								
+								<label class="control-label">Aprovado?</label>
+								<br>
+								<input name="S4_ckb_aprova" id="S4_ckb_aprova" type="checkbox" data-on-text="Sim" data-off-text="Não" data-on-color="success" data-off-color="danger">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12" id="S4_div_obs">
+								<label class="control-label">Observações</label>
+								<textarea class="form-control S4" rows="3" id="S4_txa_obs_aprova" name="S4_txa_obs_aprova" ></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="tab-pane eachAba active hide" id="S5_aprovacao">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Aprovação Diretoria:</legend>
+						<div class="row">
+							<div class="col-sm-12 col-md-3" id="S5_div_aprova">								
+								<label class="control-label">Aprovado?</label>
+								<br>
+								<input name="S5_ckb_aprova" id="S5_ckb_aprova" type="checkbox" data-on-text="Sim" data-off-text="Não" data-on-color="success" data-off-color="danger">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12" id="S5_div_obs">
+								<label class="control-label">Observações</label>
+								<textarea class="form-control S5" rows="3" id="S5_txa_obs_aprova" name="S5_txa_obs_aprova" ></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>				
+		</section>
+	</section>	
+</form>
+</div>
+</body>
+</html>						

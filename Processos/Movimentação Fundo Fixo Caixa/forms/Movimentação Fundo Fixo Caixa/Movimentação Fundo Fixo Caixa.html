@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" scr="displayFields.js" charset="utf-8"></script>
+		<script type="text/javascript" scr="script.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+			
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados do Solicitante</h3>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-4">
+								<label for="solicitante">Solicitante</label>
+								<input type="text" name="solicitante" id="solicitante" class="form-control" readonly/>
+							</div>
+							<div class="col-md-4">
+								<label for="dataSolicitacao">Data da Solicitação</label>
+								<input type="text" name="dataSolicitacao" id="dataSolicitacao" class="form-control" readonly/>
+							</div>
+							<div class="col-md-4">
+								<label class="control-label" for="tpMud">Tipo de Movimentação</label>
+								<select name="tpMud" id="tpMud" class="form-control">
+									<option value="X"></option>
+									<option value="Auditoria Externa">Caixa Financeiro</option>
+									<option value="Auditoria Interna">Compensação de Adiantamento</option>
+									<option value="Auditoria Interna">Reembolso</option>
+								</select>
+							</div>							
+						</div>
+				    </div>
+			 	</div>
+			 	
+			 	
+			 	<!-- ######################### -->
+				<div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados do Caixa</h3>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-4">
+								<label for="nomeCaixa">Nome do Caixa</label>
+								<input type="text" name="nomeCaixa" id="nomeCaixa" class="form-control" />
+							</div>
+							<div class="col-md-2">
+								<label for="codCaixa">Cód Caixa Protheus</label>
+								<input type="text" name="codCaixa" id="codCaixa" class="form-control" />
+							</div>
+							<div class="col-md-2">
+								<label for="dtFechamento">Data Fechamento</label>
+								<input type="text" name="dtFechamento" id="dtFechamento" class="form-control" />
+							</div>
+							<div class="col-md-4">
+								<label for="vlrTotal">Valor Total</label>
+								<input type="text" name="vlrTotal" id="vlrTotal" class="form-control" readonly/>
+							</div>						
+						</div>
+				    </div>
+			 	</div>
+			
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Relação de Documentos</h3>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-1">
+								<label for="docEmissao">Emissão</label>
+								<input type="text" name="docEmissao" id="docEmissao" class="form-control" />
+							</div>
+							<div class="col-md-1">
+								<label for="natureza">Natureza</label>
+								<input type="text" name="natureza" id="natureza" class="form-control" />
+							</div>
+							<div class="col-md-2">
+								<label for="nDoc">Documento</label>
+								<input type="text" name="nDoc" id="nDoc" class="form-control" />
+							</div>
+							<div class="col-md-2">
+								<label for="favorecido">Favorecido</label>
+								<input type="text" name="favorecido" id="favorecido" class="form-control" />
+							</div>
+							<div class="col-md-2">
+								<label for="cCusto">Centro de Custo</label>
+								<input type="text" name="cCusto" id="cCusto" class="form-control" />
+							</div>	
+							<div class="col-md-2">
+								<label for="total">Valor Total</label>
+								<input type="text" name="total" id="total" class="form-control" />
+							</div>	
+							<div class="col-md-2">
+								<label for="obs">Obs</label>
+								<input type="text" name="obs" id="obs" class="form-control" />
+							</div>						
+						</div>
+				    </div>
+			 	</div>
+				
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var calendarioDataFechamento = FLUIGC.calendar('#dtFechamento');
+		var calendarioDataFechamento = FLUIGC.calendar('#docEmissao');
+	</script>
+</html>

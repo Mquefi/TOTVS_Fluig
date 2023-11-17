@@ -1,0 +1,216 @@
+#logoCOMPASA{
+	width: 180px;
+	height: 50px;
+}
+.send-button{
+	margin-top:2.6em;
+	background-color: #F41D1D;/*#d35400; */
+	height:3em;
+	opacity: 0.7;
+	box-shadow:3px 4px 3px #bbb!important;
+	cursor:pointer;
+	text-align: center;
+	padding-top:0.5em;
+	color:#fff;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.att-button{
+	margin-top:1.0em;
+	background-color: #F41D1D;/*#d35400; */
+	height:2em;
+	opacity: 0.7;
+	box-shadow:3px 4px 3px #bbb!important;
+	cursor:pointer;
+	text-align: center;
+	padding-top:0.5em;
+	color:#fff;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+div.chat-field{
+	width:100%;
+	min-height: 27em;
+	max-height: 27em;
+	border:1px solid #ddd;
+	border-radius:5px;
+	background-color: #eee;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding:1em;
+}
+
+.filter-button:hover,.send-button:hover{
+	opacity: 0.8;
+}
+.tab-content {
+	border: 1px solid #ddd;
+	min-height: 100px;
+	margin-top: -1px;
+	border-radius: 0px 0px 5px 5px;
+  }
+  .linha_sel{
+	background-color: #ddd;
+  }
+  
+	#tituloFormulario_h{ 
+	  font-size:          25px;
+	  font-weight:        bolder;
+	  margin-top: 15px;
+	}
+  
+	
+  .pte{
+	pointer-events: none;
+  }
+	
+  
+	fieldset.scheduler-border {
+	  border: solid 1px #DDD !important;
+	  padding: 10px 10px 10px 10px!important;
+	  border-bottom: none;
+	  border-radius: 5px!important;
+  }
+  
+  legend.scheduler-border {
+	width: auto !important;
+	border: none!important;
+	padding-left: 5px!important;
+	padding-right: 5px!important;
+	font-size: 14px;
+	margin-bottom:4px!important;
+	color: #58595b!important;
+  }
+  
+  .title_css{
+	color: #58595b!important;
+  }
+  
+  .error_css{
+	border-color:#a94442;
+  }
+  
+  .fluigicon{
+	top: 0px!important;
+  }
+  
+  
+  
+  /*#header { 
+	
+	margin-top:         -5px;
+	color:             #000000;  
+	padding:            10px;
+  }*/
+  
+  /*#tituloFormulario {
+	font-size:          40px;
+	font-weight:        bolder;
+  }*/
+  
+  
+  .tabelaPlanilha{
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 5px;
+  
+  }
+  
+  .tabelaProduto{
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 5px;
+  
+  }
+  /* background: linear-gradient(to bottom, #d3d3d3 0%, #FFFFE0 110%); */
+  
+  /*.panel-heading{
+	background: #FFFFFF!important;
+	color:              #000000!important;  
+	
+	border-bottom:      5px solid #F41D1D!important;
+  }*/
+  
+  .fluig-style-guide .panel-primary{
+	border-color: #ddd!important;
+  }
+  
+  #body{
+	/* ATRIBUTO            VALOR    */
+	  font-family:        unset !important;  
+	}
+	#bodyCliente{
+	/* ATRIBUTO            VALOR    */
+	  padding-bottom:     50px;
+	}
+	#header{  
+	/* ATRIBUTO            VALOR    */
+	  border-bottom:      5px solid #F41D1D!important;
+	}
+	
+	/*#tituloFormulario{ 
+	 ATRIBUTO            VALOR    
+	  text-transform:     uppercase;
+	  font-weight:        bolder;
+	  color:              #9e9b9b;
+	}*/
+	fieldset.scheduler-border {
+	/* ATRIBUTO               VALOR*/
+	  border:                 solid 1px #DDD !important;
+	  padding:                0px 10px 10px 10px!important;
+	  border-bottom:          none;
+	  border-radius:          5px!important;
+	  margin-bottom:          10px!important;
+	  margin-top:             10px !important;
+	}
+	
+	legend.scheduler-border {
+	/* ATRIBUTO               VALOR*/
+	  width:                  auto !important;
+	  border:                 none!important;
+	  padding-left:           5px!important;
+	  padding-right:          5px!important;
+	  font-size:              17px!important;
+	  margin-bottom:          4px!important;
+	  color:                  #9e9b9b !important;
+	  font-weight:            bold;
+	  text-transform:         uppercase;
+	}
+
+	.message-box{
+		width: 75%;
+		color:#fff;
+		margin-bottom: 1em;
+		margin-top: 1em;
+		padding:0.6em;
+	}
+	
+	.owner{
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		background-color: #F41D1D;/*#d35400;*/
+	}
+	
+	.other{
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		background-color: rgb(145, 137, 126);/*#c23616;*/
+	}
+	
+	.message-action>span{
+		font-weight: 600;
+		text-shadow: 1px #fff;
+	}
+	
+	.header-message{
+		border-bottom: 1px solid #fff!important;
+		width:100%;
+	}
+	
+	.input-group-addon{
+		cursor:pointer;
+	}

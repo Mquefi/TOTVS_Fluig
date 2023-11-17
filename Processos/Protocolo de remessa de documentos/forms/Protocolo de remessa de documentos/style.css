@@ -1,0 +1,8 @@
+#campoObs {
+    resize: none; /* Impede o redimensionamento manual pelo usuário */
+    overflow: hidden; /* Oculta barras de rolagem */
+}
+
+table {
+    display: inline-block;
+}

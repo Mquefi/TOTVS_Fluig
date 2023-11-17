@@ -1,0 +1,31 @@
+/* Oculta os dados que servem somente pra informação de BI e funcionamento do formulário, que estão na primeira divisão */ 
+#dadosOcultosBd{
+	display: visible; /* altere entre none e visible*/
+}
+/* Cria um espaço no início do formulário, devido um bug do fluig de sobrescrever os dados */
+header {
+	margin-top: 40px;
+}
+/* cria espaço para o título de cada setor*/
+.divSetor {
+	margin-top: 0px;
+	padding-bottom: 5px;
+}
+
+#checkbox1{
+	margin-top: 10px;
+	padding-bottom: 10px;
+}
+
+body h3 {
+	margin-top: 25px;
+	color: red;
+}
+
+.panel, .panel-body{
+	width: 100%;
+}
+
+.row {
+	margin-top: 10px;
+}

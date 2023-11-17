@@ -1,0 +1,490 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<link type="text/css" rel="stylesheet" href="style_form.css"/>
+	<script type="text/javascript" src="funcoes.js"></script>
+	<script type="text/javascript" src="grava_mensagens.js"></script>
+	<script type="text/javascript" src="jquery.fileupload.js"></script>	
+	<script type="text/javascript" src="soapclient.js"></script>
+	<script type="text/javascript" src="upload_file_rest.js"></script>
+	<script type="text/javascript" src="class.solvs.js"></script>
+
+	<script type="text/javascript" src="script.js"></script>
+	
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+		<input type="hidden" name="hid_ticketSelecionado" id="hid_ticketSelecionado"/>
+		<input type="hidden" name="hid_macroSelecionado" id="hid_macroSelecionado"/>
+		<input type="hidden" name="hid_nmMacroSelecionado" id="hid_nmMacroSelecionado"/>
+		<input type="hidden" name="hid_responsavelAnalise" id="hid_responsavelAnalise"/>
+		<input type="hidden" name="hid_idUserAnalise" id="hid_idUserAnalise"/>
+		<input type="hidden" name="hid_hashProcesso" id="hid_hashProcesso"/>
+		<input type="hidden" name="hid_idSolicitante" id="hid_idSolicitante"/>
+		<input type="hidden" name="hid_numSolicitacao" id="hid_numSolicitacao"/>
+		<input type="hidden" name="hid_transferencia" id="hid_transferencia"/>
+		<input type="hidden" name="hid_nmAtividade" id="hid_nmAtividade"/>
+		<input type="hidden" name="hid_numAtividade" id="hid_numAtividade"/>
+		<input type="hidden" name="hid_fluxo" id="hid_fluxo"/>
+		<input type="hidden" name="hid_dataFimAnalise" id="hid_dataFimAnalise"/>
+		<input type="hidden" name="hid_area_inci_sel" id="hid_area_inci_sel">
+		<input type="hidden" name="hid_inci_sel" id="hid_inci_sel"/>
+		<input type="hidden" name="hid_praz_sel" id="hid_praz_sel"/>
+		<input type="hidden" name="hid_codsetor_sel" id="hid_codsetor_sel"/>
+		<input type="hidden" name="hid_setor_sel" id="hid_setor_sel"/>
+		<input type="hidden" name="hid_resp_resolucao" id="hid_resp_resolucao"/>
+		<input type="hidden" name="hid_grupo_meca" id="hid_grupo_meca"/>
+
+		<input type="hidden" name="hid_idUserTi" id="hid_idUserTi"/>
+		<input type="hidden" name="hid_idUserTransferir" id="hid_idUserTransferir"/>
+
+		<input type="hidden" id="hid_emails_fic3" name="hid_emails_fic3"/>
+
+		<input type="hidden" id="hid_form_mod" name="hid_form_mod"/>
+
+		<input type="hidden" id="hid_filial" name="hid_filial"/>
+		<input type="hidden" id="hid_folders" name="hid_folders"/>
+		<input type="hidden" id="hid_etapa" name="hid_etapa"/>
+		<textarea class="hide" 	id="hid_objAnexos_S0" 				name="hid_objAnexos_S0"></textarea>
+		<textarea class="hide" 	id="hid_objAnexos_S1" 				name="hid_objAnexos_S1"></textarea>
+		<textarea class="hide" 	id="hid_objAnexos_S2" 				name="hid_objAnexos_S2"></textarea>
+		
+		<textarea class="hide" 	id="hid_filenames_S0" 				name="hid_filenames_S0"></textarea>
+		<textarea class="hide" 	id="hid_filenames_S1" 				name="hid_filenames_S1"></textarea>
+		<textarea class="hide" 	id="hid_filenames_S2" 				name="hid_filenames_S2"></textarea>
+		
+		
+	<div class="row" id="bodyCliente">
+		<div class="col-md-12">
+			<section id="S0_capa" name="S0_capa">	
+				<section id="header">
+					<div class="row">
+						
+							<div class="col-sm-4 col-md-4">
+									<img id="logoCOMPASA" src="http://fluig.compasa.com.br:8180/portal/api/servlet/image/01/custom/logo_image.png">  
+								</div>
+								<div class="col-md-8">
+									<h1 id="tituloFormulario">FIC 3</h1>
+								</div>
+					</div>
+				</section>
+				<section id="body">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="menuli " id="nav0" onclick="carrega_formulario(0);">
+							<a class="aba0" href="#S0_Abertura" aria-controls="S0_Abertura" role="tab" data-toggle="tab" aria-expanded="true">
+								<span class="fluigicon fluigicon-system-tools fluigicon-sm"></span> Abertura Solicitação
+							</a>
+						</li>
+						<li class="menuli " id="nav1" onclick="carrega_formulario(1);">
+							<a class="aba1" href="#S2_resolucao" aria-controls="S2_resolucao" role="tab" data-toggle="tab" aria-expanded="true">
+								<span class="fluigicon fluigicon-hammer fluigicon-sm"></span> Resolução Solicitação
+							</a>
+						</li>
+						<li class="menuli " id="nav2" onclick="carrega_formulario(2);">
+							<a class="aba2" href="#S3_aprovacao" aria-controls="S3_aprovacao" role="tab" data-toggle="tab" aria-expanded="true">
+								<span class="fluigicon fluigicon-user-pending fluigicon-sm"></span> Validação Resolução
+							</a>
+						</li>				
+					</ul>
+					<div class="tab-content">
+						<div class="tab-content">
+							<div class="tab-pane" id="S0_Abertura">
+								<fieldset class="scheduler-border">
+									<legend class="scheduler-border">Dados da Solicitação:</legend>
+									<div class="row">
+										<div class="col-sm-12 col-md-6" style="border-right: 1px solid #ccc!important;">
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<h2>Incidente</h2>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Solicitante:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_nm_sol" id="S0_txt_nm_sol" readonly></input>
+													</div>							
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Obra:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-hammer" onclick="abre_modal('obras');" ></span>		
+														<input type="text" class="form-control S0" name="S0_txt_obra_sol" id="S0_txt_obra_sol" onclick="abre_modal('obras');"  readonly ></input>
+													</div>															
+												</div>	
+											</div>
+											<div class="row">			
+												
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Data da Solicitação:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-calendar"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_dt_sol" id="S0_txt_dt_sol" readonly></input>
+													</div>															
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Assunto:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-file" onclick="abre_modal('assunto');"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_area_incid" id="S0_txt_area_incid" onclick="abre_modal('assunto');"  readonly></input>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Sub-Assunto:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-file" onclick="abre_modal('subassunto');"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_tp_incid" id="S0_txt_tp_incid" onclick="abre_modal('subassunto');" readonly></input>
+													</div>
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Prazo Estimado:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-time"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_prazo_sol" id="S0_txt_prazo_sol" mask="00/00/0000"></input>
+														<input type="text" class="form-control  hide" name="S0_txt_prazo_estima" id="S0_txt_prazo_estima"></input>
+													</div>																
+												</div>
+											</div>
+											<div class="row">
+												
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Responsável:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user" onclick="abre_modal('users');"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_resp_sol" id="S0_txt_resp_sol" onclick="abre_modal('users');" readonly></input>
+													</div>																
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Setor Responsável:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-group" onclick="abre_modal('setor');"></span>		
+														<input type="text" class="form-control S0" name="S0_txt_set_sol" id="S0_txt_set_sol" onclick="abre_modal('setor');" readonly></input>
+													</div>																
+												</div>
+											</div>
+											<!--<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<div class="att-button" onclick="C_modalAnexos('S0');" id="sendObs">
+														<span class="fluigicon fluigicon-paperclip fluigicon-sm"> Anexos</span>
+													</div>													
+												</div>
+											</div>-->
+											<div class="row">
+												<div class="col-md-10 col-sm-10 col-xs-12">
+													<label class="control-label">Descrição da solicitação</label>
+													<textarea class="form-control" name="S1_tex_descSolicitacao" id="S1_tex_descSolicitacao" rows="3" placeholder="Descreva sua solicitação e clique no botão ao lado para inserir o comentario." data-toggle="tooltip" data-placement="top" title="Lembre-se de clicar no botão para adicionar o comentario!"></textarea>
+												</div>
+												<div class="col-md-2 col-sm-2 col-xs-12">
+													<div class="send-button" onclick="sendObservation();" id="sendObs">
+														<span class="fluigicon fluigicon-discuss fluigicon-md"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6">
+											<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<h2>Informações da Solicitação</h2>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<div class="chat-field" id="chatSolicitacao">
+													</div>
+												</div>							
+											</div>
+										</div>											
+									</div>	
+								</fieldset>
+							</div>
+							<div class="tab-pane" id="S2_resolucao">
+								<fieldset class="scheduler-border">
+									<legend class="scheduler-border">Resolução da Solicitação:</legend>
+									<div class="row">
+										<div class="col-sm-12 col-md-6" style="border-right: 1px solid #ccc!important;">
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<h2>Correção</h2>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Analista:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user"></span>		
+														<input type="text" class="form-control " name="S2_txt_nm_analista" id="S2_txt_nm_analista" readonly></input>
+													</div>							
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Email:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user-comment" ></span>		
+														<input type="text" class="form-control " name="S2_txt_set_sol" id="S2_txt_set_sol" readonly></input>
+													</div>																
+												</div>	
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Obra:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-hammer" ></span>		
+														<input type="text" class="form-control" name="S2_txt_obra_sol" id="S2_txt_obra_sol"  readonly ></input>
+													</div>																											
+												</div>			
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Data da Resolução:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-calendar"></span>		
+														<input type="text" class="form-control " name="S2_txt_dt_sol" id="S2_txt_dt_sol" readonly></input>
+													</div>															
+												</div>												
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Assunto:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-file" ></span>		
+														<input type="text" class="form-control S2" name="S2_txt_area_incid" id="S2_txt_area_incid" readonly></input>
+													</div>
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Sub-Assunto:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-file" onclick="abre_modal('tp_incidi');"></span>		
+														<input type="text" class="form-control " name="S2_txt_tp_incid" id="S2_txt_tp_incid" onclick="abre_modal('tp_incidi');" readonly></input>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Prazo Estimado:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-time"></span>		
+														<input type="text" class="form-control " name="S2_txt_prazo_sol" id="S2_txt_prazo_sol" readonly></input>
+													</div>																
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Responsável:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user" onclick="abre_modal('users');"></span>		
+														<input type="text" class="form-control S2" name="S2_txt_resp_sol" id="S2_txt_resp_sol" onclick="abre_modal('users');" readonly></input>
+													</div>																
+												</div>
+											</div>
+											<!--<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<div class="att-button" onclick="C_modalAnexos('S0');" id="sendObs">
+														<span class="fluigicon fluigicon-paperclip fluigicon-sm"> Anexos</span>
+													</div>													
+												</div>
+											</div>-->
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Solicitação finalizada?</label>
+													<select class="form-control input-sm" name="S2_sel_maisInfo" id="S2_sel_maisInfo">
+														<option value="Error">Selecione uma Opção</option>
+														<option value="Sim">Não - Mais Informações do Solicitante</option>
+														<option value="Nao">Sim - Encerrar</option>
+														<option value="Transferir">Transferir Solicitação</option>
+													</select> 
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-10 col-sm-10 col-xs-12">
+													<label class="control-label">Descrição da Solução</label>
+													<textarea class="form-control" name="S2_tex_descSolucao" id="S2_tex_descSolucao" rows="3" placeholder="Descreva sua solicitação e clique no botão ao lado para inserir o comentario." data-toggle="tooltip" data-placement="top" title="Lembre-se de clicar no botão para adicionar o comentario!"></textarea>
+												</div>
+												<div class="col-md-2 col-sm-2 col-xs-12">
+													<div class="send-button" onclick="sendObservationResolucao();" id="sendObs">
+														<span class="fluigicon fluigicon-discuss fluigicon-md"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6">
+											<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<h2>Informações da Solicitação</h2>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<div class="chat-field resolv" id="chatResolucao">
+													</div>
+												</div>							
+											</div>
+										</div>											
+									</div>	
+								</fieldset>
+							</div>
+							<div class="tab-pane" id="S3_aprovacao">
+								<fieldset class="scheduler-border">
+									<legend class="scheduler-border">Validação da Solicitação:</legend>
+									<div class="row">
+										<div class="col-sm-12 col-md-6" style="border-right: 1px solid #ccc!important;">
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<h2>Validação</h2>
+												</div>
+											</div>											
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Solicitante:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user"></span>		
+														<input type="text" class="form-control" name="S3_txt_nm_sol" id="S3_txt_nm_sol" readonly></input>
+													</div>							
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Setor Responsável:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-group" ></span>		
+														<input type="text" class="form-control" name="S3_txt_set_sol" id="S3_txt_set_sol" readonly></input>
+													</div>																
+												</div>	
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Obra:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-hammer" ></span>		
+														<input type="text" class="form-control" name="S3_txt_obra_sol" id="S3_txt_obra_sol"  readonly ></input>
+													</div>																											
+												</div>			
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Data da Validação:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-calendar"></span>		
+														<input type="text" class="form-control" name="S3_txt_dt_sol" id="S3_txt_dt_sol" readonly></input>
+													</div>															
+												</div>												
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Assunto:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-file" ></span>		
+														<input type="text" class="form-control S3" name="S3_txt_area_incid" id="S3_txt_area_incid" readonly></input>
+													</div>
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Sub-Assunto:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-file"></span>		
+														<input type="text" class="form-control" name="S3_txt_tp_incid" id="S3_txt_tp_incid" readonly></input>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Prazo Estimado:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-time"></span>		
+														<input type="text" class="form-control" name="S3_txt_prazo_sol" id="S3_txt_prazo_sol" readonly></input>
+													</div>																
+												</div>
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Responsável:</label>
+													<div class=" input-group">
+														<span class="input-group-addon fluigicon fluigicon-md fluigicon-user"></span>		
+														<input type="text" class="form-control S3" name="S3_txt_resp_sol" id="S3_txt_resp_sol" readonly></input>
+													</div>																
+												</div>
+											</div>
+											<!--<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<div class="att-button" onclick="C_modalAnexos('S0');" id="sendObs">
+														<span class="fluigicon fluigicon-paperclip fluigicon-sm"> Anexos</span>
+													</div>													
+												</div>
+											</div>-->
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<label class="control-label">Validação:</label>
+													<select class="form-control input-sm" name="S3_sel_validacao" id="S3_sel_validacao">
+														<option value="Error">Selecione uma Opção</option>
+														<option value="arquivar">Arquivar</option>
+														<option value="Sim">Sim</option>
+														<option value="Não">Não</option>
+													</select> 
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-10 col-sm-10 col-xs-12">
+													<label class="control-label">Descrição da Solução</label>
+													<textarea class="form-control" name="S3_tex_descValidacao" id="S3_tex_descValidacao" rows="3" placeholder="Descreva sua solicitação e clique no botão ao lado para inserir o comentario." data-toggle="tooltip" data-placement="top" title="Lembre-se de clicar no botão para adicionar o comentario!"></textarea>
+												</div>
+												<div class="col-md-2 col-sm-2 col-xs-12">
+													<div class="send-button" onclick="sendObservationValidacao();" id="sendObs">
+														<span class="fluigicon fluigicon-discuss fluigicon-md"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6">
+											<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<h2>Informações da Solicitação</h2>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12 col-md-12">
+													<div class="chat-field" id="chatValidacao">
+													</div>
+												</div>							
+											</div>
+										</div>											
+									</div>	
+								</fieldset>
+							</div>
+					</div>	
+				</div>
+			</section>
+		</section>
+	</div>
+</div>
+
+<div class="row hide">
+	<div class="col-md-12">
+		<table class="table table-bordered" tablename="notificacaoQuadro" addbuttonlabel="Adicionar categoria"   nodeletebutton="true" noaddbutton=true>
+			<thead>
+				<tr>
+					<td>msg</td>
+					<td>user</td>
+					<td>idUser</td>
+					<td>data</td>
+					<td>typeBox</td>
+					<td>hashTicket</td>
+					<td>Solicitação</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" name="msg" readonly id="msg" class="form-control" ></td>
+					<td><input type="text" name="userLogado" id="userLogado" readonly class="form-control" ></td>
+					<td><input type="text" name="idUser" id="idUser" readonly class="form-control" ></td>
+					<td><input type="text" name="dataMsg" id="dataMsg" readonly class="form-control" ></td>
+					<td><input type="text" name="typeBox" id="typeBox" readonly class="form-control" ></td>
+					<td><input type="text" name="hashTicket" id="hashTicket" readonly class="form-control " ></td>
+					<td><input type="text" name="actionMSG" id="actionMSG" readonly class="form-control " ></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,1169 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>cadastro_suprimentos</processId>
+    </processDefinitionPK>
+    <processDescription>Cadastro de Produtos</processDescription>
+    <instruction>Cadastro de Produto no Protheus e RM</instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Cadastros</categoryId>
+    <managerEngineAllocationId>Usuário</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;admin&lt;/User&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Cadastro de Produtos</processId>
+      <version>30</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>117974</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>true</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction>Preencha os dados do produto a ser cadastrado</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>70</positionX>
+      <positionY>56</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>6</sequence>
+      </processStatePK>
+      <stateName>Suprimentos</stateName>
+      <stateDescription>Suprimentos</stateDescription>
+      <instruction>Validar o preenchimento dos campos, padronizando o cadastro e evitando duplicidade</instruction>
+      <deadlineTime>43200</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;suprimentos&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>206</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>8</sequence>
+      </processStatePK>
+      <stateName>Fiscal</stateName>
+      <stateDescription>Fiscal</stateDescription>
+      <instruction>Preenchimento das contas contábeis</instruction>
+      <deadlineTime>43200</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;fiscal&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>360</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>10</sequence>
+      </processStatePK>
+      <stateName>Aprovado</stateName>
+      <stateDescription>Aprovado</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>460</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>23</sequence>
+      </processStatePK>
+      <stateName>Solicitante</stateName>
+      <stateDescription>Solicitante</stateDescription>
+      <instruction>Verificar no campo Complementos o motivo da devolução e seguir orientação.</instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>390</positionX>
+      <positionY>46</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>31</sequence>
+      </processStatePK>
+      <stateName>T.I</stateName>
+      <stateDescription>T.I</stateDescription>
+      <instruction>Verificar no campo Complemento o motivo do chamado e corrigir o erro.&#xd;
+Caso seja erro de preenchimento, retornar ao processo Suprimentos.</instruction>
+      <deadlineTime>43200</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>510</positionX>
+      <positionY>460</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>16</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>230</positionX>
+      <positionY>490</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>10</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>26</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>560</positionX>
+      <positionY>580</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list/>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>7</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>6</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>9</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>6</initialStateSequence>
+      <finalStateSequence>8</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>12</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>8</initialStateSequence>
+      <finalStateSequence>10</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>24</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>6</initialStateSequence>
+      <finalStateSequence>23</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>25</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>23</initialStateSequence>
+      <finalStateSequence>6</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>27</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>10</initialStateSequence>
+      <finalStateSequence>26</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>30</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>16</initialStateSequence>
+      <finalStateSequence>8</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>32</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>8</initialStateSequence>
+      <finalStateSequence>31</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>33</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>31</initialStateSequence>
+      <finalStateSequence>8</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>34</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>31</initialStateSequence>
+      <finalStateSequence>10</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>35</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>8</initialStateSequence>
+      <finalStateSequence>6</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <linkSequence>36</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>31</initialStateSequence>
+      <finalStateSequence>6</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask10</eventId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask10(attempt, message) {
+	try{
+		var DESCRICAO 		 	= hAPI.getCardValue(&apos;fDescricao&apos;).trim();
+		var GRUPO     		 	= hAPI.getCardValue(&apos;fGrupo&apos;).split(&apos;-&apos;)[0];
+		var TIPO      		 	= hAPI.getCardValue(&apos;fTipo&apos;).split(&apos;-&apos;)[0];
+		var UNIDADE   		 	= hAPI.getCardValue(&apos;fUnidade&apos;).split(&apos;-&apos;)[0];
+		var ARMAZEM   		 	= hAPI.getCardValue(&apos;fLocal&apos;).split(&apos;-&apos;)[0];
+		var CODIGOANP        	= hAPI.getCardValue(&apos;fProdANP&apos;);
+		var SEQUENANP        	= hAPI.getCardValue(&apos;fSeqANP&apos;);
+		var SEGUNIDMEDIDA    	= hAPI.getCardValue(&apos;fSegUnidade&apos;).split(&apos;-&apos;)[0];
+		var FATORCONVERSAO   	= hAPI.getCardValue(&apos;fFatConv&apos;);
+		var TIPOCONVERSAO    	= hAPI.getCardValue(&apos;fTipoConv&apos;);
+		var COMPRADOR        	= hAPI.getCardValue(&apos;fComprador&apos;).split(&apos;-&apos;)[0];
+		
+		var ICMS 				= hAPI.getCardValue(&apos;fAliqICMS&apos;);
+		var IPI  				= hAPI.getCardValue(&apos;fAliqIPI&apos;);
+		var CSLL 				= hAPI.getCardValue(&apos;fRetemCsll&apos;);
+		var NCM  				= hAPI.getCardValue(&apos;fposIPINCM&apos;)?String(hAPI.getCardValue(&apos;fposIPINCM&apos;).split(&apos;-&apos;)[0]).trim():&apos;&apos;;
+		var INSS  				= hAPI.getCardValue(&apos;fCalcINSS&apos;);
+		var PIS    				= hAPI.getCardValue(&apos;fRetemPis&apos;);
+		var COF    				= hAPI.getCardValue(&apos;fRetemCof&apos;);
+		var ORIGEM 				= hAPI.getCardValue(&apos;fOrigem&apos;).split(&apos;-&apos;)[0];
+		
+		var ESTOQUE  			= hAPI.getCardValue(&apos;fConta&apos;).split(&apos;-&apos;)[0];
+		var DESPESA  			= hAPI.getCardValue(&apos;fXConta&apos;).split(&apos;-&apos;)[0];
+		var CUSTO   			= hAPI.getCardValue(&apos;fYConta&apos;).split(&apos;-&apos;)[0];
+		var GERENCIA 			= hAPI.getCardValue(&apos;fVConta&apos;).split(&apos;-&apos;)[0];
+
+		var TENANTID            = hAPI.getCardValue(&apos;tenant&apos;);
+		
+		
+		var BI_CONTRA    				= hAPI.getCardValue(&apos;BI_CONTRA&apos;);
+		
+		log.info(&apos;******** TENANTID: &apos; + TENANTID);
+		log.info(&apos;******** TENANTID-REPLACE: &apos; + TENANTID.replaceAll(&quot;\\.&quot;,&quot;,&quot;));
+		
+		TENANTID = TENANTID.replaceAll(&quot;\\.&quot;,&quot;,&quot;)+&apos;&apos;
+		
+		var clientService = fluigAPI.getAuthorizeClientService();	   
+		var data = {
+				companyId : getValue(&quot;WKCompany&quot;) + &apos;&apos;,
+				serviceCode : &apos;cadastroProduto&apos;,
+				endpoint : &apos;/wsprodut&apos;,
+				method : &apos;post&apos;,   
+				timeoutService: &apos;100&apos;, 
+				params : {
+					COD_ANP:            CODIGOANP+&apos;&apos;,
+					CALCULA_INSS:       INSS+&apos;&apos;,
+					RETEM_COFINS:       COF+&apos;&apos;,
+					ALIQ_IPI:           IPI+&apos;&apos;,
+					RETEM_CSLL:         CSLL+&apos;&apos;,
+					SEG_UNIDADE_MEDIDA: SEGUNIDMEDIDA+&apos;&apos;,
+					TIPO:           	TIPO+&apos;&apos;,
+					COMPRADOR:      	COMPRADOR+&apos;&apos;,
+					CONTA_ESTOQUE: 		ESTOQUE+&apos;&apos;,
+					UNIDADE_MEDIDA: 	UNIDADE+&apos;&apos;,
+					GRUPO:          	GRUPO+&apos;&apos;,
+					COD_ANP_SEC:    	SEQUENANP+&apos;&apos;,
+					LOCAL_PADRAO:   	ARMAZEM+&apos;&apos;,
+					RETEM_PIS:      	PIS+&apos;&apos;,
+					ORIGEM:         	ORIGEM+&apos;&apos;,
+					CONTA_DESPESA:  	DESPESA+&apos;&apos;,
+					CONTA_CUSTO:    	CUSTO+&apos;&apos;,
+					DESCRICAO:      	DESCRICAO+&apos;&apos;,
+					CONVERSAO:      	FATORCONVERSAO+&apos;&apos;,
+					TIPO_CONVERSAO: 	TIPOCONVERSAO+&apos;&apos;,
+					POS_IPI_NCM:    	NCM+&apos;&apos;,
+					CONTA_GERENCIA: 	GERENCIA+&apos;&apos;,
+					ALIQ_ICMS:      	ICMS+&apos;&apos;,
+					B1_Contra:      	BI_CONTRA+&apos;&apos;
+					},
+				options : {
+					encoding : &apos;UTF-8&apos;,
+					mediaType: &apos;application/json&apos;
+				},
+				headers: {
+					&apos;Content-Type&apos;: &apos;application/json;charset=UTF-8&apos;,
+					&quot;tenantId&quot;: TENANTID,
+					&quot;Authorization&quot;: &quot;Bearer cG9ydGFsbmRpbnRlZ3JhZG9jb21vUHJvdGhldXNlRmx1aWc=&quot;
+				}
+		}
+		
+		var paramValues = JSON.stringify(data);
+		
+		log.info(&apos;******** paramValues: &apos; + paramValues);
+		
+		var vo = clientService.invoke(paramValues);
+		
+		log.info(&apos;############################# vo.getResult(): &apos; + vo.getResult());
+		
+		var response = JSON.parse(vo.getResult());
+		
+		log.info(&apos;############################# vo.response : &apos; + response[&apos;codigo&apos;]);
+		
+		log.info(&apos;############################# vo.response : &apos; + response[&apos;codigo&apos;]);
+		
+		
+			var valida = response[&apos;codigo&apos;] || &quot;&quot;;
+		
+			if(valida != &quot;&quot;){
+				for (var i in response) {
+					log.info(&apos;&gt;&gt;&gt;&gt;&gt; aqui &apos; + i + &apos;: &apos; + response[i]);
+					if(i == &quot;message&quot;){
+						log.info(&apos;&gt;&gt;&gt;&gt;&gt; ENTROU AQUI 123445 &apos; + i + &apos;: &apos; + response[i]);
+						hAPI.setCardValue(&quot;message&quot;,  response[i] );
+					}
+					
+					if(i == &quot;codigo&quot;){
+						log.info(&apos;&gt;&gt;&gt;&gt;&gt; ENTROU AQUI 123445 &apos; + i + &apos;: &apos; + response[i]);
+						hAPI.setCardValue(&quot;fCodigoProduto&quot;,  response[i] );
+					}
+					
+					
+					if(i == &quot;errorMessage&quot;){
+						log.info(&apos;&gt;&gt;&gt;&gt;&gt; ENTROU AQUI olha aqui &apos; + i + &apos;: &apos; + response[i]);
+						throw response[i];
+					}
+				}
+			}else{
+				throw &quot;Erro ao tentar integrar com o Protheusas&quot;;
+			}
+			
+		
+		
+		
+		
+		
+		
+		
+		
+	} catch(err) {
+		throw err;
+	}
+	
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>145</height>
+      <width>971</width>
+      <positionX>0</positionX>
+      <positionY>0</positionY>
+      <stateName>Base</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d6e0d0</color>
+      <height>209</height>
+      <width>971</width>
+      <positionX>0</positionX>
+      <positionY>432</positionY>
+      <stateName>Integração</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d0daae</color>
+      <height>145</height>
+      <width>971</width>
+      <positionX>0</positionX>
+      <positionY>288</positionY>
+      <stateName>Fiscal</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>adc9ac</color>
+      <height>145</height>
+      <width>971</width>
+      <positionX>0</positionX>
+      <positionY>144</positionY>
+      <stateName>Suprimentos</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>7</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>213</positionX>
+      <positionY>73</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>24</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>443</positionX>
+      <positionY>234</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>25</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>444</positionX>
+      <positionY>235</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>27</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>213</positionX>
+      <positionY>560</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>27</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>213</positionX>
+      <positionY>597</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>30</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>87</positionX>
+      <positionY>504</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>30</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>87</positionX>
+      <positionY>388</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>32</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>562</positionX>
+      <positionY>388</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>33</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>562</positionX>
+      <positionY>387</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>36</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>679</positionX>
+      <positionY>484</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>cadastro_suprimentos</processId>
+        <version>30</version>
+        <linkSequence>36</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>679</positionX>
+      <positionY>234</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>cadastro_suprimentos</processId>
+      <version>1</version>
+      <sequence>10</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list/>
+  <list>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>6</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>CADASTRO DE PRODUTO</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>6</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>@[form:fDescricao]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>6</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>8</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>6</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>23</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>8</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>CADASTRO DE PRODUTO</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>8</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>@[form:fDescricao]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>8</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>10</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>8</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>6</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>23</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>CADASTRO DE PRODUTO</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>23</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>@[form:fDescricao]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>23</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>6</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>31</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>CADASTRO DE PRODUTO</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>31</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>@[form:fDescricao]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>31</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>10</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>cadastro_suprimentos</processId>
+      <processVersion>30</processVersion>
+      <stateSequence>31</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>6</description>
+    </ProcessAppConfiguration>
+  </list>
+  <list/>
+  <list/>
+</list>

@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?><xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+  <pi:Diagram diagramTypeId="BPMNdiagram" gridUnit="10" name="Protocoloderemessademateriais" pictogramLinks="/0/@children.0/@link /0/@children.0/@children.1/@link /0/@children.0/@children.0/@link /0/@children.1/@link /0/@children.2/@link /0/@children.3/@link /0/@children.4/@link /0/@children.5/@link /0/@children.6/@link /0/@connections.0/@link /0/@connections.1/@link /0/@connections.2/@link /0/@connections.3/@link /0/@connections.4/@link /0/@connections.5/@link /0/@connections.6/@link /0/@connections.7/@link" snapToGrid="true" version="0.11.0" visible="true">
+    <graphicsAlgorithm background="/0/@styles.7/@renderingStyle/@adaptedGradientColoredAreas/@adaptedGradientColoredAreas.0/@gradientColor.2/@end/@color" foreground="/0/@colors.0" height="1000" lineWidth="1" transparency="0.0" width="1000" xsi:type="al:Rectangle"/>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm background="/0/@styles.7/@renderingStyle/@adaptedGradientColoredAreas/@adaptedGradientColoredAreas.0/@gradientColor.2/@end/@color" foreground="/0/@colors.3" height="290" lineWidth="1" style="/0/@styles.0" transparency="0.0" width="831" x="10" xsi:type="al:Rectangle" y="10"/>
+      <link businessObjects="bpmnpool1"/>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.0/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children active="true" visible="true" xsi:type="pi:ContainerShape">
+        <graphicsAlgorithm background="/0/@colors.6" foreground="/0/@colors.3" height="145" lineWidth="1" style="/0/@styles.5" transparency="0.0" width="801" x="30" xsi:type="al:Rectangle" y="145"/>
+        <link businessObjects="bpmnswimlane3"/>
+        <anchors xsi:type="pi:ChopboxAnchor"/>
+        <anchors xsi:type="pi:ChopboxAnchor"/>
+        <anchors active="true" referencedGraphicsAlgorithm="/0/@children.0/@children.0/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+          <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+        </anchors>
+        <children visible="true">
+          <graphicsAlgorithm angle="270" filled="false" font="/0/@fonts.1" height="145" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" rotation="270.0" style="/0/@styles.6" transparency="0.0" value="Destinat&#225;rio" verticalAlignment="ALIGNMENT_MIDDLE" width="30" xsi:type="al:Text"/>
+        </children>
+      </children>
+      <children active="true" visible="true" xsi:type="pi:ContainerShape">
+        <graphicsAlgorithm background="/0/@colors.11" foreground="/0/@colors.3" height="145" lineWidth="1" style="/0/@styles.3" transparency="0.0" width="801" x="30" xsi:type="al:Rectangle"/>
+        <link businessObjects="bpmnswimlane2"/>
+        <anchors xsi:type="pi:ChopboxAnchor"/>
+        <anchors xsi:type="pi:ChopboxAnchor"/>
+        <anchors active="true" referencedGraphicsAlgorithm="/0/@children.0/@children.1/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+          <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+        </anchors>
+        <children visible="true">
+          <graphicsAlgorithm angle="270" filled="false" font="/0/@fonts.1" height="145" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" rotation="270.0" style="/0/@styles.4" transparency="0.0" value="Emitente" verticalAlignment="ALIGNMENT_MIDDLE" width="30" xsi:type="al:Text"/>
+        </children>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm angle="270" filled="false" font="/0/@fonts.1" height="290" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" rotation="270.0" style="/0/@styles.2" transparency="0.0" value="Pool" verticalAlignment="ALIGNMENT_MIDDLE" width="30" xsi:type="al:Text"/>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="35" lineVisible="false" lineWidth="1" transparency="0.0" width="35" x="150" xsi:type="al:Ellipse" y="66">
+        <graphicsAlgorithmChildren height="35" lineWidth="1" style="/0/@styles.7" transparency="0.0" width="35" xsi:type="al:Ellipse"/>
+      </graphicsAlgorithm>
+      <link businessObjects="startevent4"/>
+      <anchors incomingConnections="/0/@connections.6" outgoingConnections="/0/@connections.0" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.1/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="56" lineVisible="false" lineWidth="1" transparency="0.0" width="106" x="240" xsi:type="al:Rectangle" y="201"/>
+      <link businessObjects="task5"/>
+      <anchors incomingConnections="/0/@connections.0" outgoingConnections="/0/@connections.1 /0/@connections.5" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.2/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm cornerHeight="5" cornerWidth="5" height="56" lineWidth="1" style="/0/@styles.8" transparency="0.0" width="106" xsi:type="al:RoundedRectangle"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="46" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.9" transparency="0.0" value="Recebimento" width="96" x="5" xsi:type="al:MultiText" y="5"/>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="56" lineVisible="false" lineWidth="1" transparency="0.0" width="106" x="370" xsi:type="al:Rectangle" y="56"/>
+      <link businessObjects="task11"/>
+      <anchors incomingConnections="/0/@connections.1 /0/@connections.7" outgoingConnections="/0/@connections.2 /0/@connections.4" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.3/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm cornerHeight="5" cornerWidth="5" height="56" lineWidth="1" style="/0/@styles.10" transparency="0.0" width="106" xsi:type="al:RoundedRectangle"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="46" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.11" transparency="0.0" value="Emitente" width="96" x="5" xsi:type="al:MultiText" y="5"/>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="56" lineVisible="false" lineWidth="1" transparency="0.0" width="106" x="370" xsi:type="al:Rectangle" y="201"/>
+      <link businessObjects="task15"/>
+      <anchors incomingConnections="/0/@connections.2" outgoingConnections="/0/@connections.3 /0/@connections.7" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.4/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm cornerHeight="5" cornerWidth="5" height="56" lineWidth="1" style="/0/@styles.12" transparency="0.0" width="106" xsi:type="al:RoundedRectangle"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="46" horizontalAlignment="ALIGNMENT_CENTER" lineVisible="true" lineWidth="1" style="/0/@styles.13" transparency="0.0" value="Confer&#234;ncia(2)" width="96" x="5" xsi:type="al:MultiText" y="5"/>
+      </children>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm filled="false" height="35" lineVisible="false" lineWidth="1" transparency="0.0" width="35" x="530" xsi:type="al:Ellipse" y="140">
+        <graphicsAlgorithmChildren height="35" lineWidth="3" style="/0/@styles.14" transparency="0.0" width="35" xsi:type="al:Ellipse"/>
+      </graphicsAlgorithm>
+      <link businessObjects="endevent17"/>
+      <anchors incomingConnections="/0/@connections.3 /0/@connections.4 /0/@connections.5" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.5/@graphicsAlgorithm/@graphicsAlgorithmChildren.0" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+    </children>
+    <children active="true" visible="true" xsi:type="pi:ContainerShape">
+      <graphicsAlgorithm cornerHeight="5" cornerWidth="5" height="55" lineVisible="false" lineWidth="1" style="/0/@styles.15" transparency="0.0" width="105" x="210" xsi:type="al:RoundedRectangle" y="20"/>
+      <link businessObjects="annotationtask7"/>
+      <anchors outgoingConnections="/0/@connections.6" xsi:type="pi:ChopboxAnchor"/>
+      <anchors active="true" referencedGraphicsAlgorithm="/0/@children.6/@graphicsAlgorithm" relativeHeight="0.51" relativeWidth="1.0" visible="true" xsi:type="pi:BoxRelativeAnchor">
+        <graphicsAlgorithm filled="false" lineVisible="false" xsi:type="al:Ellipse"/>
+      </anchors>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.1" height="55" lineVisible="false" lineWidth="1" transparency="0.0" value="Emiss&#227;o do&#10;Protocolo&#10;" verticalAlignment="ALIGNMENT_MIDDLE" width="105" x="10" xsi:type="al:MultiText" y="13"/>
+      </children>
+      <children visible="true">
+        <graphicsAlgorithm filled="false" lineWidth="1" transparency="0.0" xsi:type="al:Polyline">
+          <points x="20"/>
+          <points/>
+          <points y="55"/>
+          <points x="20" y="55"/>
+        </graphicsAlgorithm>
+      </children>
+    </children>
+    <styles background="/0/@colors.2" foreground="/0/@colors.1" id="BPMN-SWIM_LANE-NOSTYLE"/>
+    <styles foreground="/0/@colors.1" id="BPMN-CLASS">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="blue-white-gloss" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="251" red="248"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="251" red="248"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="245" red="237"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="245" red="237"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="250" green="237" red="222"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="250" green="237" red="222"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="248" green="231" red="212"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="252" green="251" red="250"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="233" green="229" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="233" green="229" red="226"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="1">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="253" green="246" red="238"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="253" green="246" red="238"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="249" green="230" red="208"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="230" red="208"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="244" green="210" red="172"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="244" green="210" red="172"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="234" green="185" red="129"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="242" green="208" red="170"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="224" green="191" red="154"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="224" green="191" red="154"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="2">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="249" red="245"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="249" red="245"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="239" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="239" red="226"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="227" red="203"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="249" green="227" red="203"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="247" green="218" red="187"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="247" green="224" red="197"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="229" green="205" red="178"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="229" green="205" red="178"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="3">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="153"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="102" green="153" red="51"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="4">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color green="102" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.4" id="BPMNCLASS-TEXT-67-67-67"/>
+    <styles background="/0/@colors.2" foreground="/0/@colors.1" id="BPMN-SWIM_LANE-NOSTYLE"/>
+    <styles foreground="/0/@colors.4" id="BPMNCLASS-TEXT-67-67-67"/>
+    <styles background="/0/@colors.2" foreground="/0/@colors.1" id="BPMN-SWIM_LANE-NOSTYLE"/>
+    <styles foreground="/0/@colors.4" id="BPMNCLASS-TEXT-67-67-67"/>
+    <styles foreground="/0/@colors.7" id="START-EVENT">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="START-EVENT" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="102" green="255" red="102"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="10">
+                <color blue="150" green="255" red="150"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="10">
+                <color blue="150" green="255" red="150"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="20">
+                <color blue="182" green="255" red="182"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="20">
+                <color blue="182" green="255" red="182"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="50">
+                <color blue="255" green="255" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.1" id="TASK">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="blue-white-gloss" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="251" red="248"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="251" red="248"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="245" red="237"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="245" red="237"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="250" green="237" red="222"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="250" green="237" red="222"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="248" green="231" red="212"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="252" green="251" red="250"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="233" green="229" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="233" green="229" red="226"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="1">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="253" green="246" red="238"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="253" green="246" red="238"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="249" green="230" red="208"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="230" red="208"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="244" green="210" red="172"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="244" green="210" red="172"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="234" green="185" red="129"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="242" green="208" red="170"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="224" green="191" red="154"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="224" green="191" red="154"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="2">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="249" red="245"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="249" red="245"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="239" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="239" red="226"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="227" red="203"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="249" green="227" red="203"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="247" green="218" red="187"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="247" green="224" red="197"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="229" green="205" red="178"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="229" green="205" red="178"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="3">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="153"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="102" green="153" red="51"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="4">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color green="102" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.1" id="TASK">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="blue-white-gloss" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="251" red="248"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="251" red="248"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="245" red="237"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="245" red="237"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="250" green="237" red="222"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="250" green="237" red="222"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="248" green="231" red="212"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="252" green="251" red="250"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="233" green="229" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="233" green="229" red="226"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="1">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="253" green="246" red="238"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="253" green="246" red="238"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="249" green="230" red="208"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="230" red="208"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="244" green="210" red="172"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="244" green="210" red="172"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="234" green="185" red="129"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="242" green="208" red="170"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="224" green="191" red="154"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="224" green="191" red="154"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="2">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="249" red="245"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="249" red="245"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="239" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="239" red="226"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="227" red="203"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="249" green="227" red="203"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="247" green="218" red="187"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="247" green="224" red="197"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="229" green="205" red="178"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="229" green="205" red="178"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="3">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="153"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="102" green="153" red="51"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="4">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color green="102" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.1" id="TASK">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="blue-white-gloss" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="251" red="248"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="251" red="248"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="245" red="237"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="245" red="237"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="250" green="237" red="222"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="250" green="237" red="222"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="248" green="231" red="212"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="252" green="251" red="250"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="233" green="229" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="233" green="229" red="226"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="1">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="253" green="246" red="238"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="253" green="246" red="238"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="249" green="230" red="208"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="230" red="208"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="244" green="210" red="172"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="244" green="210" red="172"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="234" green="185" red="129"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="242" green="208" red="170"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="224" green="191" red="154"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="224" green="191" red="154"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="2">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="254" green="249" red="245"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="254" green="249" red="245"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="1">
+                <color blue="252" green="239" red="226"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="252" green="239" red="226"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="2">
+                <color blue="249" green="227" red="203"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="249" green="227" red="203"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="3">
+                <color blue="247" green="218" red="187"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="247" green="224" red="197"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="2">
+                <color blue="229" green="205" red="178"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="229" green="205" red="178"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="3">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="153"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color blue="102" green="153" red="51"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+          <adaptedGradientColoredAreas styleAdaption="4">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color green="204" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_END" locationValue="0">
+                <color green="102" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.9" id="END-EVENT">
+      <renderingStyle>
+        <adaptedGradientColoredAreas definedStyleId="END-EVENT" gradientType="0">
+          <adaptedGradientColoredAreas styleAdaption="0">
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="0">
+                <color blue="102" green="102" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="10">
+                <color blue="150" green="150" red="255"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="10">
+                <color blue="150" green="150" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="20">
+                <color blue="182" green="182" red="255"/>
+              </end>
+            </gradientColor>
+            <gradientColor>
+              <start locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="20">
+                <color blue="182" green="182" red="255"/>
+              </start>
+              <end locationType="LOCATION_TYPE_ABSOLUTE_START" locationValue="50">
+                <color blue="255" green="255" red="255"/>
+              </end>
+            </gradientColor>
+          </adaptedGradientColoredAreas>
+        </adaptedGradientColoredAreas>
+      </renderingStyle>
+    </styles>
+    <styles background="/0/@colors.10" id="ANNOTATION"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles background="/0/@colors.3" foreground="/0/@colors.3" id="BPMN-POLYGON-ARROW" lineWidth="1"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <styles foreground="/0/@colors.8" id="BPMNCLASS-TEXT"/>
+    <connections active="true" end="/0/@children.2/@anchors.0" start="/0/@children.1/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow6"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.16" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+      <bendpoints x="167" y="229"/>
+    </connections>
+    <connections active="true" end="/0/@children.3/@anchors.0" start="/0/@children.2/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow12"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.18" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+      <bendpoints x="327" y="145"/>
+    </connections>
+    <connections active="true" end="/0/@children.4/@anchors.0" start="/0/@children.3/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow16"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.19" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
+    <connections active="true" end="/0/@children.5/@anchors.0" start="/0/@children.4/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow18"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.20" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
+    <connections active="true" end="/0/@children.5/@anchors.0" start="/0/@children.3/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow19"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.21" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+    </connections>
+    <connections active="true" end="/0/@children.5/@anchors.0" start="/0/@children.2/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow20"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.22" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+      <bendpoints x="293" y="283"/>
+      <bendpoints x="547" y="283"/>
+    </connections>
+    <connections active="true" end="/0/@children.1/@anchors.0" start="/0/@children.6/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineStyle="DOT" lineWidth="2" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow8"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.23" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true"/>
+      <bendpoints x="167" y="48"/>
+    </connections>
+    <connections active="true" end="/0/@children.3/@anchors.0" start="/0/@children.4/@anchors.0" visible="true" xsi:type="pi:FreeFormConnection">
+      <graphicsAlgorithm filled="false" foreground="/0/@colors.3" lineWidth="1" transparency="0.0" xsi:type="al:Polyline"/>
+      <link businessObjects="flow21"/>
+      <connectionDecorators active="true" location="0.5" locationRelative="true" visible="true">
+        <graphicsAlgorithm filled="false" font="/0/@fonts.0" lineWidth="1" style="/0/@styles.24" transparency="0.0" value="" x="10" xsi:type="al:Text"/>
+      </connectionDecorators>
+      <connectionDecorators location="1.0" locationRelative="true" visible="true">
+        <graphicsAlgorithm background="/0/@colors.3" filled="true" foreground="/0/@colors.3" lineWidth="1" style="/0/@styles.17" transparency="0.0" xsi:type="al:Polygon">
+          <points after="3" before="3" x="-10" y="-5"/>
+          <points/>
+          <points after="3" before="3" x="-10" y="5"/>
+          <points after="3" before="3" x="-8"/>
+        </graphicsAlgorithm>
+      </connectionDecorators>
+      <bendpoints x="444" y="157"/>
+    </connections>
+    <colors blue="249" green="238" red="227"/>
+    <colors blue="112" green="25" red="25"/>
+    <colors blue="198" green="193" red="159"/>
+    <colors/>
+    <colors blue="67" green="67" red="67"/>
+    <colors blue="159" green="159" red="159"/>
+    <colors blue="192" green="192" red="192"/>
+    <colors blue="51" green="102" red="51"/>
+    <colors blue="153" green="51" red="51"/>
+    <colors blue="51" green="51" red="153"/>
+    <colors blue="224" green="255" red="255"/>
+    <colors blue="234" green="234" red="234"/>
+    <fonts name="Arial" size="8"/>
+    <fonts bold="true" name="Arial" size="8"/>
+  </pi:Diagram>
+  <bpmn2:BpmnPool cores="FFFFFF" id="bpmnpool1" name="Pool"/>
+  <bpmn2:BpmnSwimLane cores="EAEAEA" id="bpmnswimlane2" name="Emitente"/>
+  <bpmn2:BpmnSwimLane cores="C0C0C0" id="bpmnswimlane3" name="Destinat&#225;rio"/>
+  <bpmn2:BpmnStartEvent esforcoCalculo="0" expediente="Hor&#225;rio Comercial Sede" extendedFields="&lt;list/&gt;" id="startevent4" incoming="flow8" instrucoes="Informe os itens do Protocolo" name="In&#237;cio" outgoing="flow6" selecionaColaboradores="1" signalId="0" type="10"/>
+  <bpmn2:BpmnTask appsConfiguration="&lt;map&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;approval&lt;/string&gt;&#10;    &lt;list&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;title&lt;/appField&gt;&#10;        &lt;description&gt;PROTOCOLO DE REMESSA - MATERIAIS&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;description&lt;/appField&gt;&#10;        &lt;description&gt;ORIGEM: @[form:solicitante] | @[form:setorOrigem]&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;highlight&lt;/appField&gt;&#10;        &lt;description&gt;EMISS&#195;O: @[form:DataSolicitacao]&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;approve&lt;/appField&gt;&#10;        &lt;description&gt;17&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;reject&lt;/appField&gt;&#10;        &lt;description&gt;11&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;    &lt;/list&gt;&#10;  &lt;/entry&gt;&#10;&lt;/map&gt;" authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="Hor&#225;rio Comercial Sede" extendedFields="&lt;list/&gt;" frequency="0" id="task5" incoming="flow6" instrucoes="Confer&#234;ncia dos itens em protocolo" loopType="0" managerMechanism="" name="Recebimento" outgoing="flow12 flow20" selecionaColaboradores="1" type="80"/>
+  <bpmn2:BpmnTask appsConfiguration="&lt;map&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;approval&lt;/string&gt;&#10;    &lt;list&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;title&lt;/appField&gt;&#10;        &lt;description&gt;PROTOCOLO DE REMESSA - MATERIAIS&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;description&lt;/appField&gt;&#10;        &lt;description&gt;ORIGEM: @[form:destinatario] | @[form:setorDestino] | OBSERVA&#199;&#195;O: @[form:campoObs]&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;highlight&lt;/appField&gt;&#10;        &lt;description&gt;EMISS&#195;O: @[form:DataSolicitacao] - RECUSADO&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;approve&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;reject&lt;/appField&gt;&#10;        &lt;description&gt;&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;    &lt;/list&gt;&#10;  &lt;/entry&gt;&#10;&lt;/map&gt;" authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="Hor&#225;rio Comercial Sede" extendedFields="&lt;list/&gt;" frequency="0" id="task11" incoming="flow12 flow21" instrucoes="Verificar observa&#231;&#227;o" loopType="0" managerMechanism="" name="Emitente" outgoing="flow16 flow19" selecionaColaboradores="1" type="80"/>
+  <bpmn2:BpmnTask appsConfiguration="&lt;map&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;approval&lt;/string&gt;&#10;    &lt;list&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;title&lt;/appField&gt;&#10;        &lt;description&gt;PROTOCOLO DE REMESSA - MATERIAIS&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;description&lt;/appField&gt;&#10;        &lt;description&gt;ORIGEM: @[form:solicitante] | @[form:setorOrigem]&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;highlight&lt;/appField&gt;&#10;        &lt;description&gt;EMISS&#195;O: @[form:DataSolicitacao] - REENVIO&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;approve&lt;/appField&gt;&#10;        &lt;description&gt;17&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;      &lt;org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;        &lt;appField&gt;reject&lt;/appField&gt;&#10;        &lt;description&gt;11&lt;/description&gt;&#10;      &lt;/org.eclipse.bpmn2.documentacional.BpmnProcessAppConfiguration&gt;&#10;    &lt;/list&gt;&#10;  &lt;/entry&gt;&#10;&lt;/map&gt;" authNotify="true" esforcoCalculo="0" executionAttempts="0" expediente="Hor&#225;rio Comercial Sede" extendedFields="&lt;list/&gt;" frequency="0" id="task15" incoming="flow16" instrucoes="Confer&#234;ncia dos itens em protocolo" loopType="0" managerMechanism="" name="Confer&#234;ncia(2)" outgoing="flow18 flow21" selecionaColaboradores="1" type="80"/>
+  <bpmn2:BpmnEndEvent extendedFields="&lt;list/&gt;" id="endevent17" incoming="flow18 flow19 flow20" name="Fim" signalId="0" type="60"/>
+  <bpmn2:BpmnAnnotation id="annotationtask7" name="Emiss&#227;o do Protocolo" outgoing="flow8" type="0"/>
+  <bpmn2:BpmnProcess author="" cardIndex="154046" category="Administra&#231;&#227;o" complementsLevel="1" descriptorFields="&lt;list&gt;&#10;  &lt;org.eclipse.bpmn2.impl.BpmnProcessFormField&gt;&#10;    &lt;id&gt;DataSolicitacao&lt;/id&gt;&#10;    &lt;label&gt;DataSolicitacao&lt;/label&gt;&#10;    &lt;cardIndex&gt;&lt;/cardIndex&gt;&#10;  &lt;/org.eclipse.bpmn2.impl.BpmnProcessFormField&gt;&#10;  &lt;org.eclipse.bpmn2.impl.BpmnProcessFormField&gt;&#10;    &lt;id&gt;setorDestino&lt;/id&gt;&#10;    &lt;label&gt;setorDestino&lt;/label&gt;&#10;    &lt;cardIndex&gt;&lt;/cardIndex&gt;&#10;  &lt;/org.eclipse.bpmn2.impl.BpmnProcessFormField&gt;&#10;  &lt;org.eclipse.bpmn2.impl.BpmnProcessFormField&gt;&#10;    &lt;id&gt;solicitante&lt;/id&gt;&#10;    &lt;label&gt;solicitante&lt;/label&gt;&#10;    &lt;cardIndex&gt;&lt;/cardIndex&gt;&#10;  &lt;/org.eclipse.bpmn2.impl.BpmnProcessFormField&gt;&#10;&lt;/list&gt;" expedient="Hor&#225;rio Comercial Sede" extendedFields="&lt;list/&gt;" formSource="server" id="Protocoloderemessademateriais" instruction="Protocolo de remessa de equipamentos e materiais diversos" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerRole&gt;&#10;  &lt;roleId&gt;admin&lt;/roleId&gt;&#10;  &lt;mechanismName&gt;Papel&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerRole&gt;" managerMechanism="Papel" name="Protocolo de remessa de materiais" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="Fluig 1.7.0" version="11" volume="Default"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow6" name="" sourceRef="startevent4" targetRef="task5"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow12" name="" sourceRef="task5" targetRef="task11"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow16" name="" sourceRef="task11" targetRef="task15"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow18" name="" sourceRef="task15" targetRef="endevent17"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow19" name="" sourceRef="task11" targetRef="endevent17"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/&gt;" id="flow20" name="" sourceRef="task5" targetRef="endevent17"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" atividadeRetorno="" id="flow8" movementAccessLinkDescription="" movementDescription="" movementTitle="" name="" sourceRef="annotationtask7" targetRef="startevent4"/>
+  <bpmn2:SequenceFlow atividadeFluxo="" id="flow21" name="" sourceRef="task15" targetRef="task11"/>
+</xmi:XMI>

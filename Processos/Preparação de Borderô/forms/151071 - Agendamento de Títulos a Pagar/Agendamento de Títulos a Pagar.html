@@ -1,0 +1,266 @@
+<!-- dataset ds_agendamento_titulos_pagar -->
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+
+    <script type="text/javascript" src="zoomModal.js" charset="utf-8"></script>
+    <script type="text/javascript" src="zoom.js" charset="utf-8"></script>
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+      function disablePullToRefresh() {
+        return true;
+      }
+    </script>
+
+    <style>
+      .label-input {
+        outline: none;
+        border: none;
+        width: 100%;
+        background-color: transparent;
+      }
+
+      .removed td {
+        background-color: #f2dede !important;
+      }
+
+      .importante td {
+        background-color: #def2de !important;
+        font-weight: bolder !important;
+      }
+    </style>
+  </head>
+  <body onload="main()">
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <input type="hidden" name="matric_solicitante" id="matric_solicitante" />
+        <input type="hidden" name="cod_grupo_empresa" id="cod_grupo_empresa" />
+        <input type="hidden" name="cod_filial" id="cod_filial" />
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2 col-xs-12 fs-xs-padding-horizontal">
+              <div class="form-group form-group-sm fs-sm-margin-bottom">
+                <label class="control-label" for="num_solic">N° Solicitação</label>
+                <input type="text" name="num_solic" id="num_solic" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-12 fs-xs-padding-horizontal">
+              <div class="form-group form-group-sm fs-sm-margin-bottom">
+                <label class="control-label" for="data_solic">Data Solicitação</label>
+                <input type="text" name="data_solic" id="data_solic" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-12 fs-xs-padding-horizontal">
+              <div class="form-group form-group-sm fs-sm-margin-bottom">
+                <label class="control-label" for="nome_solicitante">Solicitante</label>
+                <input type="text" name="nome_solicitante" id="nome_solicitante" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-12 fs-xs-padding-horizontal">
+              <div class="form-group form-group-sm fs-sm-margin-bottom">
+                <label class="control-label" for="email_solicitante">E-mail Solicitante</label>
+                <input type="text" name="email_solicitante" id="email_solicitante" class="form-control" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-primary" id="solicitante">
+          <div class="panel-heading fs-md-padding-horizontal fs-sm-padding-vertical">
+            <h4 class="panel-title">
+              <a tabindex="-1" class="collapse-icon up" data-toggle="collapse" href="#solicitanteCollapse">
+                <i class="fluigicon fluigicon-calendar-verified" aria-hidden="true"></i>
+                <strong>Adicionar Títulos</strong>
+              </a>
+            </h4>
+          </div>
+          <div id="solicitanteCollapse" class="panel-body panel-collapse collapse in fs-sm-padding-vertical">
+            <div class="row">
+              <div class="col-md-3 col-xs-12 fs-xs-padding-horizontal">
+                <div class="form-group">
+                  <label class="control-label" for="grupo_empresa">Grupo empresa</label>
+                  <input type="text" name="grupo_empresa" id="grupo_empresa" class="form-control" readonly />
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-12 fs-xs-padding-horizontal">
+                <div class="form-group">
+                  <label class="control-label" for="filial">Filial</label>
+                  <div class="input-group">
+                    <input type="text" name="filial" id="filial" class="form-control" readonly />
+                    <div class="input-group-addon group-zoom no-view zoom-click fs-cursor-pointer" onclick="zoom('filial')">
+                      <span class="fluigicon fluigicon-zoom-in"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-xs-12 fs-xs-padding-horizontal">
+                <div class="form-group">
+                  <label class="control-label" for="data_solicitacao_ini_2830">Data Vencimento</label>
+                  <div class="input-group">
+                    <input type="text" name="data_venc_inicio" id="data_venc_inicio" class="form-control" />
+                    <span class="input-group-addon"> até </span>
+                    <input type="text" name="data_venc_fim" id="data_venc_fim" class="form-control" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-2 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="num_titulo">N° Título</label>
+                  <input type="text" name="num_titulo" id="num_titulo" class="form-control" mask="##################" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2 col-sx-12 fs-xs-padding-horizontal view-hide">
+                <button type="button" class="btn btn-info btn-block fs-font-bold" onclick="buscarTitulos()">
+                  <i class="flaticon flaticon-search-zoom" aria-hidden="true"></i>&nbsp;Buscar Títulos
+                </button>
+              </div>
+
+              <div class="col-md-2 col-sx-12 fs-xs-padding-horizontal view-hide">
+                <button type="button" class="btn btn-danger btn-block fs-font-bold" onclick="limparTodosTitulos()">
+                  <i class="fluigicon fluigicon-trash" aria-hidden="true"></i>&nbsp;Limpar Títulos
+                </button>
+              </div>
+            </div>
+
+            <h3 class="page-header"><i class="fluigicon fluigicon-money" aria-hidden="true"></i>&nbsp;Títulos</h3>
+
+            <div class="row">
+              <div class="col-md-2 col-xs-12 fs-xs-padding-right">
+                <div class="form-group form-group-sm fs-xs-margin-bottom">
+                  <label class="control-label" for="qtd_titulos">Quantidade de Títulos</label>
+                  <input type="text" name="qtd_titulos" id="qtd_titulos" class="form-control" readonly />
+                </div>
+              </div>
+              <div class="col-md-2 col-xs-12 fs-xs-padding-horizontal">
+                <div class="form-group form-group-sm fs-xs-margin-bottom">
+                  <label class="control-label" for="valor_total">Valor Total</label>
+                  <input type="text" name="valor_total" id="valor_total" class="form-control" readonly />
+                </div>
+              </div>
+              <div class="col-md-2 col-xs-12 fs-xs-padding-horizontal">
+                <div class="form-group form-group-sm fs-xs-margin-bottom">
+                  <label class="control-label" for="valor_total_pagar">Valor Total Pagar</label>
+                  <input type="text" name="valor_total_pagar" id="valor_total_pagar" class="form-control" readonly />
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered fs-nowrap" tablename="titulos" noaddbutton="true" nodeletebutton="true">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Importante</th>
+                    <th style="min-width: 100px">Filial</th>
+                    <th style="min-width: 100px">Prefixo</th>
+                    <th style="min-width: 120px">N° Título</th>
+                    <th style="min-width: 100px">Parcela</th>
+                    <th style="min-width: 120px">Valor</th>
+                    <th style="min-width: 120px">Saldo</th>
+                    <th style="min-width: 200px">Pagamento</th>
+                    <th style="min-width: 100px">Tipo</th>
+                    <th style="min-width: 100px">Fornecedor</th>
+                    <th style="min-width: 100px">Loja</th>
+                    <th style="min-width: 200px">Nome Fornecedor</th>
+                    <th style="min-width: 120px">Emissão</th>
+                    <th style="min-width: 100px">Vencimento</th>
+                    <th style="min-width: 100px">Vencimento Real</th>
+                    <th style="min-width: 120px">N° Borderô</th>
+                    <th style="min-width: 120px">N° Fluig</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td class="fs-sm-padding">
+                      <i class="flaticon flaticon-drag-n-drop icon-xl fs-cursor-grab handle view-hide"></i>
+                      <button type="button" class="btn btn-danger view-hide" btn-remover onclick="marcarRemovido(this, !getRemoverValue(this));">
+                        <i class="fluigicon fluigicon-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="fs-sm-padding text-center">
+                      <input type="checkbox" name="remover" id="remover" tabindex="-1" style="display: none" onchange="atualizarEstiloTabela()" />
+                      <input
+                        type="checkbox"
+                        name="importante"
+                        id="importante"
+                        tabindex="-1"
+                        style="width: 20px; height: 20px"
+                        onchange="marcarImportante(this)"
+                      />
+                    </td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_FILIAL" id="E2_FILIAL" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_PREFIXO" id="E2_PREFIXO" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_NUM" id="E2_NUM" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_PARCELA" id="E2_PARCELA" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_VALOR" id="E2_VALOR" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_SALDO" id="E2_SALDO" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding">
+                      <div class="form-group fs-no-margin">
+                        <input
+                          type="text"
+                          name="E2_PGPARCI"
+                          id="E2_PGPARCI"
+                          class="form-control text-right"
+                          mask="###.###.###.###.##0,00"
+                          onchange="calcularTotalTitulos()"
+                        />
+                      </div>
+                    </td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_TIPO" id="E2_TIPO" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_FORNECE" id="E2_FORNECE" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_LOJA" id="E2_LOJA" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_NOMFOR" id="E2_NOMFOR" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_EMISSAO" id="E2_EMISSAO" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_VENCTO" id="E2_VENCTO" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_VENCREA" id="E2_VENCREA" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_NUMBOR" id="E2_NUMBOR" class="label-input" readonly tabindex="-1" /></td>
+                    <td class="fs-sm-padding"><input type="text" name="E2_CDFLUIG" id="E2_CDFLUIG" class="label-input" readonly tabindex="-1" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-primary" id="aprovador">
+          <div class="panel-heading fs-sm-padding-vertical">
+            <h4 class="panel-title">
+              <a tabindex="-1" class="collapse-icon up" data-toggle="collapse" href="#aprovadorCollapse">
+                <i class="fluigicon fluigicon-user-selection" aria-hidden="true"></i>
+                <strong>Aprovador</strong>
+              </a>
+            </h4>
+          </div>
+          <div id="aprovadorCollapse" class="panel-body panel-collapse collapse in fs-sm-padding-vertical">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 fs-xs-padding-left">
+                <div class="form-group fs-no-margin-bottom">
+                  <label class="control-label" for="observacoes">Observações</label>
+                  <textarea id="observacoes" name="observacoes" class="form-control"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function hiddeView() {
+        $(".view-hide").hide();
+      }
+    </script>
+  </body>
+</html>

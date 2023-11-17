@@ -1,0 +1,457 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link type="text/css" rel="stylesheet" href="style_form.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+	<script type="text/javascript" src="chamado.js" charset="utf-8"></script>
+	<script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+</head>
+
+	<header>
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="tituloFormulario">Cadastro de Fornecedor</h1>
+			</div>
+			<div>
+				<hr size="3" color="red" margin>
+			</div>
+		</div>
+	</header>
+	
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="panel panel-default">
+			
+					<div class="panel-body">
+						<ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#home">Cadastrais</a></li>
+							<li><a data-toggle="tab" href="#menu2">Fiscal</a></li>
+						</ul>
+						
+						<!-- ######################### -->
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+								        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+								    </div>
+									
+									
+						<div class="tab-content">
+							<div id="home" class="tab-pane fade in active">
+								<div class="row">
+									<div class="col-md-2 col-xs-6">
+										<label>Links Úteis</label>
+										<p><a href="http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_solicitacao.asp" target="_blank"><span style="color: red;">RECEITA FEDERAL</span></a></p>
+									</div>
+									<div class="col-md-2 col-xs-6">
+										<label><br></label>
+										<p><a href="http://www.sintegra.gov.br/" target="_blank"><span style="color: red;">SINTEGRA</span></a></p>
+									</div>
+								</div>
+			
+								<div class="row fechado">
+									<div class="col-md-6 form-group tenant">
+										<div class="alert alert-success">
+											<strong>Fornecedor criado com sucesso! </strong><span class="fornecedorID"></span>.
+									  	</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 form-group tenant">
+										<label>Empresa/Filial</label><span class="required text-danger"><strong>*</strong></span>
+										<input type="hidden" name="hidden_tenant" id="hidden_tenant" />
+										<input type="hidden" name="hidden_filial" id="hidden_filial" />
+										<input type="hidden" name="url" id="url" />
+										
+										<input type="zoom" name="tenant" zoomvalue="chave" data-zoom="{
+											'width': '500px',
+											'zoomvalue':'chave',
+											'displayKey':'chave',
+											'datasetId':'dsEmpresaProtheusSync',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o Grupo de empresa/Filial',
+											'filterValues':'',
+											'fields':[
+												{'field':'chave', 'label':'Código'},
+												{'field':'nomecom', 'label':'Companhia'},
+												{'field':'descemp', 'label':'Empresa'},
+												{'field':'codfil', 'label':'Codigo Filial'},
+												{'field':'filial', 'label':'Filial'},
+												{'field':'cgc', 'label':'CNPJ'}]
+											}" />
+											<p class="help-block has-info"></p>
+										<!--<input type="zoom" name="tenant" zoomvalue="GENERAL_ID" data-zoom="{
+										'width': '500px',
+										'zoomvalue':'GENERAL_ID',
+										'displayKey':'hidden_SEARCH_FIELD',
+										'datasetId':'dsEmpresasProtheus',
+										'filterValues':'',
+										'fields':[
+											{'field':'GENERAL_ID', 'label':'Código'},
+											{'field':'NAME', 'label':'Nome'},
+											{'field':'CNPJ', 'label':'CNPJ'}]
+										}" />-->
+									</div>	
+									<div class="col-md-6">
+										<label>Descrição</label><span class="required text-danger"><strong>*</strong></span>
+										<input type="text" class="form-control bloqueia" name="descricaoEmpresa" id="descricaoEmpresa" readonly>
+									</div>
+								</div>
+							  <div class="row">
+								  <div class="col-md-4 col-xs-12">
+									<label>Razao Social<strong>*</strong></label>
+									<input type="text" class="form-control bloqueia" name="A2_NOME" id="A2_NOME" autocomplete="off">
+								  </div>
+								  <div class="col-md-4 col-xs-12">
+									<label>Nome Fantasia<strong>*</strong></label>
+									<input type="text" class="form-control bloqueia" name="A2_NREDUZ" id="A2_NREDUZ" autocomplete="off">
+								  </div>
+							  </div>
+			
+								<div class="row">
+									<div class="col-md-3 col-xs-12">
+										<label>CEP<strong>*</strong></label>
+										<input type="text" class="form-control bloqueia"  name="A2_CEP" id="A2_CEP" autocomplete="off">
+									</div>
+									<div class="col-md-4 col-xs-12">
+									<label>Endereço/Número<strong>*</strong></label>
+									<input type="text" class="form-control bloqueia" onkeyup="UpperCaseA2_END(this)"  name="A2_END" id="A2_END" autocomplete="off">
+									</div>
+									<div class="col-md-4 col-xs-12">
+									<label>Bairro<strong>*</strong></label>
+									<input type="text" class="form-control bloqueia" onkeyup="UpperCaseA2_BAIRRO(this)"  name="A2_BAIRRO" id="A2_BAIRRO" autocomplete="off">
+									</div>
+								</div>
+			
+								<div class="row">
+									<div class="col-md-3 col-xs-12">
+										<label>Estado<strong>*</strong></label>
+										<input
+										autocomplete="off"
+											type="zoom"
+											id = "A2_EST"
+											name="A2_EST"
+											data-zoom="{
+												'displayKey':'X5_DESCRI',
+												'datasetId':'ds_estado',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha um estado',
+												'fields':[
+													{
+													'field':'X5_CHAVE',
+													'label':'Codigo'
+													},{
+													'field':'X5_DESCRI',
+													'label':'Descrição',
+													'standard':'true'
+													}
+												]
+											}"
+										/>
+										<input type="text" class="form-control hide" name="A2_EST_COD" id="A2_EST_COD">
+									</div>
+									<div class="col-md-3 col-xs-12">
+										<label>Municipio<strong>*</strong></label>
+										<input
+										autocomplete="off"
+											type="zoom"
+											id = "A2_COD_MUN"
+											name="A2_COD_MUN"
+											data-zoom="{
+												'displayKey':'CC2_MUN',
+												'datasetId':'ds_municipio',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o minicipio',
+												'fields':[
+													{
+													'field':'CC2_CODMUN',
+													'label':'Codigo'
+													},{
+													'field':'CC2_MUN',
+													'label':'Descrição',
+													'standard':'true'
+													}
+												]
+											}"
+										/>
+										<input type="text" class="form-control hide" name="A2_COD_MUN_COD" id="A2_COD_MUN_COD">
+									</div>
+									
+									<div class="col-md-3 col-xs-12">
+										<label>Cod. CNAE<strong>*</strong></label>
+										<input type="text" class="form-control bloqueia" name="A2_CNAE" id="A2_CNAE" autocomplete="off" maxlength="7">
+									</div>
+									
+									<div class="col-md-3 col-xs-12">
+										<label>Cod. ANP (Forn. Materiais Asfálticos)</label>
+										<input type="text" class="form-control" name="A2_CODANP" id="A2_CODANP" autocomplete="off">
+									</div>
+									
+								</div>
+			
+								<div class="row">
+									<div class="col-md-3 col-xs-12">
+										<label>Tipo</label>
+										<select class="form-control bloqueia" name="A2_TIPO" id="A2_TIPO">
+											<option value="J">Juridico</option>
+											<option value="F">Fisico</option>
+											<option value="X">Outros</option>
+										</select>
+									</div>
+									<div class="col-md-3 col-xs-12">
+									  <label>RG/Ced.Estr.</label>
+									  <input type="text" class="form-control bloqueia" onkeyup="somenteNumeros(this);" name="A2_PFISICA" id="A2_PFISICA" autocomplete="off">
+									</div>
+									<div class="col-md-3 col-xs-12">
+									  <label>CNPJ/CPF</label>
+									  <input type="text" class="form-control bloqueia"  name="A2_CGC" id="A2_CGC" autocomplete="off">
+									</div>
+								</div>
+			
+								<div class="row">
+									<div class="col-md-2 col-xs-12">
+										<label>DDD</label>
+										<input type="text" class="form-control bloqueia" onkeyup="somenteNumeros(this);" maxlength="3" name="A2_DDD" id="A2_DDD" autocomplete="off">
+									  </div>
+									<div class="col-md-3 col-xs-12">
+									  <label>Telefone</label>
+									  <input type="text" class="form-control bloqueia" name="A2_TEL" id="A2_TEL" autocomplete="off">
+									</div>
+									<div class="col-md-3 col-xs-12">
+									  <label>WhatSapp</label>
+									  <input type="text" class="form-control bloqueia"  name="A2_FAX" id="A2_FAX" autocomplete="off">
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>Ins. Estad</label>
+										<input type="text" class="form-control bloqueia" name="A2_INSCR" id="A2_INSCR" autocomplete="off" value="ISENTO">
+									</div>
+			
+									<div class="col-md-2 col-xs-12">
+										<label>Ins. Municip</label>
+										<input type="text" class="form-control bloqueia" onkeyup="somenteNumeros(this);" name="A2_INSCM" id="A2_INSCM" autocomplete="off">
+									</div>
+								</div>
+			
+			
+								<div class="row">
+									<div class="col-md-3 col-xs-12">
+										<label>Descr.Pais</label>
+										<input
+											autocomplete="off"
+											type="zoom"
+											id = "A2_PAIS"
+											name="A2_PAIS"
+											data-zoom="{
+												'displayKey':'YA_DESCR',
+												'datasetId':'ds_pais',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o Pais',
+												'fields':[
+													{
+													'field':'YA_DESCR',
+													'label':'Descricao'
+													},{
+													'field':'YA_CODGI',
+													'label':'Codigo',
+													'standard':'true'
+													}
+												]
+											}"
+										/>
+									  </div>
+									<div class="col-md-3 col-xs-12">
+									  <label>Codigo Pais</label>
+									  <input type="text" class="form-control bloqueia" name="A2_COD_PAIS" id="A2_COD_PAIS" readonly>
+									</div>
+									<div class="col-md-3 col-xs-12">
+										<label>E-mail</label>
+										<input type="text" class="form-control bloqueia" name="A2_EMAIL" id="A2_EMAIL">
+									  </div>
+									
+								</div>
+			
+								<div class="row">
+									<div class="col-md-3 col-xs-12">
+									<label>Banco</label>
+									<input
+											autocomplete="off"
+											type="zoom"
+											id = "A2_BANCO"
+											name="A2_BANCO"
+											data-zoom="{
+												'displayKey':'A6_NOME',
+												'datasetId':'ds_banco',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o Banco',
+												'fields':[
+													{
+													'field':'A6_NOME',
+													'label':'Descrição'
+													},{
+													'field':'A6_AGENCIA',
+													'label':'Agencia',
+													'standard':'true'
+													},{
+													'field':'A6_COD',
+													'label':'Codigo'
+													}
+												]
+											}"
+										/>
+										<input type="text" class="form-control hide" name="A2_BANCO_COD" id="A2_BANCO_COD" readonly>
+									</div>
+			
+									<div class="col-md-2 col-xs-12">
+										<label>Cod. Agencia</label>
+										<input type="text" class="form-control bloqueia" name="A2_AGENCIA" id="A2_AGENCIA" autocomplete="off">
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>DV Ag Cnab</label>
+										<input type="text" class="form-control bloqueia" name="A2_DVAGE" id="A2_DVAGE" autocomplete="off">
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>Cta. Corrente</label>
+										<input type="text" class="form-control bloqueia" name="A2_NUMCON" id="A2_NUMCON" autocomplete="off">
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>DV Cta Cnab</label>
+										<input type="text" class="form-control bloqueia" name="A2_DVCTA" id="A2_DVCTA" autocomplete="off">
+									</div>
+									<div class="col-md-3 col-xs-12">
+										<label>Tp.Cta For</label>
+										<select class="form-control bloqueia" name="A2_TIPCTA" id="A2_TIPCTA">
+											<option value="1">Conta Corrente</option>
+											<option value="2">Conta Poupança</option>
+										</select>
+									</div>
+								</div>
+			
+			
+							</div>
+							
+							<div id="menu2" class="tab-pane fade">
+								<div class="row">
+									<div class="col-md-4 col-xs-12">
+										<label>Conta Contabil</label>
+										<input
+											type="zoom"
+											id = "A2_CONTA"
+											name="A2_CONTA"
+											data-zoom="{
+												'displayKey':'CT1_DESC01',
+												'datasetId':'ds_conta_contabil',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha a conta',
+												'fields':[
+													{
+													'field':'CT1_DESC01',
+													'label':'Descrição'
+													},{
+													'field':'CT1_CONTA',
+													'label':'Codigo',
+													'standard':'true'
+													}
+												]
+											}"
+										/>
+										<input type="text" class="form-control hide" name="A2_CONTA_COD" id="A2_CONTA_COD" readonly>
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>Recolhe ISS</label>
+										<select class="form-control bloqueiaFiscal"  name="A2_RECISS" id="A2_RECISS">
+											<option value="S">Sim</option>
+											<option value="N">Não</option>
+										</select>
+			
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>Calc INSS</label>
+										<select class="form-control bloqueiaFiscal" name="A2_RECINSS" id="A2_RECINSS">
+											<option value="S">Sim</option>
+											<option value="N">Não</option>
+										</select>
+									</div>
+								
+								
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-xs-12">
+										<label>Tipo Pessoa</label>
+										<select class="form-control bloqueiaFiscal" name="A2_TPESSOA" id="A2_TPESSOA">
+											<option value="CI">Comercio/Industria</option>
+											<option value="PF">Pessoa Fisica</option>
+											<option value="OS">Prestação de Serviço</option>
+										</select>
+									</div>
+									<div class="col-md-4 col-xs-12">
+										<label>Descr.Pais Bacen</label>
+										<input
+											autocomplete="off"
+											type="zoom"
+											id = "A2_CODPAIS_DESCRICAO"
+											name="A2_CODPAIS_DESCRICAO"
+											data-zoom="{
+												'displayKey':'CCH_PAIS',
+												'datasetId':'dsCodPais',
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o Pais',
+												'fields':[
+													{
+													'field':'CCH_PAIS',
+													'label':'Descricao'
+													},{
+													'field':'CCH_CODIGO',
+													'label':'Codigo',
+													'standard':'true'
+													}
+												]
+											}"
+										/>
+									</div>
+									<div class="col-md-3 col-xs-12">
+									  <label>Codigo Pais</label>
+									  <input type="text" class="form-control bloqueiaFiscal" name="A2_CODPAIS" id="A2_CODPAIS" readonly>
+									</div>
+									
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-xs-12">
+										<label>Rec. PIS</label>
+										<select class="form-control bloqueiaFiscal" name="A2_RECPIS" id="A2_RECPIS">
+											<option value="1">Sim</option>
+											<option value="2">Não</option>
+										</select>
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>Rec. Cofins</label>
+										<select class="form-control bloqueiaFiscal" name="A2_RECCOFI" id="A2_RECCOFI">
+											<option value="1">Sim</option>
+											<option value="2">Não</option>
+										</select>
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<label>Rec. CSLL</label>
+										<select class="form-control bloqueiaFiscal" name="A2_RECCSLL" id="A2_RECCSLL">
+											<option value="1">Sim</option>
+											<option value="2">Não</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+						<input type="hidden" name="message" id="message">
+						<input type="hidden" name="loja_fornecedor" id="message">
+						<input type="hidden" name="cod_fornecedor" id="cod_fornecedor">
+						<input type="hidden" name="idSolicitacao" id="idSolicitacao">
+						
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

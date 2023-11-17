@@ -1,0 +1,295 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title">Solicitação de entrega de asfalto</h3>
+            <div class="btn-group pull-right">
+              <a href="#" class="btn btn-default btn-sm">Enviar Email</a>
+            </div>
+          </div>
+          <div class="panel-body">
+            <!-- HIDDEN FIELDS USER -->
+            <input type="hidden" name="user_email" id="user_email" />
+
+            <div class="row pedidoOK hide">
+              <div class="alert alert-success showCodPedido" role="alert"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label>N° Pedido</label>
+              <input type="text" class="form-control" name="fCodigoPedido" id="fCodigoPedido" readonly />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 form-group tenant">
+              <label>Empresa/Filial</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="hidden" name="hidden_tenant" id="hidden_tenant" />
+              <input type="hidden" name="hidden_filial" id="hidden_filial" />
+              <input
+                type="zoom"
+                name="tenant"
+                zoomvalue="chave"
+                data-zoom="{
+						'width': '500px',
+						'zoomvalue':'chave',
+						'displayKey':'chave',
+						'datasetId':'dsEmpresaProtheusSync',
+						'maximumSelectionLength':'1',
+						'placeholder':'Escolha o Grupo de empresa/Filial',
+						'filterValues':'',
+						'fields':[
+							{'field':'codfil', 'label':'Codigo'},
+							{'field':'descgrp', 'label':'Companhia'},
+							{'field':'descemp', 'label':'Empresa'},
+							{'field':'filial', 'label':'Cod.Filial'},
+							{'field':'nomred', 'label':'Filial'},
+							{'field':'cgc', 'label':'CNPJ'}]
+						}"
+              />
+            </div>
+            <div class="col-md-3">
+              <label>Descrição</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia caracteres" name="descricaoEmpresa" id="descricaoEmpresa" readonly />
+            </div>
+            <div class="col-md-2">
+              <label>Data</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia" name="dataInicio" id="dataInicio" readonly />
+            </div>
+            <div class="col-md-2">
+              <label>Quant. Programada</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia" name="C6_QTDVEN" id="C6_QTDVEN" readonly />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group tenant">
+              <label>Cliente</label><span class="required text-danger"><strong>*</strong></span>
+              <input
+                type="zoom"
+                name="A1_NREDUZ"
+                zoomvalue="A1_NREDUZ"
+                data-zoom="{
+						'width': '500px',
+						'zoomvalue':'A1_NREDUZ',
+						'displayKey':'A1_NREDUZ',
+						'datasetId':'dsClientesProtheus',
+						'maximumSelectionLength':'1',
+						'placeholder':'Escolha o cliente',
+						'filterValues':'',
+						'fields':[
+							{'field':'A1_COD', 'label':'Codigo'},
+							{'field':'A1_LOJA', 'label':'Loja'},
+							{'field':'A1_NREDUZ', 'label':'Nome'},
+							{'field':'A1_CGC', 'label':'CGC'}]
+						}"
+              />
+            </div>
+            <input type="hidden" name="hidden_codCliente" id="hidden_codCliente" />
+            <input type="hidden" name="hidden_codClienteOnly" id="hidden_codClienteOnly" />
+            <div class="col-md-4">
+              <label>Observações Internas</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia caracteres" name="C5_OBINTER" id="C5_OBINTER" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label>Mensagem na nota</label><span class="required text-danger"><strong>*</strong></span>
+              <textarea class="form-control bloqueia caracteres" name="C5_MENIOTA" id="C5_MENIOTA" rows="5"> </textarea>
+            </div>
+          </div>
+          <div class="row anexo">
+            <div class="col-md-12">
+              <label>Anexar link</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control" name="anexarLink" id="anexarLink" />
+            </div>
+          </div>
+          <br />
+
+          <legend>Local de Entrega</legend>
+          <div class="row">
+            <div class="col-md-3 col-xs-12">
+              <label
+                >Estado<strong><span class="required text-danger">*</span></strong></label
+              >
+              <input
+                type="zoom"
+                name="A2_EST"
+                zoomvalue="X5_DESCRI"
+                data-zoom="{
+							'displayKey':'X5_DESCRI',
+							'datasetId':'ds_estado',
+							'maximumSelectionLength':'1',
+							'placeholder':'Escolha um estado',
+							'fields':[
+								{
+								'field':'X5_CHAVE',
+								'label':'Codigo'
+								},{
+								'field':'X5_DESCRI',
+								'label':'Descrição'
+								}
+							]
+						}"
+              />
+
+              <input type="text" class="form-control hide" name="A2_EST_COD" id="A2_EST_COD" />
+            </div>
+            <div class="col-md-3 col-xs-12">
+              <label>Município<strong>*</strong></label>
+              <input
+                type="zoom"
+                name="A2_COD_MUN"
+                data-zoom="{
+							'displayKey':'CC2_MUN',
+							'datasetId':'ds_municipio',
+							'maximumSelectionLength':'1',
+							'placeholder':'Escolha o Município',
+							'fields':[
+								{
+								'field':'CC2_CODMUN',
+								'label':'Codigo'
+								},{
+								'field':'CC2_MUN',
+								'label':'Descrição',
+								'standard':'true'
+								}
+							]
+						}"
+              />
+              <input type="text" class="form-control hide" name="A2_COD_MUN_COD" id="A2_COD_MUN_COD" />
+            </div>
+            <div class="col-md-4 col-xs-12">
+              <label>Local de Entrega</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia caracteres" name="C5_DESTIMO" id="C5_DESTIMO" />
+            </div>
+            <div class="col-md-2 col-xs-12">
+              <label>Usina</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia caracteres" name="C5_USINA" id="C5_USINA" />
+            </div>
+          </div>
+
+          <br />
+          <legend>Item</legend>
+          <div class="row">
+            <div class="col-md-4 form-group tenant">
+              <label>Produto</label><span class="required text-danger"><strong>*</strong></span>
+              <input
+                type="zoom"
+                name="C6_PRODUTO"
+                zoomvalue="chave"
+                data-zoom="{
+						'width': '500px',
+						'zoomvalue':'chave',
+						'displayKey':'B1_COD',
+						'datasetId':'dsProdutoPV',
+						'maximumSelectionLength':'1',
+						'placeholder':'Escolha o Produto',
+						'filterValues':'',
+						'fields':[
+							{'field':'B1_COD', 'label':'Codigo'},
+							{'field':'B1_DESC', 'label':'descicao'}]
+						}"
+              />
+            </div>
+            <div class="col-md-4">
+              <label>Descrição</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia" name="C6_DESCRICAO" id="C6_DESCRICAO" readonly />
+            </div>
+            <div class="col-md-2">
+              <label>Valor KG</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia moeda" name="C6_VALOR" id="C6_VALOR" value="0" />
+            </div>
+            <div class="col-md-2">
+              <label>Quant.</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia calcula quantidade" name="C6_QTDVEN_ITEM" id="C6_QTDVEN_ITEM" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label>Total</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="text" class="form-control bloqueia moeda2" name="C6_VALOR_TOTAL" id="C6_VALOR_TOTAL" readonly />
+              <input type="text" class="form-control bloqueia moeda2 hide" name="C6_VALOR_TOTAL_INTEGRA" id="C6_VALOR_TOTAL_INTEGRA" readonly />
+            </div>
+            <div class="col-md-3">
+              <label>Data Entrega</label><span class="required text-danger"><strong>*</strong></span>
+              <input type="date" class="form-control bloqueia" name="C6_ENTREG" id="C6_ENTREG" />
+            </div>
+            <div class="col-md-4 form-group tenant">
+              <label>CC</label><span class="required text-danger"><strong>*</strong></span>
+              <input
+                type="zoom"
+                name="C6_CC"
+                zoomvalue="CTT_CUSTO"
+                data-zoom="{
+						'displayKey':'CTT_CUSTO',
+						'datasetId':'dsCentroCusto',
+						'maximumSelectionLength':'1',
+						'placeholder':'Escolha o Centro de Custo',
+						'fields':[
+							{
+							'field':'CTT_CUSTO',
+							'label':'CC'
+							},{
+							'field':'CTT_DESC01',
+							'label':'Código',
+							'standard':'true'
+							}
+						]
+					}"
+              />
+            </div>
+            <div class="col-md-2 form-group">
+              <label>Tes</label><span class="required text-danger"><strong>*</strong></span>
+              <input
+                type="zoom"
+                name="F4_CODIGO"
+                zoomvalue="F4_CODIGO"
+                data-zoom="{
+						'displayKey':'F4_CODIGO',
+						'datasetId':'dsTesProtheus',
+						'maximumSelectionLength':'1',
+						'placeholder':'Escolha um codigo',
+						'fields':[
+							{
+							'field':'F4_CODIGO',
+							'label':'Codigo'
+							}
+						]
+					}"
+              />
+            </div>
+          </div>
+          <div class="row jus">
+            <div class="col-md-12">
+              <label>Ligante Recebido ?</label>
+              <select class="form-control" name="recebido" id="recebido">
+                <option value="sim">Sim</option>
+                <option value="nao">Nâo</option>
+              </select>
+            </div>
+          </div>
+          <div class="row jus">
+            <div class="col-md-12">
+              <label>Justificativa</label>
+              <textarea class="form-control" name="justificativa" id="justificativa" rows="5"></textarea>
+              <input type="hidden" id="precisaJustificar" name="precisaJustificar" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

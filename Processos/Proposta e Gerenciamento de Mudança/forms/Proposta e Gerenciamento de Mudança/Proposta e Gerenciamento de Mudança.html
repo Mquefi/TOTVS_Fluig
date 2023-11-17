@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" scr="displayFields.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-4">
+								<label for="solicitante">Solicitante</label>
+								<input type="text" name="solicitante" id="solicitante" class="form-control" readonly/>
+							</div>
+							<div class="col-md-4">
+								<label for="dataSolicitacao">Data da Solicitação</label>
+								<input type="text" name="dataSolicitacao" id="dataSolicitacao" class="form-control" readonly/>
+							</div>
+							<div class="col-md-4">
+								<label class="control-label" for="tpMud">Tipo de Mudança</label>
+								<select name="tpMud" id="tpMud" class="form-control">
+									<option value="X"></option>
+									<option value="Auditoria Externa">Definitiva</option>
+									<option value="Auditoria Interna">Temporária</option>
+								</select>
+							</div>							
+						</div>
+				    </div>
+			 	</div>
+			
+			
+			
+			</form>
+		</div>
+	</body>
+</html>

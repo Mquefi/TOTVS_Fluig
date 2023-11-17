@@ -1,0 +1,1110 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>agendamento_titulo_pagar</processId>
+    </processDefinitionPK>
+    <processDescription>Preparação de Borderô</processDescription>
+    <instruction>Aprovação de pagamento (CNAB)</instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Financeiro</categoryId>
+    <managerEngineAllocationId>Papel</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;financeiro_gestao&lt;/Role&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>24/7</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Preparação de Borderô</processId>
+      <version>32</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>151071</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>true</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;financeiro_contas_pagar&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>149</positionX>
+      <positionY>132</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Aprovação de Pagamento</stateName>
+      <stateDescription>Aprovação de Pagamento</stateDescription>
+      <instruction>Aprovação de títulos (CNAB)</instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;Aprovador_Financeiro&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1200</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1800</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>1200</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>1800</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>114</positionX>
+      <positionY>260</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>1200</allowanceManagerTime>
+      <frequenceManagerTime>1800</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>86400</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>11</sequence>
+      </processStatePK>
+      <stateName>Criar agendamento</stateName>
+      <stateDescription>Criar agendamento</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>114</positionX>
+      <positionY>380</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>13</sequence>
+      </processStatePK>
+      <stateName>Erro ao executar integração</stateName>
+      <stateDescription>Erro ao executar integração</stateDescription>
+      <instruction>Erro sistêmico, favor reenviar ou entrar em contato com a TI</instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1800</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1800</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>256</positionX>
+      <positionY>507</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>16</sequence>
+      </processStatePK>
+      <stateName>Correção</stateName>
+      <stateDescription>Correção</stateDescription>
+      <instruction>Ajuste solicitado</instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1200</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1800</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>461</positionX>
+      <positionY>120</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>true</notifyManagerDelay>
+      <allowanceManagerTime>1200</allowanceManagerTime>
+      <frequenceManagerTime>1800</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>86400</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>12</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>204</positionX>
+      <positionY>460</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>11</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>25</sequence>
+      </processStatePK>
+      <stateName>Selecionar usuário</stateName>
+      <stateDescription>Selecionar usuário</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>484</positionX>
+      <positionY>244</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>149</positionX>
+      <positionY>535</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>21</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>630</positionX>
+      <positionY>132</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>32</version>
+        <sequence>25</sequence>
+      </conditionProcessStatePK>
+      <condition>true</condition>
+      <destinationSequenceId>5</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>6</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>8</linkSequence>
+      </processLinkPK>
+      <actionLabel>1. Integrar Protheus</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>11</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>10</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>14</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>12</initialStateSequence>
+      <finalStateSequence>13</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>15</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>13</initialStateSequence>
+      <finalStateSequence>11</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>24</linkSequence>
+      </processLinkPK>
+      <actionLabel>2. Solicitar correção</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>16</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>26</linkSequence>
+      </processLinkPK>
+      <actionLabel>1. Solicitar aprovação</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>16</initialStateSequence>
+      <finalStateSequence>25</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>27</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>25</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <linkSequence>28</linkSequence>
+      </processLinkPK>
+      <actionLabel>2. Cancelar solicitação</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>16</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId){&#xd;
+    hAPI.setCardValue(&apos;num_solic&apos;, processId);&#xd;
+    hAPI.setCardValue(&apos;data_solic&apos;, formatDate(new Date(), &apos;dd/MM/yyyy HH:mm&apos;));&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask11</eventId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask11(attempt, message) {
+  var tableName = &quot;SE2&quot; + addRightPad(hAPI.getCardValue(&quot;cod_grupo_empresa&quot;) + &quot;&quot;, &quot;0&quot;, 3);
+
+  getTableValues(&quot;titulos&quot;, [
+    &quot;E2_FILIAL&quot;,
+    &quot;E2_PREFIXO&quot;,
+    &quot;E2_NUM&quot;,
+    &quot;E2_PARCELA&quot;,
+    &quot;E2_TIPO&quot;,
+    &quot;E2_FORNECE&quot;,
+    &quot;E2_LOJA&quot;,
+    &quot;E2_NOMFOR&quot;,
+    &quot;E2_EMISSAO&quot;,
+    &quot;E2_VENCTO&quot;,
+    &quot;E2_VENCREA&quot;,
+    &quot;E2_VALOR&quot;,
+    &quot;E2_SALDO&quot;,
+    &quot;E2_CDFLUIG&quot;,
+    &quot;E2_NUMBOR&quot;,
+    &quot;E2_PGPARCI&quot;
+  ]).forEach(function (titulo) {
+    // prettier-ignore
+    var sqlUpdate = &quot; UPDATE &quot; + tableName + &quot; SET E2_CDFLUIG = CONCAT(SUBSTRING(RTRIM(E2_CDFLUIG),1,27),&apos;|&apos;,&apos;&quot; + getValue(&quot;WKNumProces&quot;) + &quot;&apos;), &quot; + 
+    &quot; E2_NUMBOR = &apos;&apos;, E2_PGPARCI = &quot; + asFloat(titulo.E2_PGPARCI) +
+    &quot; WHERE E2_FILIAL = &apos;&quot; + titulo.E2_FILIAL + &quot;&apos; &quot; +
+    &quot; AND E2_PREFIXO = &apos;&quot; + titulo.E2_PREFIXO + &quot;&apos; &quot; +
+    &quot; AND E2_NUM = &apos;&quot; + titulo.E2_NUM + &quot;&apos; &quot; +
+    &quot; AND E2_PARCELA = &apos;&quot; + titulo.E2_PARCELA + &quot;&apos; &quot;
+    &quot; AND E2_TIPO = &apos;&quot; + titulo.E2_TIPO + &quot;&apos; &quot; + &quot; AND E2_FORNECE = &apos;&quot; + titulo.E2_FORNECE + &quot;&apos; &quot; + &quot; AND E2_LOJA = &apos;&quot; + titulo.E2_LOJA + &quot;&apos; AND D_E_L_E_T_ &lt;&gt; &apos;*&apos; &quot;;
+    
+    log.info(&apos;QUERY UPDATE ==&gt; &apos; + sqlUpdate);
+    
+    DBUtils.execute(&quot;Protheus12&quot;, sqlUpdate);
+  });
+}
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>utils</eventId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function utils() {}
+
+function formatDate(data, format) {
+  var dateFormat = new java.text.SimpleDateFormat(format || &quot;dd/MM/yyyy&quot;);
+  return dateFormat.format(data);
+}
+
+function removerFormatacaoNumero(numberString) {
+  if (!numberString) return new java.lang.String(&quot;0&quot;);
+  return numberString.replaceAll(&quot;\\.&quot;, &quot;&quot;).replaceAll(&quot;\\,&quot;, &quot;.&quot;);
+}
+
+function asInt(num) {
+  var numString = new java.lang.String(num + &quot;&quot;);
+  var numWithoutFormating = removerFormatacaoNumero(numString);
+  if (numWithoutFormating.isEmpty()) return 0;
+  return java.lang.Long.parseLong(numWithoutFormating, 10);
+}
+
+function asFloat(num) {
+  var numString = new java.lang.String(num + &quot;&quot;);
+  var floatValue = parseFloat(removerFormatacaoNumero(numString));
+  if (isNaN(floatValue)) return 0;
+  return floatValue;
+}
+
+function getTableValues(tablename, fields) {
+  var values = [];
+  hAPI.getChildrenIndexes(tablename).forEach(function (index) {
+    var value = {
+      index: index
+    };
+    fields.forEach(function (campo) {
+      value[campo] = hAPI.getCardValue(campo + &quot;___&quot; + index);
+    });
+    values.push(value);
+  });
+
+  return values;
+}
+
+function addRightPad(str, padstr, len) {
+  return java.lang.String.format(&quot;%-&quot; + len + &quot;s&quot;, str).replace(&quot; &quot;, padstr) + &quot;&quot;;
+}
+
+var DBUtils = {};
+DBUtils.returnTypes = { OBJECTS: 1, ARRAY: 2 };
+DBUtils.getDatasource = function (db) {
+  var dataBase = &quot;java:/jdbc/&quot; + db;
+  var context = new javax.naming.InitialContext();
+  var dataSource = context.lookup(dataBase);
+  return dataSource;
+};
+DBUtils.parseResultSetToArray = function (resultSet) {
+  var columnCount = resultSet.getMetaData().getColumnCount();
+  var columns = [];
+  var columnTypes = [];
+  for (var i = 1; i &lt;= columnCount; i++) {
+    var columnName = resultSet.getMetaData().getColumnLabel(i);
+    var columnType = resultSet.getMetaData().getColumnTypeName(i);
+    columns.push(columnName);
+    columnTypes.push(columnType);
+  }
+
+  var rows = [];
+  while (resultSet.next()) {
+    var row = [];
+    for (var i = 0; i &lt; columnCount; i++) {
+      var obj = resultSet.getObject(columns[i]);
+      if (obj) {
+        if (columnTypes[i] == &quot;varchar&quot; || columnTypes[i] == &quot;nvarchar&quot;) row.push((obj + &quot;&quot;).trim());
+        else row.push(obj);
+      } else row.push(&quot;&quot;);
+    }
+    rows.push(row);
+  }
+
+  return { columns: columns, rows: rows };
+};
+DBUtils.parseResultSetToObjectArray = function (resultSet) {
+  var objects = [];
+  var columnCount = resultSet.getMetaData().getColumnCount();
+  while (resultSet.next()) {
+    var obj = {};
+    for (var i = 1; i &lt;= columnCount; i++) {
+      var columnName = resultSet.getMetaData().getColumnLabel(i);
+      var value = resultSet.getObject(columnName) || &quot;&quot;;
+      obj[columnName] = value;
+    }
+    objects.push(obj);
+  }
+  return objects;
+};
+DBUtils.executeQuery = function (db, sql, returnType, params) {
+  var connection = null;
+  var statement = null;
+  var resultSet = null;
+
+  try {
+    var dataSource = DBUtils.getDatasource(db);
+    connection = dataSource.getConnection();
+    statement = connection.prepareStatement(sql);
+
+    if (params) {
+      params.forEach(function (param, index) {
+        param.type ? statement.setObject(index + 1, param.value, param.type) : statement.setObject(index + 1, param);
+      });
+    }
+
+    resultSet = statement.executeQuery();
+    return returnType === DBUtils.returnTypes.OBJECTS ? DBUtils.parseResultSetToObjectArray(resultSet) : DBUtils.parseResultSetToArray(resultSet);
+  } catch (error) {
+    log.error(&quot;Erro ao executar query: &quot; + sql);
+    log.error(&quot;Error: &quot; + error.toString() + &quot; at line: &quot; + error.lineNumber);
+    throw error;
+  } finally {
+    if (resultSet != null) resultSet.close();
+    if (statement != null) statement.close();
+    if (connection != null) connection.close();
+  }
+};
+DBUtils.execute = function (db, sql) {
+  var connection = null;
+  var statement = null;
+  var resultSet = null;
+
+  try {
+    var dataSource = DBUtils.getDatasource(db);
+    connection = dataSource.getConnection();
+    statement = connection.createStatement();
+    statement.execute(sql);
+  } catch (error) {
+    log.error(&quot;Erro ao executar sql: &quot; + sql);
+    log.error(&quot;Error: &quot; + error.toString() + &quot; at line: &quot; + error.lineNumber);
+    throw error;
+  } finally {
+    if (resultSet != null) resultSet.close();
+    if (statement != null) statement.close();
+    if (connection != null) connection.close();
+  }
+};
+</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>171</height>
+      <width>755</width>
+      <positionX>66</positionX>
+      <positionY>60</positionY>
+      <stateName>Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>adc9ac</color>
+      <height>381</height>
+      <width>755</width>
+      <positionX>66</positionX>
+      <positionY>230</positionY>
+      <stateName>Aprovador</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <version>32</version>
+        <linkSequence>24</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>300</positionX>
+      <positionY>181</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <fieldId>cod_grupo_empresa</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>cod_grupo_empresa</fieldDescription>
+      <slotId>1</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <fieldId>data_venc_inicio</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>data_venc_inicio</fieldDescription>
+      <slotId>2</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <fieldId>filial</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>filial</fieldDescription>
+      <slotId>3</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <fieldId>grupo_empresa</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Grupo Empresa</fieldDescription>
+      <slotId>4</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>agendamento_titulo_pagar</processId>
+        <fieldId>num_titulo</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>num_titulo</fieldDescription>
+      <slotId>5</slotId>
+    </ProcessFormField>
+  </list>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>agendamento_titulo_pagar</processId>
+      <version>1</version>
+      <sequence>11</sequence>
+      <attempts>3</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list/>
+  <list>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>APROVAÇÃO DE PAGAMENTO (CNAB)</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description>DATA: @[form:data_solic] | EMPRESA: @[form:grupo_empresa] | FILIAL: @[form:filial]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>DATA: @[form:data_solic] - TOTAL: @[form:valor_total_pagar]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>11</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>5</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>16</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>13</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>APROVAÇÃO DE PAGAMENTO (CNAB)</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>13</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description>DATA: @[form:data_solic] | EMPRESA: @[form:grupo_empresa] | FILIAL: @[form:filial]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>13</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>DATA: @[form:data_solic] - TOTAL: @[form:valor_total_pagar]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>13</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>11</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>16</stateSequence>
+      <appKey>approval</appKey>
+      <appField>title</appField>
+      <description>APROVAÇÃO DE PAGAMENTO (CNAB)</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>16</stateSequence>
+      <appKey>approval</appKey>
+      <appField>description</appField>
+      <description>DATA: @[form:data_solic] | EMPRESA: @[form:grupo_empresa] | FILIAL: @[form:filial]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>16</stateSequence>
+      <appKey>approval</appKey>
+      <appField>highlight</appField>
+      <description>DATA: @[form:data_solic] - TOTAL: @[form:valor_total_pagar]</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>16</stateSequence>
+      <appKey>approval</appKey>
+      <appField>approve</appField>
+      <description>25</description>
+    </ProcessAppConfiguration>
+    <ProcessAppConfiguration>
+      <id>0</id>
+      <tenantId>0</tenantId>
+      <processId>agendamento_titulo_pagar</processId>
+      <processVersion>32</processVersion>
+      <stateSequence>16</stateSequence>
+      <appKey>approval</appKey>
+      <appField>reject</appField>
+      <description>21</description>
+    </ProcessAppConfiguration>
+  </list>
+  <list/>
+  <list/>
+</list>

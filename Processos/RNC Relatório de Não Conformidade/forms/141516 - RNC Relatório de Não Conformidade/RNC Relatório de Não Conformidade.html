@@ -1,0 +1,479 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="displayFields.js" charset="utf-8"></script>
+		<script type="text/javascript" src="chamado.js" charset="utf-8"></script>
+		<script type="text/javascript" src="validateForm.js" charset="utf-8"></script>
+		<script type="text/javascript" src="enableFields.js" charset="utf-8"></script>
+
+		<script type="text/javascript" src="script.js" charset="utf-8"></script>
+		
+	</head>
+	
+	<header>
+		<div class="row">
+			<div class="col-md-12">
+				<h1 id="tituloFormulario">RNC Relatório de Não Conformidade</h1>
+			</div>
+			<div>
+				<hr size="3" color="red" margin>
+			</div>
+		</div>
+	</header>
+	
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+			
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Dados Gerais</h3>
+				    </div>
+				    
+				    <div class="panel-body">
+				        <div class="row">
+			
+							<div class="col-md-4">
+								<label for="solicitante">Solicitante</label>
+								<input type="text" name="solicitante" id="solicitante" class="form-control" readonly/>
+							</div>
+							<div class="col-md-4">
+								<label for="dataSolicitacao">Data da Solicitação</label>
+								<input type="text" name="dataSolicitacao" id="dataSolicitacao" class="form-control" readonly/>
+							</div>
+							<div class="col-md-4">
+								<label class="control-label" for="oRNC">Origem da RNC</label>
+								<select name="oRNC" id="oRNC" class="form-control">
+									<option value="X"></option>
+									<option value="Auditoria Externa">Auditoria Externa</option>
+									<option value="Auditoria Interna">Auditoria Interna</option>
+									<option value="Cliente">Cliente</option>
+									<option value="Fornecedor">Fornecedor</option>
+									<option value="Interno">Interno</option>
+									<option value="Produto Não Conforme">Produto Não Conforme</option>
+								</select>
+							</div>							
+						</div>
+				    </div>
+				    
+				    <div class="panel-body">
+				        <div class="row">			        
+				        	<div class="col-md-4">
+				        		<label for="cCusto">Centro de Custo</label>
+				        		<input type="zoom" name="cCusto" id="cCusto" class="form-control" data-zoom="{
+				        			'displayKey':'cCusto',
+	                                'datasetId':'DsCadAprovadores',
+	                                'placeholder':'Digite o Centro de Custo',
+	                                'fields':[
+	                                	{
+	                                    	'field':'cCusto',
+	                                        'label':'Código'
+	
+	                                    },{
+	                                        'field':'descCentroCusto',
+	                                        'label':'Descrição'
+	                                    },{
+	                                        'field':'regional',
+	                                        'label':'Regional'                                      
+	                                    }
+	                            	]
+				        		}" 			        					        		
+				        		>			        		
+				        	</div>
+				        	<div class="col-md-4">
+			        			<label for="descCentCusto">Descrição C/C</label>
+			        			<input type="text" name="descCentCusto" id="descCentCusto" class="form-control" placeholder="Descrição do C/C" readonly/>
+			        		</div>
+			        		<div class="col-md-4">
+			        			<label for="regional">Regional</label>
+			        			<input type="text" name="regional" id="regional" class="form-control" placeholder="Regional" readonly/>
+			        		</div>		        				        				        			        					
+						</div>
+				    </div>
+				    
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-4">
+								<label class="control-label" for="tipoRnc">Tipo RNC</label>
+								<select name="tipoRnc" id="tipoRnc" class="form-control"/>
+									<option value="X"></option>
+									<option value="Ação Corretiva">Ação Corretiva</option>
+									<option value="Oportunidade de Melhoria">Oportunidade de Melhoria</option>
+								</select>
+							</div>	
+							<div class="col-md-4">
+								<label class="control-label" for="reinicidencia">Reincidência</label>
+								<select name="reincidencia" id="reincidencia" class="form-control"/>
+									<option value="X"></option>
+									<option value="Sim">Sim</option>
+									<option value="Não">Não</option>
+									<option value="RNC Origem">RNC Anterior</option>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<label for="rncAnterior">Nº RNC Anterior</label>
+								<input type="text" name="rncAnterior" id="rncAnterior" class="form-control"/>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Detalhamento da Não Conformidade</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-12">
+								<label for="descNconform">Descrição</label>
+								<textarea name="descNconform" id="descNconform" class="form-control" rows="3" placeholder="Descrição da não conformidade, em detalhes"></textarea>
+							</div>
+						</div>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-12">
+								<label for="descConseq">Como lidar com a conseguência?</label>
+								<textarea type="text" name="descConseq" id="descConseq" class="form-control" rows="3" placeholder="Tome como base que a NC ocorrida gerou um efeito - ex: gastos, desperdício, insatisfação do cliente, necessidade de retrabalhos, mudanças - aqui você deve apontar a consequencia que a RNC trouxe e como você vai lidar com ela"></textarea>
+							</div>
+						</div>
+					</div>
+				    <div class="panel-body">
+			        	<div class="row">
+							<div class="col-md-12">
+								<label for="descAbrang">Qual a abrangência?</label>
+								<textarea type="text" name="descAbrang" id="descAbrang" class="form-control" rows="3" placeholder="Baseado no problema atual ou no processo atual, qual a probabilidade de acontecer ou estar acontecendo em outro processo = Abrangência"></textarea>
+							</div>
+						</div>
+					</div>
+			   </div>
+				 
+			   <!-- ######################### -->
+			    <div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Ação de Correção (Ação Imediata)</h3>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-12">
+								<label for="descAC">Descrição</label>
+								<textarea name="descAC" id="descAC" class="form-control" rows="3" placeholder="Descrição da Ação Corretiva"> </textarea>
+							</div>
+						</div>
+				    </div>
+				    <div class="panel-body">
+				        <div class="row">
+							<div class="col-md-4">
+								<label for="dataAC">Data</label>
+								<input type="date" name="dataAC" id="dataAC" class="form-control" rows="3" />
+							</div>
+							<div class="col-md-8">
+								<label for="respAC">Responsável</label>
+								<input type="text" name="respAC" id="respAC" class="form-control" rows="3" placeholder="Nome do responsável por aplicar a Ação Corretiva" />
+							</div>
+						</div>
+					</div>
+				</div>
+			   
+			   	<!-- ######################### -->
+				<!-- radio -->
+				<div class="panel panel-primary">
+				    <div class="panel-heading">
+				        <h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Análise de Causa Raiz (Por que ocorreu a não conformidade?)</h3>
+				    </div>
+				    <div class="panel-body">
+			    	<!-- Linha 1 -->
+				        <div class="row">
+					        <div class="col-md-6">
+								<p>1 - Possíveis desvios no processo ou no método que causaram o problema:</p>
+							</div>
+							<div class="col-md-2">								
+							    <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        <input type="radio" name="radio1a" id="radio1a">
+							        <label for="radio1a">Sim</label>
+							    </div>
+						        <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        <input type="radio" name="radio1a" id="radio2a">
+							        <label for="radio2a">Não</label>
+						        </div>
+							</div>
+							<div class="col-md-4">								
+								<input type="text" name="opt1" id="opt1" class="form-control" placeholder="Quais?"/>
+							</div>
+						</div>
+						<!-- Linha 2 -->
+						<div class="row">
+					        <div class="col-md-6">
+								<p>2 - Possíveis desvios no material utilizado que causaram o problema:</p>
+							</div>
+							<div class="col-md-2">								
+							    <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        <input type="radio" name="radio1b" value="primary" id="radio1b">
+							        <label for="radio1b">Sim</label>
+							    </div>
+						        <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        <input type="radio" name="radio1b" value="danger" id="radio2b">
+							        <label for="radio2b">Não</label>
+						       </div>							    
+							</div>
+							<div class="col-md-4">								
+								<input type="text" name="opt2" id="opt2" class="form-control" placeholder="Quais?"/>
+							</div>
+						</div>
+						<!-- Linha 3 -->
+						<div class="row">
+					        <div class="col-md-6">
+								<p>3 - Possíveis desvios na mão de obra que causaram o problema:</p>
+							</div>
+							<div class="col-md-2">
+								<form action="#">
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1c" id="radio1c">
+								        <label for="radio1c">Sim</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1c" id="radio2c">
+								        <label for="radio2c">Não</label>
+							       </div>
+							    </form>
+							</div>
+							<div class="col-md-4">								
+								<input type="text" name="opt3" id="opt3" class="form-control" placeholder="Quais?"/>
+							</div>
+						</div>
+						<!-- Linha 4 -->
+						<div class="row">
+					        <div class="col-md-6">
+								<p>4 - Possíveis desvios nas máquinas ou ferramentas que causaram o problema:</p>
+							</div>
+							<div class="col-md-2">
+								<form action="#">
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1d" id="radio1d">
+								        <label for="radio1d">Sim</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1d" id="radio2d">
+								        <label for="radio2d">Não</label>
+							        </div>
+							    </form>
+							</div>
+							<div class="col-md-4">								
+								<input type="text" name="opt4" id="opt4" class="form-control" placeholder="Quais?"/>
+							</div>
+						</div>
+						<!-- Linha 5 -->
+						<div class="row">
+					        <div class="col-md-6">
+								<p>5 - Possíveis desvios na medição que causaram o problema:</p>
+							</div>
+							<div class="col-md-2">
+								<form action="#">
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1e" id="radio1e">
+								        <label for="radio1e">Sim</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1e" id="radio2e">
+								        <label for="radio2e">Não</label>
+							        </div>
+							    </form>
+							</div>
+							<div class="col-md-4">								
+								<input type="text" name="opt5" id="opt5" class="form-control" placeholder="Quais?"/>
+							</div>
+						</div>
+						<!-- Linha 6 -->
+						<div class="row">
+					        <div class="col-md-6">
+								<p>6 - Possíveis desvios no ambiente de trabalho que causaram o problema:</p>
+							</div>
+							<div class="col-md-2">
+								<form action="#">
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1f" id="radio1f">
+								        <label for="radio1f">Sim</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1f" id="radio2f">
+								        <label for="radio2f">Não</label>
+							        </div>
+							    </form>
+							</div>
+							<div class="col-md-4">								
+								<input type="text" name="opt6" id="opt6" class="form-control" placeholder="Quais?"/>
+							</div>
+						</div>
+				    </div>	
+			   	</div>
+			   
+			   	<!-- ######################### -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Ação de Correção (Ação Permanente)</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-4">
+								<label for="descAcPer">Ação Permanente</label>
+								<textarea name="descAcPer" id="descAcPer" class="form-control" rows="3" placeholder="Descrição da ação permante a ser implantada"></textarea>
+							</div>				    
+							<div class="col-md-4">
+								<label for="riscosOport">Riscos e Oportunidades</label>
+								<textarea type="text" name=""riscosOport"" id=""riscosOport"" class="form-control" rows="3" placeholder="Riscos e Oportunidades da implantação"></textarea>
+							</div>
+							<div class="col-md-2">
+								<label for="descResp">Responsável</label>
+								<textarea type="text" name="descResp" id="descResp" class="form-control"></textarea>
+							</div>
+							<div class="col-md-2">
+								<label for="dtLimite">Data Limite</label>
+								<input type="date" name="dtLimite" id="dtLimite" class="form-control">						        
+							</div>
+						</div>
+					</div>
+			   	</div>
+			   
+			   	<!-- ######################### -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Revisão de Documentos (Procedimentos, Normas, etc...)</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-4">
+								<label for="nomeDoc">Nome do Documento</label>
+								<input type="text" name="nomeDoc" id="nomeDoc" class="form-control" placeholder="Código/Nome">
+							</div>
+							<div class="col-md-2">
+								<label for="nRevisAtual">Revisão Atual</label>
+								<input type="text" name="nRevisAtual" id="nRevisAtual" class="form-control" placeholder="Nº">
+							</div>					    
+							<div class="col-md-2">
+								<label for="nRevisNovo">Nova Revisão</label>
+								<input type="text" name="nRevisNovo" id="nRevisNovo" class="form-control" placeholder="Nº">
+							</div>
+							<div id="002">						
+						        <div class="col-md-4">
+						        <label for="002">Status</label><br>
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        	<input type="radio" name="radio1g" id="radio1g">
+									        <label for="radio1g">Ok</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1g" id="radio2g">
+									        <label for="radio2g">Não Ok</label>
+							        </div>								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		   	
+		   		<!-- ######################### -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Acompanhamento da Implementação</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-6">
+								<label for="obsImplem">Observações</label>
+								<input type="text" name="obsImplem" id="obsImplem" class="form-control" placeholder="Observações da ação permanente">
+							</div>				    
+							<div class="col-md-2">
+								<label for="respImplem">Responsável</label>
+								<input type="text" name=""respImplem"" id=""respImplem"" class="form-control">
+							</div>							
+							<div id="003">
+						        <div class="col-md-4">
+						        <label for="003">Status</label><br>
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        	<input type="radio" name="radio1h" id="radio1h">
+									        <label for="radio1h">Ok</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1h" id="radio2h">
+									        <label for="radio2h">Não Ok</label>							
+							        </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Rastreabilidade</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2">
+								<label for="nGerMud">Nº Gerenciamento de Mundaça</label>
+								<input type="text" name="nGerMud" id="nGerMud" class="form-control" placeholder="Nº">
+							</div>				    
+							<div class="col-md-2">
+								<label for="dtGerMud">Data</label>
+								<input type="date" name="dtGerMud" id="dtGerMud" class="form-control">
+							</div>
+						</div>
+					</div>					
+				</div>
+				
+				<!-- ######################### -->
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fluigicon fluigicon-form icon-sm"></i> Verificação da Eficácia</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-4">
+								<label for="nGerVer">Responsável Pela Verificação</label>
+								<input type="text" name="nGerVer" id="nGerVer" class="form-control" placeholder="Nome Completo">
+							</div>				    
+							<div class="col-md-2">
+								<label for="dtGerVer">Data</label>
+								<input type="date" name="dtGerVer" id="dtGerVer" class="form-control">
+							</div>
+							
+							<div id="004">
+								<div class="col-md-4">
+								<label for="004">Resultado</label><br>
+								    <div class="custom-radio custom-radio-inline custom-radio-primary">
+							        	<input type="radio" name="radio1i" id="radio1i">
+								        <label for="radio1i">Eficaz</label>
+								    </div>
+							        <div class="custom-radio custom-radio-inline custom-radio-primary">
+								        <input type="radio" name="radio1i" id="radio2i">
+									    <label for="radio2i">Não Eficaz - Nova RNC</label>							
+							        </div>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<label for="nRNC">Nº RNC</label>
+								<input type="number" name="nRNC" id="nRNC" class="form-control" placeholder="Nº">
+							</div>	
+						</div>
+					</div>					
+				</div>
+			   
+			   <!-- -->
+			   
+			</form>							    
+		</div>			
+	</body>
+	<script type="text/javascript">
+		var calendarioDataSolicitaÃ§Ã£o = FLUIGC.calendar('#dtsolicitacao');
+		var calendarioDataAC = FLUIGC.calendar('#dataAC');
+		var calendarioDataAC = FLUIGC.calendar('#dtLimite');
+		var calendarioDataAC = FLUIGC.calendar('#dtGerMud');
+		var calendarioDataAC = FLUIGC.calendar('#dtGerVer');
+	</script>
+</html>

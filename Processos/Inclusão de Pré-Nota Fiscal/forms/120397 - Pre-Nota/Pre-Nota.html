@@ -1,0 +1,426 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="http://fluig.compasa.com.br:8180/style-guide/css/fluig-style-guide.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css" />
+
+    <script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://fluig.compasa.com.br:8180/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="http://fluig.compasa.com.br:8180/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script src="http://fluig.compasa.com.br:8180/style-guide/js/fluig-style-guide-filter.min.js"></script>
+
+    <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.2/xlsx.full.min.js"></script>
+    <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+    <script type="text/javascript" src="dataTable.js" charset="utf-8"></script>
+    <script type="text/javascript" src="rest.js" charset="utf-8"></script>
+    <script type="text/javascript" src="messages.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="dataset.js" charset="utf-8"></script>
+
+    <!--<script type="text/javascript" src="orderItems.js" charset="utf-8"></script>-->
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+    <script type="text/javascript" src="util.js" charset="utf-8"></script>
+    <script type="text/javascript" src="header.js" charset="utf-8"></script>
+    <script type="text/javascript" src="zoomFields.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.mask.min.js" charset="utf-8"></script>
+    <script src="/webdesk/vcXMLRPC.js"></script>
+
+    <script src="http://fluig.compasa.com.br:8180/style-guide/js/fluig-style-guide-richeditor.min.js"></script>
+    <script src="chamado.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="general.css" />
+  </head>
+
+  <body>
+    <div class="fluig-style-guide">
+      <form name="form" role="form" style="margin-right: 10">
+        <!--HIDDEN INPUTS-->
+        <input type="hidden" name="fName_Emp" id="fName_Emp" />
+        <div class="row">
+          <div class="col-md-4 form-group tenant">
+            <label>Empresa/Filial</label>
+            <input type="hidden" name="hidden_tenant" id="hidden_tenant" />
+            <input type="hidden" name="hidden_filial" id="hidden_filial" />
+            <input type="hidden" name="fDescri_Fornec" id="fDescri_Fornec" />
+            <input type="hidden" name="A2AUTSPED" id="A2AUTSPED" />
+            <input
+              type="zoom"
+              name="tenant"
+              id="tenant"
+              zoomvalue="chave"
+              data-zoom="{
+                        'width': '500px',
+                        'zoomvalue':'chave',
+                        'displayKey':'chave',
+                        'datasetId':'dsEmpresaProtheusSync',
+                        'maximumSelectionLength':'1',
+                        'placeholder':'Escolha o Grupo de empresa/Filial',
+                        'filterValues':'',
+                        'fields':[
+                            {'field':'chave', 'label':'Código'},
+                            {'field':'descgrp', 'label':'Companhia'},
+                            {'field':'descemp', 'label':'Empresa'},
+                            {'field':'filial', 'label':'Filial'},
+                            {'field':'cgc', 'label':'CNPJ'}
+                            ]
+                        }"
+            />
+            <p class="help-block has-info"></p>
+          </div>
+          <div class="col-md-4">
+            <label>Descrição</label>
+            <input type="text" readonly class="form-control" name="descgrp" id="descgrp" />
+          </div>
+          <div class="col-md-2 form-group">
+            <label>Tipo de Entrada</label>
+            <select class="form-control" name="tipo_entrada" id="tipo_entrada" tipo_entrada onchange="tipoEntradaChanged(this)">
+              <option disabled selected value>-- Selecione tipo de entrada --</option>
+              <option value="C">COM PEDIDO</option>
+              <option value="S">SEM PEDIDO</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pre-nota-part">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label>Chave NFE</label>
+              <input type="text" name="chave_nfe" id="chave_nfe" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="pre-nota-Num">
+          <div class="row">
+            <div class="col-md-2 form-group">
+              <label>Número</label>
+              <input class="form-control bloqueio" id="numero" name="numero" type="text" maxlength="9" />
+            </div>
+            <div class="col-md-1 form-group">
+              <label>Série</label>
+              <input class="form-control bloqueio" id="serie" name="serie" type="text" maxlength="3" />
+            </div>
+            <div class="col-md-2 form-group">
+              <label>Data emissão</label>
+              <input class="form-control bloqueio" onchange="calculaData()" id="data_emissao" name="data_emissao" type="text" />
+              <input class="form-control bloqueio" id="data_emissao_integra" name="data_emissao_integra" type="hidden" />
+              <input class="form-control" id="hidden_current_date" name="hidden_current_date" type="hidden" maxlength="8" />
+            </div>
+            <div class="col-md-3 form-group">
+              <label>Espécie</label>
+              <input type="hidden" name="hidden_especie" id="hidden_especie" />
+              <input
+                type="zoom"
+                name="especie"
+                id="especie"
+                zoomvalue="GENERAL_ID"
+                data-zoom="{
+                        'zoomvalue':'GENERAL_ID',
+                        'displayKey':'SEARCH_FIELD',
+                        'datasetId':'dsEspecie',
+                        'filterValues':'',
+                        'fields':[
+                            {'field':'GENERAL_ID', 'label':'Código'},
+                            {'field':'DOCUMENT_TYPE', 'label':'Espécie'}]
+                        }"
+                class="form-control zoomBlq"
+              />
+            </div>
+            <div class="col-md-3 form-group">
+              <label>Cond.Pagto.</label>
+              <input type="hidden" name="hidden_condicao" id="hidden_condicao" />
+              <input
+                type="zoom"
+                name="condicao"
+                zoomvalue="GENERAL_ID"
+                data-zoom="{
+                        'zoomvalue':'GENERAL_ID',
+                        'displayKey':'SEARCH_FIELD',
+                        'datasetId':'dsCondPagto',
+                        'filterValues':'',
+                        'fields':[
+                            {'field':'GENERAL_ID', 'label':'Código'},
+                            {'field':'DOCUMENT_TYPE', 'label':'Condição'}]
+                        }"
+                class="form-control zoomBlq"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 form-group">
+              <label>Tipo nota</label>
+              <select class="form-control bloqueio" name="tipo_nota" id="tipo_nota" onchange="tipoNotaChanged(this)">
+                <option value="N">NORMAL</option>
+                <option value="B">BENEFICIAMENTO</option>
+                <option value="C">COMPLEMENTO</option>
+                <option value="D">DEVOLUÇÃO</option>
+              </select>
+            </div>
+            <div class="col-md-2 form-group" style="display: none">
+              <label>Tipo complemento</label>
+              <select class="form-control bloqueio" name="tipo_complemento" id="tipo_complemento">
+                <option disabled selected value>-- Selecione tipo de complemento --</option>
+                <option value="1">PREÇO</option>
+                <option value="2">QUANTIDADE</option>
+                <option value="3">FRETE</option>
+              </select>
+            </div>
+            <div class="col-md-2 form-group">
+              <label>Form. Próprio</label>
+              <input
+                id="form_proprio"
+                class="form-control bloqueio"
+                name="form_proprio"
+                type="checkbox"
+                data-on-color="success"
+                data-off-color="danger"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="pre-nota-part">
+          <div class="row">
+            <div class="col-md-3 form-group fFornece">
+              <label>Fornecedor/Loja</label>
+              <input type="hidden" name="hidden_fornecedor" id="hidden_fornecedor" />
+              <input type="text" class="form-control" name="fornecedor" id="fornecedor" />
+              <p class="help-block has-info"></p>
+            </div>
+
+            <div class="col-md-3 form-group fFornece">
+              <label>Cod.Fornecedor</label>
+              <input type="text" class="form-control" name="codFornecedor" id="codFornecedor" readonly/>
+            </div>
+
+            <div class="col-md-2 form-group fFornece">
+              <label>Loja</label>
+              <input type="text" class="form-control" name="loja" id="loja" readonly/>
+            </div>
+            
+
+
+            <div class="col-md-3 form-group">
+              <label>Pedido(s)</label>
+              <input type="hidden" name="hidden_pedidos" id="hidden_pedidos" />
+              <input
+                type="zoom"
+                name="pedidos"
+                id="pedidos"
+                zoomvalue="C7_NUM"
+                data-zoom="{
+                        'zoomvalue':'C7_NUM',
+                        'displayKey':'C7_NUM',
+                        'datasetId':'dsPedidosNF',
+                        'maximumSelectionLength': 1,
+                        'filterValues':'',
+                        'fields':[
+                            {'field':'C7_NUM', 'label':'Pedido'}
+                            ]
+                        }"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <h3>Itens <small> Produtos das pré-notas selecionadas</small></h3>
+
+            <hr />
+
+            <table tablename="itens" id="pre-nota-itens-table" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+              <thead>
+                <tr>
+                  <th>Pedido</th>
+                  <th>Item</th>
+                  <th>Produto</th>
+                  <th>Nome</th>
+                  <th>Quantidade</th>
+                  <th>Valor unitário</th>
+                  <th>Valor total</th>
+                  <th>Centro de custo</th>
+                  <th width="20%">Data Competência</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input readonly type="text" class="form-control" id="pedido" name="pedido" /></td>
+                  <td><input readonly type="text" class="form-control" id="item_pedido" name="item_pedido" /></td>
+                  <td><input readonly type="text" class="form-control" id="produto" name="produto" /></td>
+                  <td><input readonly type="text" class="form-control" id="nome_produto" name="nome_produto" /></td>
+                  <td><input type="number" class="form-control calcula" id="qtdade" name="qtdade" /></td>
+                  <td><input readonly type="text" class="form-control" id="valor_unitario" name="valor_unitario" /></td>
+                  <td><input readonly type="text" class="form-control" id="valor_total" name="valor_total" /></td>
+                  <td><input readonly type="text" class="form-control" id="centro_custo" name="centro_custo" /></td>
+                  <td><input  type="date" class="form-control" id="D1_DFABRIC" name="D1_DFABRIC" /></td>
+                  <td><i class="fluigicon fluigicon-trash fluigicon-sm" onclick="fnWdkRemoveChild(this)" style="cursor: pointer"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="pre-nota-Num2">
+          <div class="row">
+            <div class="col-md-3 form-group">
+              <label>Fornecedor/Loja</label>
+              <input type="hidden" name="hidden_fornecedor2" id="hidden_fornecedor2" />
+              <input type="text" class="form-control" name="fornecedor2" id="fornecedor2" />
+            </div>
+            
+            <div class="col-md-3 form-group fFornece">
+              <label>Cod.Fornecedor</label>
+              <input type="text" class="form-control" name="codFornecedor2" id="codFornecedor2" readonly/>
+            </div>
+
+            <div class="col-md-2 form-group fFornece">
+              <label>Loja</label>
+              <input type="text" class="form-control" name="loja2" id="loja2" readonly/>
+            </div>
+
+            <div class="col-md-3 form-group">
+              <label>Descrição</label>
+              <input class="form-control" name="descricao2" id="descricao2" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="itens2">
+          <div class="row">
+            <div class="col-md-10">
+              <button type="button" id="addItem" class="btn btn-primary">Adicionar Item</button>
+            </div>
+            <div class="col-md-2">
+              <label>Total da nota</label>
+              <input class="form-control" name="totalSemPedidos" id="totalSemPedidos" readonly />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <table tablename="itens2" id="pre-nota-itens-table2" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+                <thead>
+                  <tr>
+                    <th width="25%">Produto</th>
+                    <th width="20%">Descrição</th>
+                    <th width="15%">Valor unitário</th>
+                    <th width="10%">Quantidade</th>
+                    <th width="10%">Valor total</th>
+                    <th width="20%">CC</th>
+                    <th width="20%">Data Competência</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fs-sm-padding">
+                      <!--<input
+                                        type="zoom"
+                                        id = "produto2"
+                                        name="produto2"
+                                        data-zoom="{
+                                            'displayKey':'B1_DESC',
+                                            'datasetId':'dsProdutosProtheus',
+                                            'maximumSelectionLength':'1',
+                                            'placeholder':'Escolha o Produto',
+                                            'fields':[
+                                                {
+                                                'field':'B1_DESC',
+                                                'label':'Produto'
+                                                },{
+                                                'field':'B1_COD',
+                                                'label':'Código',
+                                                'standard':'true'
+                                                }
+                                            ]
+                                        }"
+                                    />-->
+                      <div class="input-group">
+                        <input type="text" readonly class="form-control" id="produto2" name="produto2" />
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button" id="listProdutos">
+                            &nbsp;<span class="fluigicon fluigicon-search fluigicon-sm"></span>
+                          </button>
+                        </span>
+                      </div>
+                    </td>
+
+                    <td class="fs-sm-padding"><input readonly type="text" class="form-control" id="nome_produto2" name="nome_produto2" /></td>
+                    <td class="fs-sm-padding"><input type="number" class="form-control" id="valor_unitario2" name="valor_unitario2" max="9999999" step="0.1" onchange="calcula2(this)" /></td>
+                    <td class="fs-sm-padding"><input type="number" class="form-control" id="qtdade2" name="qtdade2" onchange="calcula2(this)" /></td>
+                    <td class="fs-sm-padding"><input readonly type="text" class="form-control" id="valor_total2" name="valor_total2" /></td>
+                    <td class="fs-sm-padding">
+                      <input
+                        type="zoom"
+                        id="cc"
+                        name="cc"
+                        data-zoom="{
+                                        'displayKey':'CTT_CUSTO',
+                                        'datasetId':'dsCentroCusto',
+                                        'maximumSelectionLength':'1',
+                                        'placeholder':'Escolha o Centro de Custo',
+                                        'fields':[
+                                            {
+                                            'field':'CTT_CUSTO',
+                                            'label':'CC'
+                                            },{
+                                            'field':'CTT_DESC01',
+                                            'label':'Código',
+                                            'standard':'true'
+                                            }
+                                        ]
+                                    }"
+                      />
+                    </td>
+                    <td><input  type="date" class="form-control" id="D1_DFABRIC2" name="D1_DFABRIC2" /></td>
+                    <td class="fs-sm-padding"><i class="fluigicon fluigicon-trash fluigicon-sm" onclick="fnWdkRemoveChild(this)" style="cursor: pointer"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Link Documento -->
+        <div class="form-group documentos" >
+          <h3>Documentos <small> Links para download</small></h3>
+          <button type="button" class="btn btn-primary" id="btn_add_documento" onclick="wdkAddChild('documentos_links')">
+            Adicionar documento
+          </button>
+          <hr />
+
+          <table tablename="documentos_links" class="table table-hover table-striped" noaddbutton="true" nodeletebutton="true">
+            <thead>
+              <tr>
+                <th style="width: 40%;">Link</th>
+                <th style="width: 40%;">Descrição</th>
+                <th style="width: 10%;">Abrir</th>
+                <th style="width: 10%;">Deletar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" class="form-control" id="link_documento" name="link_documento" /></td>
+                <td><input type="text" class="form-control" id="descricao_documento" name="descricao_documento" /></td>
+                <td>
+                  <i class="flaticon flaticon-view fluigicon-sm" onclick="openLinkDocumento(this)" style="cursor: pointer"></i>
+                </td>
+                <td>
+                  <i class="fluigicon fluigicon-trash fluigicon-sm" onclick="fnWdkRemoveChild(this)" style="cursor: pointer"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Fim Link Documento -->
+
+        <!--
+	<div class="form-group" id="add-attachments-part" style="text-align: center;">
+		<button type="button" class="btn btn-info" id="addBoleto" onclick="showCamera('Boleto.pdf')">Inserir Boleto</button>
+		<button type="button" class="btn btn-info" id="addNotaPDF" onclick="showCamera('Nota.pdf')">Inserir Nota em PDF</button>
+		<button type="button" class="btn btn-info" id="addNotaXML" onclick="showCamera('Nota.xml')">Inserir Nota em XML</button>
+	</div>
+	-->
+      </form>
+    </div>
+  </body>
+</html>
